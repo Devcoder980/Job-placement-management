@@ -13,6 +13,7 @@ myconnnect();
 
 app.use('/api/user/',require('./routes/userRouter.js'))
 app.use('/api/user/',require('./routes/jobRouter'))
+app.use('/api/user/',require('./routes/sqliteRouter'))
 
   const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server started on port ${port}`));
