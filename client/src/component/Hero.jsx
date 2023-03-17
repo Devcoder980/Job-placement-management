@@ -21,7 +21,6 @@ const Hero = () => {
                                                     <i className="uil uil-briefcase-alt icons"></i>
                                                     <input name="name" type="text" id="job-keyword" className="form-input filter-input-box bg-gray-50 dark:bg-slate-800 border-0" placeholder="Search your Keywords"/>
                                                 </div>
-    
                                                 <div className=" flex items-center filter-search-form relative filter-border">
                                                     <i className="uil uil-map-marker icons"></i>
                                                     <select className="form-select" data-trigger name="choices-location" id="choices-location" aria-label="Default select example">
@@ -36,6 +35,7 @@ const Hero = () => {
                                                         <option value="ER">Eritrea</option>
                                                         <option value="EE">Estonia</option>
                                                         <option value="GM">Gambia</option>
+                                                        <option selected defaultValue="IN">india</option>
                                                     </select>
                                                 </div>
                                                 <div className=" flex items-center filter-search-form relative filter-border">
