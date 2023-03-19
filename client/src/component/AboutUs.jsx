@@ -51,19 +51,19 @@ const AboutUs = () => {
                     </div>
                 </div>
             </div>
-            <section class="site-section pb-0">
-                <div class="container">
-                    <div class=" flex items-center">
-                        <div class="flex-1 mb-5 mb-lg-0 lg:m-16 sm:m-5">
-                            <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" class="block__96788">
-                                <span class="play-icon"><span class="icon-play"></span></span>
-                                <img src={sq_img_6} alt="Image" class="img-fluid img-shadow"/>
+            <section className="site-section pb-0 ">
+                <div className="container">
+                    <div className=" flex items-center flex-col mx-6">
+                        <div className="flex-1 mb-5 mb-lg-0 ">
+                            <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" className="block__96788">
+                                <span className="play-icon"><span className="icon-play"></span></span>
+                                <img src={sq_img_6} alt="Image" className="img-fluid img-shadow"/>
                             </a>
                         </div>
-                        <div class="flex-1 ">
-                            <h2 class="section-title mb-3 text-3xl">JobBoard For Freelancers, Web Developers</h2>
-                            <p class="lead">Eveniet voluptatibus voluptates suscipit minima, cum voluptatum ut dolor, sed facere corporis qui, ea quisquam quis odit minus nulla vitae. Sit, voluptatem.</p>
-                            <p>Ipsum harum assumenda in eum vel eveniet numquam, cumque vero vitae enim cupiditate deserunt eligendi officia modi consectetur. Expedita tempora quos nobis earum hic ex asperiores quisquam optio nostrum sit!</p>
+                        <div className="flex-1 ">
+                            <h2 className="section-title mb-3 text-4xl">JobBoard For Freelancers, Web Developers</h2>
+                            <p className="lead text-2xl text-gray-400 mt-4">Eveniet voluptatibus voluptates suscipit minima, cum voluptatum ut dolor, sed facere corporis qui, ea quisquam quis odit minus nulla vitae. Sit, voluptatem.</p>
+                            <p className="text-lg text-gray-400 mt-4">Ipsum harum assumenda in eum vel eveniet numquam, cumque vero vitae enim cupiditate deserunt eligendi officia modi consectetur. Expedita tempora quos nobis earum hic ex asperiores quisquam optio nostrum sit!</p>
                         </div>
                     </div>
                 </div>

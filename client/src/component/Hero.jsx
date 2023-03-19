@@ -68,45 +68,45 @@ const Hero = () => {
             </section>
 
 
-            <section class="site-section py-4">
-                <div class="container">
+            <section className="site-section py-4">
+                <div className="container">
 
-                    <div class="col-12 text-center mt-4 mb-5">
-                        <div class="row justify-center">
-                            <div class="col-md-7">
-                                <h2 class="section-title mb-2 text-4xl  ">Company We've Helped</h2>
-                                <p class="lead text-2xl text-gray-500">Porro error reiciendis commodi beatae omnis similique voluptate rerum ipsam fugit mollitia ipsum facilis expedita tempora suscipit iste</p>
+                    <div className="col-12 text-center mt-4 mb-5">
+                        <div className="row justify-center">
+                            <div className="col-md-7">
+                                <h2 className="section-title mb-2 text-4xl  ">Company We've Helped</h2>
+                                <p className="lead text-2xl text-gray-500">Porro error reiciendis commodi beatae omnis similique voluptate rerum ipsam fugit mollitia ipsum facilis expedita tempora suscipit iste</p>
                             </div>
                         </div>
 
                     </div>
-                    <div class="row align-items-center   xl:mx-20 my-20 ">
+                    <div className="row align-items-center   xl:mx-20 my-20 ">
                         <div className="row flex  flex-wrap justify-between">
                             <div className='Companyslogo' >
-                                <img src={logo_mailchimp} alt="Image" class="img-fluid logo-1" />
+                                <img src={logo_mailchimp} alt="Image" className="img-fluid logo-1" />
                             </div>
                             <div className='Companyslogo' >
-                                <img src={logo_paypal} alt="Image" class="img-fluid logo-2" />
+                                <img src={logo_paypal} alt="Image" className="img-fluid logo-2" />
                             </div>
                             <div className='Companyslogo' >
-                                <img src={logo_stripe} alt="Image" class="img-fluid logo-3" />
+                                <img src={logo_stripe} alt="Image" className="img-fluid logo-3" />
                             </div>
                             <div className='Companyslogo' >
-                                <img src={logo_visa} alt="Image" class="img-fluid logo-4" />
+                                <img src={logo_visa} alt="Image" className="img-fluid logo-4" />
                             </div>
                         </div>
                         <div className="row flex flex-wrap justify-between ">
                             <div className='Companyslogo' >
-                                <img src={logo_apple} alt="Image" class="img-fluid logo-5" />
+                                <img src={logo_apple} alt="Image" className="img-fluid logo-5" />
                             </div>
                             <div className='Companyslogo' >
-                                <img src={logo_tinder} alt="Image" class="img-fluid logo-6" />
+                                <img src={logo_tinder} alt="Image" className="img-fluid logo-6" />
                             </div>
                             <div className='Companyslogo' >
-                                <img src={logo_sony} alt="Image" class="img-fluid logo-7" />
+                                <img src={logo_sony} alt="Image" className="img-fluid logo-7" />
                             </div>
                             <div className='Companyslogo' >
-                                <img src={logo_airbnb} alt="Image" class="img-fluid logo-8" />
+                                <img src={logo_airbnb} alt="Image" className="img-fluid logo-8" />
                             </div>
                         </div>
 
