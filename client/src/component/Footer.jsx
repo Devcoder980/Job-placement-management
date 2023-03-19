@@ -5,13 +5,12 @@ const Footer = () => {
         <>
             <footer
                 className=" bg-emerald-600 text-center text-white dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
-                <div
-                    className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
+                <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
                     <div className="mr-12 hidden lg:block">
                         <span>Get connected with us on social networks:</span>
                     </div>
                     <div className="flex justify-center">
-                        <a href="#!" className="mr-6 text-white dark:text-neutral-200">
+                        <a href="#" className="mr-6 text-white dark:text-neutral-200">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-4 w-4"
@@ -208,13 +207,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-neutral-200 p-6 text-center dark:bg-neutral-700">
-                    <span>© 2023 Copyright:</span>
-                    <a
-                        className="font-semibold text-white dark:text-neutral-400"
-                        href="https://tailwind-elements.com/"
-                    >Tailwind Elements</a>
-                </div>
+
             </footer>
 
         </>

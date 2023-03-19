@@ -38,6 +38,9 @@ module.exports = {
       minHeight: {
         590: '590px',
       },
+      backgroundImage: {
+        'hero_1': "url('./images/hero_1.jpg')",
+      }
     },
   },
   plugins: [],

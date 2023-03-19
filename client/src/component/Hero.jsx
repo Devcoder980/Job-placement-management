@@ -7,10 +7,11 @@ import logo_apple from '../images/logo_apple.svg'
 import logo_tinder from '../images/logo_tinder.svg'
 import logo_sony from '../images/logo_sony.svg'
 import logo_airbnb from '../images/logo_airbnb.svg'
+import styles  from '../style'
 const Hero = () => {
     return (
-        <>
-            <section className="relative md:py-56 py-36 w-full">
+        <main className={` ${styles.marginX}`}>
+            <section className={`relative md:py-56 py-36 w-full`}>
                 <div className="absolute inset-0 bg-emerald-600/5 dark:bg-emerald-600/10"></div>
                 <div className="container z-1">
                     <div className="grid grid-cols-1 text-center mt-10 relative">
@@ -113,7 +114,7 @@ const Hero = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </main>
     )
 }
 
