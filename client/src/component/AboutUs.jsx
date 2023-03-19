@@ -6,7 +6,7 @@ import sq_img_7 from '../images/sq_img_7.jpg';
 import person_6 from '../images/person_6.jpg';
 import person_5 from '../images/person_5.jpg';
 import styles from '../style.js';
-
+import NumberCounter from 'number-counter';
 const AboutUs = () => {
     return (
         <>
@@ -27,20 +27,28 @@ const AboutUs = () => {
                         <div>
                             <div className="row flex  flex-wrap justify-center gap-10  my-9">
                                 <div className=' flex flex-col  items-center '>
-                                    <strong className='text-5xl'>1008</strong>
+                                    <strong className='text-5xl'>
+                                        <NumberCounter start={900} end={1123} delay={2} preFix="+"  />
+                                    </strong>
                                     <span className='text-base'>Candidate</span>
                                 </div>
                                 <div className=' flex flex-col  items-center ' >
-                                    <strong className='text-5xl'>54</strong>
-                                    <span className='text-base'>Candidate</span>
+                                    <strong className='text-5xl'>
+                                    <NumberCounter start={1} end={54} delay={2} preFix="+"  />
+                                    </strong>
+                                    <span className='text-base'>Jobs Posted</span>
                                 </div>
                                 <div className=' flex flex-col  items-center ' >
-                                    <strong className='text-5xl'>108</strong>
-                                    <span className='text-base'>Candidate</span>
+                                    <strong className='text-5xl'>
+                                    <NumberCounter start={10} end={120} delay={2} preFix="+"  />
+                                    </strong>
+                                    <span className='text-base'>Jobs Filled</span>
                                 </div>
                                 <div className=' flex flex-col  items-center '>
-                                    <strong className='text-5xl'>108</strong>
-                                    <span className='text-base'>Candidate</span>
+                                    <strong className='text-5xl'>
+                                    <NumberCounter start={220} end={550} delay={2} preFix="+"  />
+                                    </strong>
+                                    <span className='text-base'>Companies</span>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +64,7 @@ const AboutUs = () => {
                             <div className="flex-1  col-span-6 mb-5 mb-lg-0 lg:mx-2">
                                 <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" className="block__96788">
                                     <span className="play-icon"><span className="icon-play"></span></span>
-                                    <img src={sq_img_6} alt="Image" className="img-fluid img-shadow rounded-md" />
+                                    <img src={sq_img_6} alt="person" className="img-fluid img-shadow rounded-md" />
                                 </a>
                             </div>
                             <div className="flex-1 col-span-6  lg:ml-28">
@@ -74,7 +82,7 @@ const AboutUs = () => {
                             <div className="flex-1  col-span-6 mb-5 mb-lg-0 lg:mx-2">
                                 <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" className="block__96788">
                                     <span className="play-icon"><span className="icon-play"></span></span>
-                                    <img src={sq_img_7} alt="Image" className="img-fluid img-shadow rounded-md" />
+                                    <img src={sq_img_7} alt="sqimt" className="img-fluid img-shadow rounded-md" />
                                 </a>
                             </div>
                             <div className="flex-1 col-span-6  lg:mr-28">
@@ -98,7 +106,7 @@ const AboutUs = () => {
                             <div className="flex-1 mb-5 col-span-6 mb-lg-0 ">
                                 <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" className="block__96788">
                                     <span className="play-icon"><span className="icon-play"></span></span>
-                                    <img src={person_6} alt="Image" className="img-fluid img-shadow rounded-md" />
+                                    <img src={person_6} alt="persong" className="img-fluid img-shadow rounded-md" />
                                 </a>
                             </div>
                             <div class=" col-span-6 lg:ml-20">
@@ -122,7 +130,7 @@ const AboutUs = () => {
                             <div className="flex-1  col-span-6 mb-5 mb-lg-0 lg:ml-28">
                                 <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" className="block__96788">
                                     <span className="play-icon"><span className="icon-play"></span></span>
-                                    <img src={person_5} alt="Image" className="img-fluid img-shadow rounded-md" />
+                                    <img src={person_5} alt="person" className="img-fluid img-shadow rounded-md" />
                                 </a>
                             </div>
                             <div className="flex-1 col-span-6 lg:mx-3">

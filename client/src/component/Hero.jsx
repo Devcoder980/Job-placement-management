@@ -7,7 +7,9 @@ import logo_apple from '../images/logo_apple.svg'
 import logo_tinder from '../images/logo_tinder.svg'
 import logo_sony from '../images/logo_sony.svg'
 import logo_airbnb from '../images/logo_airbnb.svg'
-import styles  from '../style'
+import styles from '../style'
+import NewsLetter from './NewsLetter'
+
 const Hero = () => {
     return (
         <main className={` ${styles.marginX}`}>
@@ -24,14 +26,14 @@ const Hero = () => {
                                     <div className="bg-white dark:bg-slate-900 border-0 shadow rounded-md p-3">
                                         <form action="#">
                                             <div className="registration-form text-dark text-start">
-                                                <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-0 gap-6">
+                                                <div className="grid lg:grid-cols-4  md:grid-cols-2 grid-cols-1 lg:gap-0 gap-6">
                                                     <div className=" flex items-center filter-search-form relative filter-border">
                                                         <i className="uil uil-briefcase-alt icons"></i>
-                                                        <input name="name" type="text" id="job-keyword" className="form-input filter-input-box bg-gray-50 dark:bg-slate-800 border-0" placeholder="Search your Keywords" />
+                                                        <input id="input" type="text" placeholder="Job title, keywords, or company" class="w-full bg-white text-gray-700 lg:mr-4 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue" />
                                                     </div>
-                                                    <div className=" flex items-center filter-search-form relative filter-border">
+                                                    <div className=" flex items-center ">
                                                         <i className="uil uil-map-marker icons"></i>
-                                                        <select className="form-select" data-trigger name="choices-location" id="choices-location" aria-label="Default select example">
+                                                        <select className=" w-full  bg-white text-gray-700 border lg:mr-4 py-3 px-4 mb-3 leading-tight focus:outline-none  focus:shadow-outline-blue block  mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" data-trigger name="choices-location" id="choices-location" aria-label="Default select example">
                                                             <option value="AF">Afghanistan</option>
                                                             <option value="AZ">Azerbaijan</option>
                                                             <option value="BS">Bahamas</option>
@@ -46,9 +48,9 @@ const Hero = () => {
                                                             <option selected defaultValue="IN">india</option>
                                                         </select>
                                                     </div>
-                                                    <div className=" flex items-center filter-search-form relative filter-border">
+                                                    <div className=" flex items-center ">
                                                         <i className="uil uil-briefcase-alt icons"></i>
-                                                        <select className="form-select" data-trigger name="choices-type" id="choices-type" aria-label="Default select example">
+                                                        <select className=" w-full lg:mr-4  bg-white text-gray-700 border  py-3 px-4 mb-3 leading-tight focus:outline-none  focus:shadow-outline-blue block  mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" data-trigger name="choices-location" id="choices-location" aria-label="Default select example">
                                                             <option selected="" value="1">Full Time</option>
                                                             <option value="2">Part Time</option>
                                                             <option value="3">Freelancer</option>
@@ -56,7 +58,7 @@ const Hero = () => {
                                                             <option value="5">Office Work</option>
                                                         </select>
                                                     </div>
-                                                    <input type="submit" id="search" name="search" style={{ height: "60px" }} className="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white searchbtn submit-btn w-100" value="Search" />
+                                                    <input type="submit" id="search" name="search"  className="btn bg-emerald-600 h-12 hover:bg-emerald-700 rounded-md border-emerald-600 hover:border-emerald-700 text-white searchbtn submit-btn w-100" value="Search" />
                                                 </div>
                                             </div>
                                         </form>
@@ -81,39 +83,76 @@ const Hero = () => {
                         </div>
 
                     </div>
-                    <div className="row align-items-center   xl:mx-20 my-20 ">
-                        <div className="row flex  flex-wrap justify-between">
-                            <div className='Companyslogo' >
-                                <img src={logo_mailchimp} alt="Image" className="img-fluid logo-1" />
-                            </div>
-                            <div className='Companyslogo' >
-                                <img src={logo_paypal} alt="Image" className="img-fluid logo-2" />
-                            </div>
-                            <div className='Companyslogo' >
-                                <img src={logo_stripe} alt="Image" className="img-fluid logo-3" />
-                            </div>
-                            <div className='Companyslogo' >
-                                <img src={logo_visa} alt="Image" className="img-fluid logo-4" />
-                            </div>
-                        </div>
-                        <div className="row flex flex-wrap justify-between ">
-                            <div className='Companyslogo' >
-                                <img src={logo_apple} alt="Image" className="img-fluid logo-5" />
-                            </div>
-                            <div className='Companyslogo' >
-                                <img src={logo_tinder} alt="Image" className="img-fluid logo-6" />
-                            </div>
-                            <div className='Companyslogo' >
-                                <img src={logo_sony} alt="Image" className="img-fluid logo-7" />
-                            </div>
-                            <div className='Companyslogo' >
-                                <img src={logo_airbnb} alt="Image" className="img-fluid logo-8" />
-                            </div>
-                        </div>
 
+                    <div className="bg-white  sm:py-32">
+                        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+                            <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+                                <img
+                                    className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                    src={logo_mailchimp}
+                                    alt="Transistor"
+                                    width={300}
+                                    height={1000}
+                                />
+                                <img
+                                    className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                    src={logo_paypal}
+                                    alt="Reform"
+                                    width={300}
+                                    height={1000}
+                                />
+                                <img
+                                    className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                    src={logo_stripe}
+                                    alt="Tuple"
+                                    width={300}
+                                    height={100}
+                                />
+                                <img
+                                    className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+                                    src={logo_visa}
+                                    alt="SavvyCal"
+                                    width={300}
+                                    height={100}
+                                />
+                                <img
+                                    className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                    src={logo_apple}
+                                    alt="Statamic"
+                                    width={300}
+                                    height={100}
+                                />
+                                <img
+                                    className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                    src={logo_tinder}
+                                    alt="Statamic"
+                                    width={300}
+                                    height={100}
+                                />
+                                <img
+                                    className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                    src={logo_sony}
+                                    alt="Statamic"
+                                    width={300}
+                                    height={100}
+                                />
+                                <img
+                                    className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                    src={logo_airbnb}
+                                    alt="Statamic"
+                                    width={300}
+                                    height={100}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
+
+
+
+            <NewsLetter />
         </main>
     )
 }
