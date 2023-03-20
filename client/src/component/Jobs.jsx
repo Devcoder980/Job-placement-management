@@ -1,8 +1,13 @@
 import React from 'react'
+import Footer from './Footer'
+import JobSearch from './JobSearch'
 
 const Jobs = () => {
   return (
-    <div>Jobs</div>
+    <main>
+      <JobSearch/>
+      <Footer/>
+    </main>
   )
 }
 

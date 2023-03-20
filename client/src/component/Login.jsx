@@ -1,56 +1,53 @@
 import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
+import jobadda from '../images/joblogo.png'
 
 const Login = () => {
     return (
         <>
-            <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-                <div className="w-full max-w-md space-y-8">
-                    <div>
-                        <img className="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
-                        <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
-                        <p className="mt-2 text-center text-sm text-gray-600">
-                            Or
-                            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">start your 14-day free trial</a>
-                        </p>
+           
+            <div className="relative h-full flex min-h-full justify-center md:px-12 lg:px-0">
+                <div className="relative z-10 h-[100vh] flex flex-1 flex-col bg-white py-10 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
+                    <div className="mx-auto  w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
+                        <div className="flex flex-col">
+                            <a aria-label="Home" className='flex items-center bg-emerald-600 px-2' href="/">
+
+                                <svg aria-hidden="true" viewBox="0 0 109 40" className="h-10 w-auto">
+                                    <path fillRule="evenodd" clip-rule="evenodd" d="M0 20c0 11.046 8.954 20 20 20s20-8.954 20-20S31.046 0 20 0 0 8.954 0 20Zm20 16c-7.264 0-13.321-5.163-14.704-12.02C4.97 22.358 6.343 21 8 21h24c1.657 0 3.031 1.357 2.704 2.98C33.32 30.838 27.264 36 20 36Z" fill="#fff">
+                                    </path>
+                                </svg>
+                                <img src={jobadda} className="h-14 w-50 rounded-sm" alt="" />
+                            </a>
+
+                            <div className="mt-20">
+                                <h2 className="text-lg font-semibold text-gray-900">Sign in to your account</h2>
+                                <p className="mt-2 text-sm text-gray-700">Don’t have an account? 
+                                <Link className="font-medium  text-emerald-600 hover:underline" to="/register">
+                                    Sign up</Link> for a free trial.</p>
+                            </div>
+                        </div>
+                        <form action="#" className="mt-10 grid grid-cols-1 gap-y-8">
+                            <div className="">
+                                <label for="email" className="mb-3 block text-sm font-medium text-gray-700">Email address</label>
+                                <input id="email" type="email" name="email" autoComplete="email" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
+                            </div>
+                            <div className="">
+                                <label for="password" className="mb-3 block text-sm font-medium text-gray-700">Password</label>
+                                <input id="password" type="password" name="password" autoComplete="current-password" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
+                            </div>
+                            <div>
+                                <button className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-600 text-white hover:text-slate-100 hover:bg-emerald-500 active:bg-emerald-800 active:text-emerald-100 focus-visible:outline-emerald-600 w-full" type="submit">
+                                    <span>Sign in <span aria-hidden="true">→</span></span>
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                    <form className="mt-8 space-y-6" action="#" method="POST">
-                        <input type="hidden" name="remember" value="true" />
-                        <div className="-space-y-px rounded-md shadow-sm">
-                            <div>
-                                <label htmlFor="email-address" className="sr-only">Email address</label>
-                                <input id="email-address" name="email" type="email" autoComplete="email" required className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Email address" />
-                            </div>
-                            <div>
-                                <label htmlFor="password" className="sr-only">Password</label>
-                                <input id="password" name="password" type="password" autoComplete="current-password" required className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Password" />
-                            </div>
-                        </div>
+                </div>
+                <div className="hidden sm:contents lg:relative lg:block bg-gradient-to-tr  from-teal-600 to-green-500 lg:flex-1">
 
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                                <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
-                                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">Remember me</label>
-                            </div>
-
-                            <div className="text-sm">
-                                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
-                            </div>
-                        </div>
-
-                        <div>
-                            <button type="submit" className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                                    <svg className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
-                                    </svg>
-                                </span>
-                                Sign in
-                            </button>
-                        </div>
-                    </form>
                 </div>
             </div>
-
+            <Outlet/>
         </>
     )
 }

@@ -2,10 +2,14 @@ import React from 'react'
 import styles from '../style'
 import { FaUserCircle } from 'react-icons/fa'
 import { BsTools } from 'react-icons/bs'
+import NewsLetter from './NewsLetter'
+import { Link } from 'react-router-dom'
+import Footer from './Footer'
 
 const ContactUs = () => {
   return (
-    <main className=' bg-emerald-100/'>
+    <>
+     <main className=' bg-emerald-100/'>
       <section className={`${styles.marginX}  `}>
         <div className="row-container narrow my-5">
           <div className="row">
@@ -49,7 +53,7 @@ const ContactUs = () => {
                       </div>
                       <div id="captcha" className='flex-1'>
                         <span>
-                          <img src="https://www.elegantthemes.com/contact/verificationimage.php?5011" alt="verification image, type it in the box" width="100" height="48" className="verify_img" />
+                          <img src="https://www.elegantthemes.com/contact/verificationimage.php?5011" alt="verification , type it in the box" width="100" height="48" className="verify_img" />
                         </span>
                       </div>
                     </div>
@@ -68,10 +72,10 @@ const ContactUs = () => {
                   <button className="inline-block text-lg py-5  my-4 align-middle w-[100%]  rounded-full px-[12px]   bg-blue-400 text-white  shadow-cyan-500/50  bg-primary   font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">Chat with support</button>
                   <h4 className='text-center  text-blue-400 font-semibold text-lg' >You must be an active Elegant Themes customer to receive support.</h4>
                 </div>
-                <a className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex ' >Ask The Community</a>
-                <a className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex' >Browse Documentation</a>
-                <a className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold  flex' target="_blank">Join the Divi Facebook Group</a>
-                <a className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex ' >Explore the Blog</a>
+                <Link to={'#'} className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex ' >Ask The Community</Link>
+                <Link to={'#'} className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex' >Browse Documentation</Link>
+                <Link to={'#'} className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold  flex' target="_blank">Join the Divi Facebook Group</Link>
+                <Link to={'#'} className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex ' >Explore the Blog</Link>
               </div>
             </div>
           </div>
@@ -164,7 +168,13 @@ const ContactUs = () => {
         </div>
 
       </section>
+
+      <NewsLetter/>
+      <Footer/>
     </main>
+
+    </>
+   
   )
 }
 

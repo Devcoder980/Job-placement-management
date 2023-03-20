@@ -1,11 +1,12 @@
 import React from 'react'
 import { SiGooglecalendar } from 'react-icons/si';
 import { HiHand } from 'react-icons/hi';
+import styles from '../style';
 // import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 const NewsLetter = () => {
     return (
         <>
-            <div className="relative mb-8 isolate overflow-hidden bg-emerald-900 py-16 sm:py-24 lg:py-32">
+            <div className={` relative  isolate overflow-hidden bg-emerald-900 py-16 sm:py-24 lg:py-32 ${styles.paddingX} `}>
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 lg:max-w-none lg:grid-cols-2">
                         <div className="max-w-xl lg:max-w-lg">
@@ -60,11 +61,9 @@ const NewsLetter = () => {
                 <svg
                     className="absolute top-0 left-1/2 -z-10 h-[42.375rem] -translate-x-1/2 blur-3xl xl:-top-6"
                     viewBox="0 0 1155 678"
-                    fill="none"
-                >
+                    fill="none">
                     <path
-                        fill="url(#09dbde42-e95c-4b47-a4d6-0c523c2fca9a)"
-                        fillOpacity=".3"
+                        fill="url(#09dbde42-e95c-4b47-a4d6-0c523c2fca9a)" fillOpacity=".3"
                         d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
                     />
                     <defs>

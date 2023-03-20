@@ -7,6 +7,8 @@ import person_6 from '../images/person_6.jpg';
 import person_5 from '../images/person_5.jpg';
 import styles from '../style.js';
 import NumberCounter from 'number-counter';
+import Footer from '../component/Footer.jsx';
+import { Link } from 'react-router-dom';
 const AboutUs = () => {
     return (
         <>
@@ -28,25 +30,25 @@ const AboutUs = () => {
                             <div className="row flex  flex-wrap justify-center gap-10  my-9">
                                 <div className=' flex flex-col  items-center '>
                                     <strong className='text-5xl'>
-                                        <NumberCounter start={900} end={1123} delay={2} preFix="+"  />
+                                        <NumberCounter start={900} end={1123} delay={2} preFix="+" />
                                     </strong>
                                     <span className='text-base'>Candidate</span>
                                 </div>
                                 <div className=' flex flex-col  items-center ' >
                                     <strong className='text-5xl'>
-                                    <NumberCounter start={1} end={54} delay={2} preFix="+"  />
+                                        <NumberCounter start={1} end={54} delay={2} preFix="+" />
                                     </strong>
                                     <span className='text-base'>Jobs Posted</span>
                                 </div>
                                 <div className=' flex flex-col  items-center ' >
                                     <strong className='text-5xl'>
-                                    <NumberCounter start={10} end={120} delay={2} preFix="+"  />
+                                        <NumberCounter start={10} end={120} delay={2} preFix="+" />
                                     </strong>
                                     <span className='text-base'>Jobs Filled</span>
                                 </div>
                                 <div className=' flex flex-col  items-center '>
                                     <strong className='text-5xl'>
-                                    <NumberCounter start={220} end={550} delay={2} preFix="+"  />
+                                        <NumberCounter start={220} end={550} delay={2} preFix="+" />
                                     </strong>
                                     <span className='text-base'>Companies</span>
                                 </div>
@@ -114,10 +116,10 @@ const AboutUs = () => {
                                 <p class="text-muted text-lg text-[#ced4da] py-4">Creative Director</p>
                                 <p className='text-lg text-gray-400 py-4'>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae voluptatibus ut? Ex vel  ad explicabo iure ipsa possimus consectetur neque rem molestiae eligendi velit?.</p>
                                 <div class="social mt-4 flex text-emerald-600 gap-3">
-                                    <a href="#"><FaFacebook className="h-10 w-10" /></a>
-                                    <a href="#"><FaInstagram className="h-10 w-10 " /></a>
-                                    <a href="#"><FaLinkedin className="h-10 w-10 " /></a>
-                                    <a href="#"><FaTwitter className="h-10 w-10 " /></a>
+                                    <Link to="#"><FaFacebook className="h-10 w-10" /></Link>
+                                    <Link to="#"><FaInstagram className="h-10 w-10 " /></Link>
+                                    <Link to="#"><FaLinkedin className="h-10 w-10 " /></Link>
+                                    <Link to="#"><FaTwitter className="h-10 w-10 " /></Link>
                                 </div>
                             </div>
                         </div>
@@ -138,10 +140,10 @@ const AboutUs = () => {
                                 <p class="text-muted text-lg text-[#ced4da]">Creative Director</p>
                                 <p className='text-lg text-gray-400'>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae voluptatibus ut? Ex vel  ad explicabo iure ipsa possimus consectetur neque rem molestiae eligendi velit?.</p>
                                 <div class="social mt-4 flex text-emerald-600 gap-3">
-                                    <a href="#"><FaFacebook className="h-10 w-10" /></a>
-                                    <a href="#"><FaInstagram className="h-10 w-10 " /></a>
-                                    <a href="#"><FaLinkedin className="h-10 w-10 " /></a>
-                                    <a href="#"><FaTwitter className="h-10 w-10 " /></a>
+                                    <Link to="#"><FaFacebook className="h-10 w-10" /></Link>
+                                    <Link to="#"><FaInstagram className="h-10 w-10 " /></Link>
+                                    <Link to="#"><FaLinkedin className="h-10 w-10 " /></Link>
+                                    <Link to="#"><FaTwitter className="h-10 w-10 " /></Link>
                                 </div>
                             </div>
                         </div>
@@ -167,28 +169,29 @@ const AboutUs = () => {
                             </dl>
                         </div>
                         <div className="mt-10 flex justify-center">
-                            <a href="#" className="mx-4 text-gray-400 hover:text-gray-500">
+                            <Link to="#" className="mx-4 text-gray-400 hover:text-gray-500">
                                 <span className="sr-only">Twitter</span>
                                 <FaTwitter className="h-8 w-8" />
-                            </a>
-                            <a href="#" className="mx-4 text-gray-400 hover:text-gray-500">
+                            </Link>
+                            <Link to="#" className="mx-4 text-gray-400 hover:text-gray-500">
                                 <span className="sr-only">Instagram</span>
                                 <FaInstagram className="h-8 w-8" />
-                            </a>
-                            <a href="#" className="mx-4 text-gray-400 hover:text-gray-500">
+                            </Link>
+                            <Link to="#" className="mx-4 text-gray-400 hover:text-gray-500">
                                 <span className="sr-only">Facebook</span>
                                 <FaFacebook className="h-8 w-8" />
-                            </a>
-                            <a href="#" className="mx-4 text-gray-400 hover:text-gray-500">
+                            </Link>
+                            <Link to="#" className="mx-4 text-gray-400 hover:text-gray-500">
                                 <span className="sr-only">LinkedIn</span>
                                 <SiLinkedin className="h-8 w-8" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
 
             </div>
-
+            <Footer />
+            
         </>
     );
 };
