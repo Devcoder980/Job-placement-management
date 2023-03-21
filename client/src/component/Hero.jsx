@@ -7,7 +7,7 @@ import logo_apple from '../images/logo_apple.svg'
 import logo_tinder from '../images/logo_tinder.svg'
 import logo_sony from '../images/logo_sony.svg'
 import logo_airbnb from '../images/logo_airbnb.svg'
-import styles from '../style'
+import styles from '../style.js'
 import NewsLetter from './NewsLetter'
 import JobSearch from './JobSearch'
 import Footer from './Footer'
@@ -15,10 +15,10 @@ import Footer from './Footer'
 const Hero = () => {
     return (
         <>
-            <main className={` bg-emerald-900`}>
+            <main className={`bg-${styles.backgroundTheme}-900`}>
                 
-                <div className="absolute inset-[1px] -top-32 -bottom-48 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:left-[calc(50%+14rem)] lg:right-0 lg:-top-32 lg:-bottom-32 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
-                    <svg aria-hidden="true" viewBox="0 0 400 1069" width="400" height="1469" fill="none" className="absolute top-1/2 left-40 left-1/2 z-8 -translate-y-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]">
+                <div className="absolute inset-[1px] z-10 -top-32 -bottom-48 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:left-[calc(50%+14rem)] lg:right-0 lg:-top-32 lg:-bottom-32 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
+                    <svg aria-hidden="true" viewBox="0 0 400 1069" width="400" height="1469" fill="none" className="absolute top-1/2 left-40  z-8 -translate-y-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]">
                         <defs>
                             <clipPath id=":R1l6:-clip-path">
                                 <path fill="#fff" transform="rotate(-180 334 534.4)" d="M0 0h668v1068.8H0z"></path>
@@ -56,7 +56,7 @@ const Hero = () => {
                 </div>
 
                 <JobSearch />
-                <div className="blur bg-emerald-400  top-16  hero-blur">
+                <div className={`blur bg-blue-300  top-16  hero-blur`}>
 
                 </div>
                 <section className={`site-section py-4 ${styles.paddingX}`}>
@@ -140,6 +140,8 @@ const Hero = () => {
                     </div>
                 </section>
 
+                <div className={`blur bg-blue-300 left-[56rem]  top-[18rem]  hero-blur`}>
+                    </div>
                 <NewsLetter />
 
             </main>

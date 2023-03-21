@@ -1,16 +1,9 @@
 import React from 'react'
 import { Fragment } from 'react'
-import {
-    BriefcaseIcon,
-    CalendarIcon,
-    CheckIcon,
-    ChevronDownIcon,
-    CurrencyDollarIcon,
-    LinkIcon,
-    MapPinIcon,
-    PencilIcon,
-} from '@heroicons/react/20/solid'
+
+import { BsLinkedin,BsCurrencyDollar,BsCheck,BsCalendar,BsBriefcaseFill,BsPinMap , BsPencil , BsChevronDown } from 'react-icons/bs'
 import { Menu, Transition } from '@headlessui/react'
+import styles from '../style'
 const JobList = () => {
 
 
@@ -21,26 +14,26 @@ const JobList = () => {
         <>
 
 
-            <div className="lg:flex lg:items-center lg:justify-between">
+            <div className={` lg:flex lg:items-center ${styles.marginX} py-8 my-4  lg:justify-between`}>
                 <div className="min-w-0 flex-1">
                     <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
                         Back End Developer
                     </h2>
                     <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
                         <div className="mt-2 flex items-center text-sm text-gray-500">
-                            <BriefcaseIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                            <BsBriefcaseFill className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
                             Full-time
                         </div>
                         <div className="mt-2 flex items-center text-sm text-gray-500">
-                            <MapPinIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                            <BsPinMap className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
                             Remote
                         </div>
                         <div className="mt-2 flex items-center text-sm text-gray-500">
-                            <CurrencyDollarIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                            <BsCurrencyDollar className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
                             $120k &ndash; $140k
                         </div>
                         <div className="mt-2 flex items-center text-sm text-gray-500">
-                            <CalendarIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                            <BsCalendar className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
                             Closing on January 9, 2020
                         </div>
                     </div>
@@ -51,7 +44,7 @@ const JobList = () => {
                             type="button"
                             className="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                         >
-                            <PencilIcon className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                            <BsPencil className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
                             Edit
                         </button>
                     </span>
@@ -61,7 +54,7 @@ const JobList = () => {
                             type="button"
                             className="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                         >
-                            <LinkIcon className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                            <BsLinkedin className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
                             View
                         </button>
                     </span>
@@ -71,7 +64,7 @@ const JobList = () => {
                             type="button"
                             className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
-                            <CheckIcon className="-ml-0.5 mr-1.5 h-5 w-5" aria-hidden="true" />
+                            <BsCheck className="-ml-0.5 mr-1.5 h-5 w-5" aria-hidden="true" />
                             Publish
                         </button>
                     </span>
@@ -80,7 +73,7 @@ const JobList = () => {
                     <Menu as="div" className="relative ml-3 sm:hidden">
                         <Menu.Button className="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:ring-gray-400">
                             More
-                            <ChevronDownIcon className="-mr-1 ml-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                            <BsChevronDown className="-mr-1 ml-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
                         </Menu.Button>
 
                         <Transition

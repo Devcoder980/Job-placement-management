@@ -2,22 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-.Companyslogo>img{
-    width: 8rem;
-    height: 8rem;
+
+.Companyslogo>img {
+  width: 8rem;
+  height: 8rem;
 }
-  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Manrope:wght@800&display=swap');
-body{
-    font-family: 'Lato', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Manrope:wght@800&display=swap');
+
+body {
+  font-family: 'Lato', sans-serif;
 }
-.blur{
+
+.blur {
   position: absolute;
   border-radius: 30%;
   filter: blur(150px);
 }
-.hero-blur{
+
+.hero-blur {
   width: 14rem;
-  height: 22rem;
-  left: 0;
-  z-index: 9;
+  height: 10rem;
+  z-index: 30;
 }

@@ -6,7 +6,7 @@ import styles from '../style';
 const NewsLetter = () => {
     return (
         <>
-            <div className={` relative  isolate overflow-hidden bg-emerald-900 py-16 sm:py-24 lg:py-32 ${styles.paddingX} `}>
+            <div className={` relative  isolate overflow-hidden bg-${styles.backgroundTheme}-900 py-16 sm:py-24 lg:py-32 ${styles.paddingX} `}>
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 lg:max-w-none lg:grid-cols-2">
                         <div className="max-w-xl lg:max-w-lg">

@@ -9,7 +9,7 @@ import Footer from './Footer'
 const ContactUs = () => {
   return (
     <>
-     <main className=' bg-emerald-100/'>
+     <main className={` bg-${styles.backgroundTheme}-100/`}>
       <section className={`${styles.marginX}  `}>
         <div className="row-container narrow my-5">
           <div className="row">
@@ -31,25 +31,25 @@ const ContactUs = () => {
                 <form name="et-contactform" id="et_manage_form" action="#" method="post">
                   <div >
                     <div className="my-4">
-                      <input id="input" type="text" placeholder="Name" className="w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue" />
+                      <input id="input" type="text" placeholder="Name" className={`w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-${styles.backgroundTheme}-500 focus:shadow-outline-${styles.backgroundTheme}`} />
                     </div>
                   </div>
                   <div className=" my-4">
-                    <input id="input" type="email" placeholder="Email Address" className="w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue" />
+                    <input id="input" type="email" placeholder="Email Address" className={`w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-${styles.backgroundTheme}-500 focus:shadow-outline-${styles.backgroundTheme}`} />
                   </div>
                   <div>
                     <label className=' text-gray-500'>What can we help you with?</label>
-                    <select tabindex="30" className='w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"' id="contact-department" name="department" required="">
+                    <select tabindex="30" className={`w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-${styles.backgroundTheme}-500 focus:shadow-outline-${styles.backgroundTheme}`} id="contact-department" name="department" required="">
                       <option value="sales">Sales and General Information</option><option value="accounts">Accounts and Billing</option><option value="other">Other</option> </select>
 
                   </div>
                   <div className=" my-4 ">
-                    <textarea className='w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"' type="text" rows="4" id="contact-message" placeholder="Your Message" autocomplete="off" name="message" tabindex="40" required=""></textarea>
+                    <textarea className={`w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-${styles.backgroundTheme}-500 focus:shadow-outline-${styles.backgroundTheme}`} type="text" rows="4" id="contact-message" placeholder="Your Message" autocomplete="off" name="message" tabindex="40" required=""></textarea>
                   </div>
                   <div >
                     <div className="flex gap-3 py-3 ">
                       <div className='flex-2'>
-                        <input tabindex="50" className="w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue" id="contact-captcha" type="text" name="verif_box" value="" placeholder="Enter Code" autocomplete="off" required="" />
+                        <input tabindex="50" className={`w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-${styles.backgroundTheme}-500 focus:shadow-outline-${styles.backgroundTheme}`} id="contact-captcha" type="text" name="verif_box" value="" placeholder="Enter Code" autocomplete="off" required="" />
                       </div>
                       <div id="captcha" className='flex-1'>
                         <span>
@@ -66,16 +66,16 @@ const ContactUs = () => {
             <div className="column-container mb-4 p-4  pt-8 border-1 pb-8  rounded-lg drop-shadow-2xl bg-white shadow-gray-400 flex-wrap col-span-6 flex justify-center items-center">
               <div className="">
                 <div className=" flex items-center justify-center text-center flex-col">
-                  <BsTools className="w-20 h-20  text-blue-500  my-10 bg-white" />
-                  <h2 className="card-title uppercase text-lg pb-4 text-blue-400">Technical Support</h2>
+                  <BsTools className={`w-20 h-20  text-${styles.backgroundTheme}-500  my-10 bg-white`} />
+                  <h2 className={`card-title uppercase text-lg pb-4 text-${styles.backgroundTheme}-400`}>Technical Support</h2>
                   <p className='font-serif text-base my-2 text-gray-400 font-bold'>If you ever need help, you can chat directly with our support team!</p>
-                  <button className="inline-block text-lg py-5  my-4 align-middle w-[100%]  rounded-full px-[12px]   bg-blue-400 text-white  shadow-cyan-500/50  bg-primary   font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">Chat with support</button>
-                  <h4 className='text-center  text-blue-400 font-semibold text-lg' >You must be an active Elegant Themes customer to receive support.</h4>
+                  <button className={`inline-block text-lg py-5  my-4 align-middle w-[100%]  rounded-full px-[12px]   bg-${styles.backgroundTheme}-400 text-white  shadow-cyan-500/50  bg-primary   font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>Chat with support</button>
+                  <h4 className={`text-center  text-${styles.backgroundTheme}-400 font-semibold text-lg`} >You must be an active Elegant Themes customer to receive support.</h4>
                 </div>
-                <Link to={'#'} className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex ' >Ask The Community</Link>
-                <Link to={'#'} className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex' >Browse Documentation</Link>
-                <Link to={'#'} className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold  flex' target="_blank">Join the Divi Facebook Group</Link>
-                <Link to={'#'} className='text-blue-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex ' >Explore the Blog</Link>
+                <Link to={'#'} className={`text-${styles.backgroundTheme}-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex `} >Ask The Community</Link>
+                <Link to={'#'} className={`text-${styles.backgroundTheme}-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex`} >Browse Documentation</Link>
+                <Link to={'#'} className={`text-${styles.backgroundTheme}-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold  flex`} target="_blank">Join the Divi Facebook Group</Link>
+                <Link to={'#'} className={`text-${styles.backgroundTheme}-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex `} >Explore the Blog</Link>
               </div>
             </div>
           </div>

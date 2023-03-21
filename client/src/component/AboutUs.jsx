@@ -19,7 +19,7 @@ const AboutUs = () => {
                     </h2>
                 </div>
                 <section className={` bg-hero_1 `}>
-                    <div className=' bg-green-600/60 text-white m-0 py-10 px-4 lg:px-24 lg:py-20 '>
+                    <div className=' bg-slate-600/60  text-white m-0 py-10 px-4 lg:px-24 lg:py-20 '>
                         <div className='text-center   text-3xl my-8'>
                             <h1>JobBoard Site Stats</h1>
                         </div>
@@ -115,7 +115,7 @@ const AboutUs = () => {
                                 <h3 className=' text-3xl py-4'>Elisabeth Smith</h3>
                                 <p class="text-muted text-lg text-[#ced4da] py-4">Creative Director</p>
                                 <p className='text-lg text-gray-400 py-4'>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae voluptatibus ut? Ex vel  ad explicabo iure ipsa possimus consectetur neque rem molestiae eligendi velit?.</p>
-                                <div class="social mt-4 flex text-emerald-600 gap-3">
+                                <div class="social mt-4 flex text-slate-600 gap-3">
                                     <Link to="#"><FaFacebook className="h-10 w-10" /></Link>
                                     <Link to="#"><FaInstagram className="h-10 w-10 " /></Link>
                                     <Link to="#"><FaLinkedin className="h-10 w-10 " /></Link>
@@ -139,7 +139,7 @@ const AboutUs = () => {
                                 <h3 className=' text-3xl'>Chintan Patel</h3>
                                 <p class="text-muted text-lg text-[#ced4da]">Creative Director</p>
                                 <p className='text-lg text-gray-400'>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae voluptatibus ut? Ex vel  ad explicabo iure ipsa possimus consectetur neque rem molestiae eligendi velit?.</p>
-                                <div class="social mt-4 flex text-emerald-600 gap-3">
+                                <div class="social mt-4 flex text-slate-600 gap-3">
                                     <Link to="#"><FaFacebook className="h-10 w-10" /></Link>
                                     <Link to="#"><FaInstagram className="h-10 w-10 " /></Link>
                                     <Link to="#"><FaLinkedin className="h-10 w-10 " /></Link>
