@@ -1,8 +1,11 @@
 import React from 'react'
+import NewsBlog from './NewsBlog'
 
 const Carrer = () => {
   return (
-    <div>Carrer</div>
+    <>
+      <NewsBlog/>
+    </>
   )
 }
 

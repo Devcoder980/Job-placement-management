@@ -7,7 +7,7 @@ const JobSearch = () => {
                 <div className="absolute inset-0 bg-emerald-600/5 dark:bg-emerald-600/10"></div>
                 <div className="container z-1">
                     <div className="grid grid-cols-1 text-center mt-10 relative">
-                        <h4 className="lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 font-bold">Join us & <span className="text-emerald-600 font-bold">Explore</span>  <span className="text-emerald-600 font-bold">Thousands</span> of Jobs</h4>
+                        <h4 className="lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 font-bold text-white">Join us & <span className="text-emerald-600 font-bold">Explore</span>  <span className="text-emerald-600 font-bold">Thousands</span> of Jobs</h4>
                         <p className="text-slate-400 text-lg max-w-xl mx-auto">Find Jobs, Employment & Career Opportunities. Some of the companies we've helped recruit excellent applicants over the years.</p>
 
                         <div className="d-flex" id="reserve-form">

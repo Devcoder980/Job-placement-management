@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="bg-emerald-600 lg:px-[4.5rem] uppercase">
+            <nav className="bg-emerald-600  relative z-10 lg:px-[4.5rem] uppercase">
                 <div className="max-w-7xl mx-auto px-2 md:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between h-16">
                        

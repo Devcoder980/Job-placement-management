@@ -16,10 +16,8 @@ const Hero = () => {
     return (
         <>
             <main className={` bg-emerald-900`}>
-
-                
                 <div className="absolute inset-x-[-50vw] -top-32 -bottom-48 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:left-[calc(50%+14rem)] lg:right-0 lg:-top-32 lg:-bottom-32 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
-                    <svg aria-hidden="true" viewBox="0 0 400 1069" width="400" height="1269" fill="none" className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]">
+                    <svg aria-hidden="true" viewBox="0 0 400 1069" width="400" height="1269" fill="none" className="absolute top-1/2 left-1/2 -z-20 -translate-y-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]">
                         <defs>
                             <clipPath id=":R1l6:-clip-path">
                                 <path fill="#fff" transform="rotate(-180 334 534.4)" d="M0 0h668v1068.8H0z"></path>
@@ -64,7 +62,7 @@ const Hero = () => {
                         <div className="col-12 text-center mt-4 mb-5">
                             <div className="row justify-center">
                                 <div className="col-md-7">
-                                    <h2 className="section-title mb-2 text-4xl  ">Company We've Helped</h2>
+                                    <h2 className="section-title mb-2 text-4xl text-white ">Company We've Helped</h2>
                                     <p className="lead text-2xl text-gray-500">Porro error reiciendis commodi beatae omnis similique voluptate rerum ipsam fugit mollitia ipsum facilis expedita tempora suscipit iste</p>
                                 </div>
                             </div>
