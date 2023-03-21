@@ -10,3 +10,14 @@
 body{
     font-family: 'Lato', sans-serif;
 }
+.blur{
+  position: absolute;
+  border-radius: 30%;
+  filter: blur(150px);
+}
+.hero-blur{
+  width: 14rem;
+  height: 22rem;
+  left: 0;
+  z-index: 9;
+}
