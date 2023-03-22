@@ -16,6 +16,7 @@ router.post('/register', asyncHandler(async (req, res) => {
     const newUser = new User({ name, email, password: hashedPassword });
     const contact = await newUser.save();
     res.status(201).json(contact);
+    res.redirect('/login');
   } catch (err) {
     res.status(500).json({ message: 'Failed to register user', error: err });
   }

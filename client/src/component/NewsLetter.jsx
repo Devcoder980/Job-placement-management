@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SiGooglecalendar } from 'react-icons/si';
 import { HiHand } from 'react-icons/hi';
 import styles from '../style';
+import axios from 'axios';
 // import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 const NewsLetter = () => {
+    const [isSubmitted, setIsSubmitted] = useState(false);
+   
+  const [fromData, setFromData] = useState({
+    email: '',
+    
+  });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFromData({ ...fromData, [name]: value });
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:5000/api/user/newsletter', fromData)
+      .then((res) => {
+        console.log(res);
+        setIsSubmitted(true);
+        // Handle succesfully
+      })
+      .catch((e) => {
+        console.log(e);
+        // handle error
+      })
+  }
     return (
         <>
             <div className={` relative  isolate overflow-hidden bg-${styles.backgroundTheme}-900 py-16 sm:py-24 lg:py-32 ${styles.paddingX} `}>
@@ -15,26 +39,25 @@ const NewsLetter = () => {
                                 Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt
                                 dolore.
                             </p>
-                            <div className="mt-6 flex max-w-md gap-x-4">
-                                <label htmlFor="email-address" className="sr-only">
-                                    Email address
-                                </label>
-                                <input
-                                    id="email-address"
-                                    name="email"
-                                    type="email"
-                                    autoComplete="email"
-                                    required
-                                    className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                    placeholder="Enter your email"
-                                />
-                                <button
-                                    type="submit"
-                                    className="flex-none rounded-md bg-indigo-500 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                                >
-                                    Subscribe
-                                </button>
-                            </div>
+                            {isSubmitted ? (
+                                <div className='text-center text-lg text-blue-600 '> Thank you for Subscribe</div>
+                            ) : (
+
+                                <form onSubmit={handleSubmit} className="mt-6 flex max-w-md gap-x-4" >
+                                    
+                                    <input
+                                        
+                                        onChange={handleInputChange}
+                                        name="email"
+                                        type="email"
+                                        className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                                        placeholder="Enter your email"
+                                    />
+                                    
+                                    <input type="submit" className="flex-none cursor-pointer  rounded-md bg-indigo-500 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500" value="Subscribe" />
+                                </form>
+                            )}
+
                         </div>
                         <dl className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
                             <div className="flex flex-col items-start">

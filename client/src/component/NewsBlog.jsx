@@ -3,9 +3,10 @@ import axios from 'axios';
 import styles from '../style';
 const NewsBlog = () => {
     const [posts, setPosts] = useState([]);
-
+    const date=new Date();
+    console.log(date);
     useEffect(() => {
-        axios.get('https://newsapi.org/v2/everything?q=jobs&from=2023-02-21&sortBy=publishedAt&apiKey=80cd263af25a4a139a2e5bf30c63c2d2&pagesize=10')
+        axios.get('https://newsapi.org/v2/everything?q=jobs&from=2023-02-22&sortBy=publishedAt&apiKey=80cd263af25a4a139a2e5bf30c63c2d2&pagesize=10')
             .then(response => {
                 setPosts(response.data[['articles']]);
                 console.log(posts);
