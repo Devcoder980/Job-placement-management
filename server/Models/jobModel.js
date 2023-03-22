@@ -13,13 +13,17 @@ const jobSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  industry: {
+  sector: {
     type: String,
     required: true,
   },
-  salary: {
+  minSalary: {
     type: Number,
     required: true,
+  },
+  maxSalary:{
+    type:Number,
+    required:false,
   },
   description: {
     type: String,
@@ -29,9 +33,17 @@ const jobSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  postedDate: {
+  createdDate:{
     type: Date,
     default: Date.now,
+  },
+  lastDate: {
+    type: Date,
+    required:false,
+  },
+  jobType:{
+    type:String,
+    required:false,
   },
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,

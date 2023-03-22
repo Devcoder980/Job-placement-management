@@ -3,7 +3,7 @@ import styles from '../style'
 const JobSearch = () => {
     return (
         <>
-            <section className={`relative flex ${styles.backgroundTheme} bg-slate-900 justify-center items-center md:py-56  py-24 w-full ${styles.paddingX}`}>
+            <section className={`relative flex ${styles.backgroundTheme} bg-slate-900 justify-center items-center md:py-20  py-24 w-full ${styles.paddingX}`}>
                 <div className={`absolute inset-0 bg-${styles.backgroundTheme}-600/5 dark:bg-${styles.backgroundTheme}-600/10`}></div>
                 <div className="container z-1">
                     <div className="grid z-40 grid-cols-1 text-center mt-10 relative">

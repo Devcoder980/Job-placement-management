@@ -33,12 +33,13 @@ router.get('/jobs', asyncHandler(async (req, res) => {
 
 
 router.post('/jobs', asyncHandler(async (req, res) => {
-  const { title, company, location, industry, salary, description, requirements } = req.body;
+  const { title, company, location, sector, minSalary,maxSalary, description, requirements ,lastDate,jobType} = req.body;
   // const createdBy = req.user._id; // assuming you have middleware that adds the user object to the request object
-  const job = new Job({ title, company, location, industry, salary, description, requirements });
+  const job = new Job({ title, company, location,sector,minSalary,maxSalary, description,jobType,lastDate, requirements });
   const savedJob = await job.save();
   res.status(201).json(savedJob);
 }));
+
 
 
 // router.post('/jobs/:id/apply', auth, asyncHandler(async (req, res) => {
