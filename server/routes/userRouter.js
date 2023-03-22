@@ -11,12 +11,11 @@ const User = require('../Models/userModels.js'); // Use the same variable name
 //@acces public
 router.post('/register', asyncHandler(async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { firstname,lastname, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ name, email, password: hashedPassword });
+    const newUser = new User({ firstname,lastname, email, password: hashedPassword });
     const contact = await newUser.save();
     res.status(201).json(contact);
-    res.redirect('/login');
   } catch (err) {
     res.status(500).json({ message: 'Failed to register user', error: err });
   }
@@ -45,7 +44,7 @@ router.post('/login', asyncHandler(async (req, res) => {
 
 router.get('/users', asyncHandler(async (req, res) => {
     try {
-      const users = await User.find({});
+      const users = await User.find();
       res.status(200).json(users);
     } catch (err) {
       res.status(500).json({ message: 'Failed to fetch users', error: err });

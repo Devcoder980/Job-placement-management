@@ -16,10 +16,12 @@ const ContactUs = () => {
     question: '',
     message: '',
   });
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFromData({ ...fromData, [name]: value });
   }
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:5000/api/user/contactus', fromData)

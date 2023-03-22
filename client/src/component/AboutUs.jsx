@@ -9,6 +9,8 @@ import styles from '../style.js';
 import NumberCounter from 'number-counter';
 import Footer from '../component/Footer.jsx';
 import { Link } from 'react-router-dom';
+
+
 const AboutUs = () => {
     return (
         <>

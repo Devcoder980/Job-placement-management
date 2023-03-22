@@ -1,8 +1,39 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios'
 import jobadda from '../images/joblogo.png'
+import { useNavigate } from 'react-router-dom';
+
 function Register() {
+  // const [isSubmitted, setIsSubmitted] = useState(false);
+  const history = useNavigate();
+  
+  const [fromData, setFromData] = useState({
+    firstname: '',
+    lastname:'',
+    email: '',
+    password:'',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFromData({ ...fromData, [name]: value });
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:5000/api/user/register', fromData)
+      .then((res) => {
+        console.log(res);
+        alert("jj")
+        history('/login');
+        // setIsSubmitted(true);
+        // Handle succesfully
+      })
+      .catch((e) => {
+        console.log(e);
+        // handle error
+      })
+  }
 
 
   return (
@@ -23,31 +54,31 @@ function Register() {
             </div>
           </div>
 
-          <form action="#" class="mt-10 grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2">
+          <form onSubmit={handleSubmit} class="mt-10 grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2">
             <div class="">
 
-              <label for="first_name" class="mb-3 block text-sm font-medium text-gray-700">First name</label>
+              <label htmlFor="first_name" class="mb-3 block text-sm font-medium text-gray-700">First name</label>
 
-              <input id="first_name" type="text" name="first_name" autocomplete="given-name" required="" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
+              <input id="first_name" type="text" onChange={handleInputChange} name="firstname" autocomplete="given-name" required="" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
 
             </div>
             <div class="">
-              <label for="last_name" class="mb-3 block text-sm font-medium text-gray-700">Last name</label>
-              <input id="last_name" type="text" name="last_name" autocomplete="family-name" required="" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
+              <label htmlFor="last_name" class="mb-3 block text-sm font-medium text-gray-700">Last name</label>
+              <input id="last_name" onChange={handleInputChange} type="text" name="lastname" autocomplete="family-name" required="" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
 
             </div>
             <div class="col-span-full">
-              <label for="email" class="mb-3 block text-sm font-medium text-gray-700">Email address</label>
-              <input id="email" type="email" name="email" autocomplete="email" required="" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
+              <label htmlFor="email" class="mb-3 block text-sm font-medium text-gray-700">Email address</label>
+              <input id="email" onChange={handleInputChange} type="email" name="email" autocomplete="email" required="" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
 
             </div>
             <div class="col-span-full">
-              <label for="password" class="mb-3 block text-sm font-medium text-gray-700">Password</label>
-              <input id="password" type="password" name="password" autocomplete="new-password" required="" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" aria-autocomplete="list" />
+              <label htmlFor="password" class="mb-3 block text-sm font-medium text-gray-700">Password</label>
+              <input id="password" onChange={handleInputChange} type="password" name="password" autocomplete="new-password" required="" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" aria-autocomplete="list" />
             </div>
 
             <div class="col-span-full">
-              <button class="group inline-flex items-center justify-center rounded-full py-4 px-4 text-md font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-600 text-white hover:text-slate-100 hover:bg-emerald-500 active:bg-emerald-800 active:text-emerald-100 focus-visible:outline-emerald-600 w-full" type="submit">
+              <button type="submit" class="group inline-flex items-center justify-center rounded-full py-4 px-4 text-md font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-600 text-white hover:text-slate-100 hover:bg-emerald-500 active:bg-emerald-800 active:text-emerald-100 focus-visible:outline-emerald-600 w-full" >
                 <span>Sign up <span aria-hidden="true">→</span></span>
               </button>
             </div>

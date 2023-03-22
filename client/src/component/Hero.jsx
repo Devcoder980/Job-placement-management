@@ -8,6 +8,7 @@ import logo_tinder from '../images/logo_tinder.svg'
 import logo_sony from '../images/logo_sony.svg'
 import logo_airbnb from '../images/logo_airbnb.svg'
 import styles from '../style.js'
+
 import NewsLetter from './NewsLetter'
 import JobSearch from './JobSearch'
 import Footer from './Footer'
@@ -56,6 +57,7 @@ const Hero = () => {
                 </div>
 
                 <JobSearch />
+
                 <div className={`blur bg-blue-300  top-16  hero-blur`}>
 
                 </div>
@@ -141,7 +143,9 @@ const Hero = () => {
                 </section>
 
                 <div className={`blur bg-blue-300 left-[56rem]  top-[18rem]  hero-blur`}>
-                    </div>
+                    
+                </div>
+
                 <NewsLetter />
 
             </main>
