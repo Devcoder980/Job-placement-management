@@ -69,7 +69,7 @@ router.get('/', asyncHandler(async (req, res) => {
     }
     const token = authToken.split(' ')[1];
     // Decode and verify the token (you can use a library like jsonwebtoken for this)
-    jwt.verify(token, 'secret', (err, decoded) => {
+    jwt.verify(token, 'secret', async (err, decoded) => {
       if (err) {
         // The token is invalid or expired
         console.log(err);
@@ -87,6 +87,7 @@ router.get('/', asyncHandler(async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch users', error: err });
   }
 }));
+
 
 
 
