@@ -3,16 +3,17 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'
 import jobadda from '../images/joblogo.png'
 import { useNavigate } from 'react-router-dom';
+import { BsArrowLeft } from 'react-icons/bs';
 
 function Register() {
   // const [isSubmitted, setIsSubmitted] = useState(false);
   const history = useNavigate();
-  
+
   const [fromData, setFromData] = useState({
     firstname: '',
-    lastname:'',
+    lastname: '',
     email: '',
-    password:'',
+    password: '',
   });
 
   const handleInputChange = (e) => {
@@ -41,7 +42,7 @@ function Register() {
       <div class="relative z-10 flex flex-1 flex-col bg-white py-4 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
         <div class="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
           <div class="flex flex-col">
-            <a aria-label="Home"  className='flex items-center bg-emerald-600 px-2' href="/">
+            <a aria-label="Home" className='flex items-center bg-emerald-600 px-2' href="/">
 
               <svg aria-hidden="true" viewBox="0 0 109 40" className="h-10 w-auto">
                 <path fillRule="evenodd" clip-rule="evenodd" d="M0 20c0 11.046 8.954 20 20 20s20-8.954 20-20S31.046 0 20 0 0 8.954 0 20Zm20 16c-7.264 0-13.321-5.163-14.704-12.02C4.97 22.358 6.343 21 8 21h24c1.657 0 3.031 1.357 2.704 2.98C33.32 30.838 27.264 36 20 36Z" fill="#fff">
@@ -82,7 +83,17 @@ function Register() {
                 <span>Sign up <span aria-hidden="true">→</span></span>
               </button>
             </div>
-          </form></div>
+            <div className='col-span-full'>
+              <Link
+                to="/"
+                className="inline-block text-center bg-slate-700 text-white py-2 px-6 rounded-full hover:bg-slate-600 transition duration-300"
+              >
+                <span aria-hidden="true">  <BsArrowLeft /></span>Go Back Home
+              </Link>
+            </div>
+
+          </form>
+        </div>
       </div>
       <div className="hidden sm:contents lg:relative lg:block bg-gradient-to-tr  from-teal-600 to-green-500 lg:flex-1">
 

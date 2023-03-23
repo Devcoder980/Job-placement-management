@@ -15,4 +15,5 @@ route.get('/newsletter', asyncHandler(async (req, res) => {
     const newnewletter = await newsLetter.find();
     res.status(200).json(newnewletter);
 }))
+
 module.exports = route

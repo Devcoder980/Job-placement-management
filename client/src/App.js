@@ -9,30 +9,29 @@ import Jobs from './component/Jobs';
 import ContactUs from './component/ContactUs';
 import Carrer from './component/Carrer';
 import AboutUs from './component/AboutUs';
-import styles from './style';
-import { useState } from 'react';
+
+import UserDashboard from './component/UserDashboard';
 function App() {
-  const [themes, settheme] = useState(styles.backgroundTheme);
+  // const [themes, settheme] = useState(styles.backgroundTheme);
   return (
     <>
       <BrowserRouter>
 
         <Routes>
-          <Route path='/'  theme={themes} element={<Navbar/>}  >
-            <Route index  theme={themes} element={<Hero />} />
-            
+          <Route path='/'  element={<Navbar/>}  >
+            <Route index  element={<Hero />} />
             <Route path="jobs" element={<Jobs />} />
             <Route path="contactus" element={<ContactUs />} />
             <Route path='carrers' element={<Carrer />} />
-            <Route path="aboutus"  theme={themes} element={<AboutUs />} />
+            <Route path="aboutus"  element={<AboutUs />} />
           </Route>
-
+          
           <Route path='/'>
             <Route path='login' element={<Login />} />
             <Route path="register" element={<Register />} />
+            <Route path='/user' element={<UserDashboard/>}  />
           </Route>
           
-       
        
         </Routes>
 

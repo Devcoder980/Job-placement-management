@@ -12,6 +12,7 @@ const User = require('../Models/userModels.js'); // Use the same variable name
 router.post('/register', asyncHandler(async (req, res) => {
   try {
     const { firstname,lastname, email, password } = req.body;
+    
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ firstname,lastname, email, password: hashedPassword });
     const contact = await newUser.save();
@@ -35,20 +36,59 @@ router.post('/login', asyncHandler(async (req, res) => {
     if (!isMatch) {
       return res.status(401).json({ message: 'Authentication failed' });
     }
-    const token = jwt.sign({ email: user.email, userId: user._id }, 'secret', { expiresIn: '1h' });
+    const token = jwt.sign({ email: user.email, userId: user._id }, 'secret', { expiresIn: '5h' });
     res.status(200).json({ token });
   } catch (err) {
     res.status(500).json({ message: 'Failed to login', error: err });
   }
 }));
 
-router.get('/users', asyncHandler(async (req, res) => {
-    try {
-      const users = await User.find();
-      res.status(200).json(users);
-    } catch (err) {
-      res.status(500).json({ message: 'Failed to fetch users', error: err });
+async function getUserById(userId) {
+  try {
+    const user = await User.findById(userId); // Find the user by ID
+    if (!user) {
+      // User not found
+      throw new Error('User not found');
     }
-  }));
+    
+    return user; // Return the user object
+  } catch (err) {
+    console.error(err);
+    throw new Error('Failed to get user by ID');
+  }
+}
+
+
+router.get('/', asyncHandler(async (req, res) => {
+  try {
+    // Get the token from the Authorization header
+    const authToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJJZCI6IjY0MWM2ZDMwOWU2OTUxNzdlNWI5M2E5OCIsImlhdCI6MTY3OTU4NDU3MSwiZXhwIjoxNjc5NjAyNTcxfQ.mvzETKLvrSrP_bAtWUWf6hyIhrHsM2OaZnTl5Gd0g0E"
+    if (!authToken) {
+      // The token is missing
+      return res.status(401).json({ message: 'Authentication failed: token missing' });
+    }
+    const token = authToken.split(' ')[1];
+    // Decode and verify the token (you can use a library like jsonwebtoken for this)
+    jwt.verify(token, 'secret', (err, decoded) => {
+      if (err) {
+        // The token is invalid or expired
+        console.log(err);
+        return res.status(401).json({ message: err });
+      } else {
+        // The token is valid
+        const userId = decoded.userId;
+        const userdata = await getUserById(userId); // You will need to implement this function to get the user by ID
+        console.log(userdata);
+        res.json(userdata);
+        console.log(decoded);
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch users', error: err });
+  }
+}));
+
+
+
 
 module.exports = router;

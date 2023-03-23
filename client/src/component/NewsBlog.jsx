@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../style';
+import { Link } from 'react-router-dom';
 const NewsBlog = () => {
 
     const [posts, setPosts] = useState([]);
 
-    const date=new Date();
-
-    console.log(date);
+    let currentDate = new Date();
+    let time = currentDate.getFullYear() + ":" + currentDate.getMonth() + ":" + currentDate.getDate();
+    
     useEffect(() => {
-        axios.get(`https://newsapi.org/v2/everything?q=jobs&from=2023-02-22&sortBy=publishedAt&apiKey=80cd263af25a4a139a2e5bf30c63c2d2&pagesize=10`)
+        axios.get(`https://newsapi.org/v2/everything?q=jobs&from=${time}&sortBy=publishedAt&apiKey=80cd263af25a4a139a2e5bf30c63c2d2&pagesize=20`)
             .then(response => {
                 setPosts(response.data[['articles']]);
                 console.log(posts);
@@ -28,12 +29,12 @@ const NewsBlog = () => {
                     <div className="flex w-80 justify-center">
                         <div
                             className="block  max-w-[20rem] rounded-lg bg-white shadow-lg dark:bg-neutral-700">
-                            <a href="#!">
+                            <Link to="#">
                                 <img
                                     className="rounded-t-lg w-96 h-52"
                                     src={e.urlToImage}
                                     alt="" />
-                            </a>
+                            </Link>
                             <div className="p-6">
                                 <h5
                                     className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
