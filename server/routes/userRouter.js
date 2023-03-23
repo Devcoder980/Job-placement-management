@@ -62,7 +62,7 @@ async function getUserById(userId) {
 router.get('/', asyncHandler(async (req, res) => {
   try {
     // Get the token from the Authorization header
-    const authToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJJZCI6IjY0MWM2ZDMwOWU2OTUxNzdlNWI5M2E5OCIsImlhdCI6MTY3OTU4NDU3MSwiZXhwIjoxNjc5NjAyNTcxfQ.mvzETKLvrSrP_bAtWUWf6hyIhrHsM2OaZnTl5Gd0g0E"
+    const authToken = req.headers.authorization;
     if (!authToken) {
       // The token is missing
       return res.status(401).json({ message: 'Authentication failed: token missing' });

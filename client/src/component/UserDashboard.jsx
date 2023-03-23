@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-
 function UserDashboard() {
   const [user, setUser] = useState({});
 
@@ -30,9 +29,8 @@ function UserDashboard() {
 
   return (
     <div>
-      <p>Welcome, {console.log(user)}</p> {/* show the user's name */}
-      {/* include a link to the user's profile */}
-
+      <p>Welcome, {user.firstname}</p> {/* show the user's name */}
+     
     </div>
   );
 }
