@@ -493,15 +493,19 @@ export const links = [
     title: 'Pages',
     links: [
       {
-        name: 'orders',
+        name: 'JobsList',
         icon: <AiOutlineShoppingCart />,
       },
       {
-        name: 'employees',
+        name: 'employer',
         icon: <IoMdContacts />,
       },
       {
-        name: 'customers',
+        name: 'employee',
+        icon: <RiContactsLine />,
+      },
+      {
+        name: 'Subsciber',
         icon: <RiContactsLine />,
       },
     ],
@@ -525,6 +529,24 @@ export const links = [
         name: 'color-picker',
         icon: <BiColorFill />,
       },
+    ],
+  },
+  {
+    title: 'Forms',
+    links: [
+      {
+        name: 'PostJobForm',
+        icon: <AiOutlineCalendar />,
+      },
+      {
+        name: 'AddUserForm',
+        icon: <BsKanban />,
+      },
+      {
+        name: 'EmployerForm',
+        icon: <FiEdit />,
+      },
+    
     ],
   },
   {
@@ -878,7 +900,20 @@ export const userProfileData = [
     iconBg: 'rgb(254, 201, 15)',
   },
 ];
-
+export const newsLetterGrid=[
+  {
+    field: 'email',
+    headerText: 'email',
+    textAlign: 'Center',
+    width: '200',
+  },
+  {
+    field: '_id',
+    headerText: "Subsciber Id",
+    textAlign: 'Center',
+    width: '200',
+  },
+]
 export const ordersGrid = [
   {
     field: 'title',

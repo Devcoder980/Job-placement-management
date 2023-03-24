@@ -4,10 +4,14 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Ecommerce, Orders, Calendar, Employees, Customers, Kanban,  ColorPicker, Editor } from './pages';
+import { Ecommerce, Orders, Calendar, Employees, Customers, Kanban, ColorPicker, Editor } from './pages';
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
+import NewsLetter from './pages/Newsletter';
+import PostJobForm from './Forms/PostJobForm';
+import AddUserForm from './Forms/AddUserForm';
+import EmployerForm from './Forms/EmployerForm';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -69,9 +73,16 @@ const App = () => {
                 <Route path="/ecommerce" element={(<Ecommerce />)} />
 
                 {/* pages  */}
-                <Route path="/orders" element={<Orders />} />
-                <Route path="/employees" element={<Employees />} />
-                <Route path="/customers" element={<Customers />} />
+                <Route path="/jobslist" element={<Orders />} />
+                <Route path="/employer" element={<Employees />} />
+                <Route path="/employee" element={<Customers />} />
+                <Route path="/subsciber" element={<NewsLetter />} />
+
+                {/* forms  */}
+                <Route path="/Postjobform" element={<PostJobForm />} />
+                <Route path="/AddUserForm" element={<AddUserForm/>} />
+                <Route path="/EmployerForm" element={<EmployerForm/>} />
+
 
                 {/* apps  */}
                 <Route path="/kanban" element={<Kanban />} />
@@ -79,7 +90,7 @@ const App = () => {
                 <Route path="/calendar" element={<Calendar />} />
                 <Route path="/color-picker" element={<ColorPicker />} />
 
-       
+
               </Routes>
             </div>
             <Footer />

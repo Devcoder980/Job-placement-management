@@ -1,9 +1,11 @@
 {
-  "name": "project_syncfusion_dashboard",
+  "name": "Job_Management_Admin_panel",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@syncfusion/ej2": "^19.4.56",
+    "@syncfusion/ej2-base": "^21.1.35",
+    "@syncfusion/ej2-react-buttons": "^21.1.35",
     "@syncfusion/ej2-react-calendars": "^19.4.56",
     "@syncfusion/ej2-react-charts": "^19.4.54",
     "@syncfusion/ej2-react-dropdowns": "^19.4.56",
