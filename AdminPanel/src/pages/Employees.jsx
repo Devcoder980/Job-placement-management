@@ -1,7 +1,7 @@
-import React ,{useEffect,useState}from 'react';
+import React, { useEffect, useState } from 'react';
 import { GridComponent, Inject, ColumnsDirective, ColumnDirective, Search, Page } from '@syncfusion/ej2-react-grids';
 import axios from 'axios';
-import { employeesData, employeesGrid } from '../data/dummy';
+import { employeesGrid } from '../data/dummy';
 import { Header } from '../components';
 
 const Employees = () => {
@@ -10,7 +10,7 @@ const Employees = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/user/jobs');
+      const response = await axios.get('http://localhost:5000/api/user/adminuser');
       setDataSource(response.data);
     } catch (error) {
       console.log(error);
@@ -19,12 +19,12 @@ const Employees = () => {
 
   useEffect(() => {
     fetchData();
-   
+
   }, []);
 
   const editing = { allowDeleting: true, allowEditing: true };
   console.log(dataSource)
- 
+
 
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">

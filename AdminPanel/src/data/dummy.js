@@ -431,16 +431,11 @@ export const customersGrid = [
 ];
 
 export const employeesGrid = [
+
   {
-    headerText: 'Employeer',
-    width: '150',
-    template: gridEmployeeProfile,
-    textAlign: 'Center'
-  },
-  {
-    field: 'Name',
-    headerText: 'name',
-    width: '0',
+    field: 'name',
+    headerText: 'Name',
+    width: '100',
     textAlign: 'Center',
   },
   {
@@ -450,32 +445,13 @@ export const employeesGrid = [
     textAlign: 'Center',
   },
   {
-    headerText: 'location',
-    width: '120',
+    field: '_id',
+    headerText: 'Employees Id',
+    width: '100',
     textAlign: 'Center',
-    template: gridEmployeeCountry
-  },
+  }
 
-  {
-    field: 'company',
-    headerText: 'company',
-    width: '135',
-    format: 'yMd',
-    textAlign: 'Center'
-  },
 
-  {
-    field: 'ReportsTo',
-    headerText: 'Reports To',
-    width: '120',
-    textAlign: 'Center'
-  },
-  {
-    field: 'EmployeeID',
-    headerText: 'Employee ID',
-    width: '125',
-    textAlign: 'Center'
-  },
 ];
 
 export const links = [
@@ -483,7 +459,7 @@ export const links = [
     title: 'Dashboard',
     links: [
       {
-        name: 'JOBS',
+        name: 'ecommerce',
         icon: <FiShoppingBag />,
       },
     ],
@@ -511,6 +487,24 @@ export const links = [
     ],
   },
   {
+    title: 'Forms',
+    links: [
+      {
+        name: 'PostJobForm',
+        icon: <AiOutlineCalendar />,
+      },
+      {
+        name: 'AddUserForm',
+        icon: <BsKanban />,
+      },
+      {
+        name: 'EmployerForm',
+        icon: <FiEdit />,
+      },
+
+    ],
+  },
+  {
     title: 'Apps',
     links: [
       {
@@ -531,62 +525,8 @@ export const links = [
       },
     ],
   },
-  {
-    title: 'Forms',
-    links: [
-      {
-        name: 'PostJobForm',
-        icon: <AiOutlineCalendar />,
-      },
-      {
-        name: 'AddUserForm',
-        icon: <BsKanban />,
-      },
-      {
-        name: 'EmployerForm',
-        icon: <FiEdit />,
-      },
-    
-    ],
-  },
-  {
-    title: 'Charts',
-    links: [
-      {
-        name: 'line',
-        icon: <AiOutlineStock />,
-      },
-      {
-        name: 'area',
-        icon: <AiOutlineAreaChart />,
-      },
 
-      {
-        name: 'bar',
-        icon: <AiOutlineBarChart />,
-      },
-      {
-        name: 'pie',
-        icon: <FiPieChart />,
-      },
-      {
-        name: 'financial',
-        icon: <RiStockLine />,
-      },
-      {
-        name: 'color-mapping',
-        icon: <BsBarChart />,
-      },
-      {
-        name: 'pyramid',
-        icon: <GiLouvrePyramid />,
-      },
-      {
-        name: 'stacked',
-        icon: <AiOutlineBarChart />,
-      },
-    ],
-  },
+
 ];
 
 export const cartData = [
@@ -900,7 +840,33 @@ export const userProfileData = [
     iconBg: 'rgb(254, 201, 15)',
   },
 ];
-export const newsLetterGrid=[
+export const EmployerDetails = [
+  {
+    field: 'companyName',
+    headerText: 'Company Name',
+    textAlign: 'Center',
+    width: '200',
+  },
+  {
+    field: 'numEmployees',
+    headerText: 'NO of Emplyees',
+    textAlign: 'Center',
+    width: '100',
+  },
+  {
+    field: 'phone',
+    headerText: 'Phone NO',
+    textAlign: 'Center',
+    width: '150',
+  },
+  {
+    field: 'email',
+    headerText: 'Email Id',
+    textAlign: 'Center',
+    width: '150',
+  },
+]
+export const newsLetterGrid = [
   {
     field: 'email',
     headerText: 'email',
