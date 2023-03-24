@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Fragment } from 'react'
-
+import ApplyForm from './ApplyForm'
 import { BsCurrencyDollar, BsCheck, BsCalendar, BsBriefcaseFill, BsPinMap, BsChevronDown } from 'react-icons/bs'
 import { HiOutlineDocument } from 'react-icons/hi'
 
 import styles from '../style'
+import { Link } from 'react-router-dom'
 const JobList = (props) => {
+
+    const [showApplyForm, setShowApplyForm] = useState(false);
+    const toggleApplyForm = () => {
+        setShowApplyForm(!showApplyForm);
+    }
+
 
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
@@ -48,15 +55,43 @@ const JobList = (props) => {
                 </div>
 
                 <div className="mt-5 flex lg:mt-0 lg:ml-4">
-                    <span className="sm:ml-3">
-                        <button
-                            type="button"
-                            className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
-                            Apply
-                        </button>
-                    </span>
+                    {
+                        localStorage.length ?
+                            <>
+                                <Link to="/apply"
+                                    className="sm:ml-3">
+                                    <button
+                                        type="button"
+                                        onClick={toggleApplyForm}
+                                        className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
+                                        Apply
+                                    </button>
+                                </Link>
+                            </>
+                            :
+                            <>
+                                <Link to="/login"
+                                    className="sm:ml-3">
+                                    <button
+                                        type="button"
+                                        onClick={toggleApplyForm}
+                                        className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
+                                        Apply
+                                    </button>
+                                </Link>
+                            </>
+                    }
 
-                    {/* Dropdown */}
+
+                    {showApplyForm
+                        ? <ApplyForm
+                            jobTitle={props.title}
+                            jobCompany={props.company}
+                            jobLocation={props.location}
+                            showForm={showApplyForm}
+                            toggleForm={toggleApplyForm}
+                        /> : <></>
+                    }
 
                 </div>
             </div>

@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import joblogo from '../images/joblogo.png'
 import styles from '../style';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    
+    
+    function clearFun(){
+        console.log("call");
+        localStorage.clear();
+        window.location.reload();
+    }
 
     const toggleNavbar = () => {
+    
         setIsOpen(!isOpen);
     };
 
@@ -14,7 +22,7 @@ const Navbar = () => {
             <nav className={`bg-${styles.backgroundTheme}-900 bg-slate-900 relative z-20 lg:px-[4.5rem] uppercase`}>
                 <div className="max-w-7xl mx-auto px-2 md:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between h-16">
-                       
+
                         <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
                             <button
                                 className="inline-flex text-white items-center justify-center p-2 rounded-md  hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
@@ -53,16 +61,33 @@ const Navbar = () => {
                                     <li className="mr-6">
                                         <Link to="/aboutus" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md font-medium" > About Us</Link>
                                     </li>
-                                    <li className="mr-6">
-                                        <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
-                                            <Link to="/login" > Login </Link>
-                                        </button>
-                                    </li>
-                                    <li className="mr-6">
-                                        <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
-                                            <Link to="/register" > Register </Link>
-                                        </button>
-                                    </li>
+                                    {localStorage.length ?
+
+                                        <>
+                                            <li className="mr-6">
+                                                <button type="button" onClick={clearFun} data-te-ripple-init data-te-ripple-color="light" className={`inline-block bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
+                                                     LogOut 
+                                                </button>
+                                            </li>
+                                        </>
+
+                                        :
+                                        <>
+                                            <li className="mr-6">
+                                                <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
+                                                    <Link to="/login" > Login </Link>
+                                                </button>
+                                            </li>
+                                            <li className="mr-6">
+                                                <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
+                                                    <Link to="/register" > Register </Link>
+                                                </button>
+                                            </li>
+                                        </>
+
+
+                                    }
+
                                 </ul>
                             </div>
                         </div>
