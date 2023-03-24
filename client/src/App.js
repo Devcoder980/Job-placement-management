@@ -21,6 +21,7 @@ function App() {
       <BrowserRouter>
 
         <Routes>
+
           <Route path='/' element={<Navbar />}  >
             <Route index element={<Hero />} />
             <Route path="jobs" element={<Jobs />} />
@@ -30,18 +31,18 @@ function App() {
             <Route path="/*" element={<ErrorPages />} />
             <Route path='/user' element={<UserDashboard />} />
             <Route path='/apply' element={<ApplyForm />} />
+            <Route path='/dashboard' element={<UserDashboard />} />
           </Route>
           <Route path='/'>
             <Route path='login' element={<Login />} />
             <Route path="register" element={<Register />} />
-
+           
           </Route>
-          
-
+         
         </Routes>
 
       </BrowserRouter>
-   
+
     </>
 
 

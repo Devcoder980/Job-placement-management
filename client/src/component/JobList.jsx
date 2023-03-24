@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Fragment } from 'react'
 import ApplyForm from './ApplyForm'
 import { BsCurrencyDollar, BsCheck, BsCalendar, BsBriefcaseFill, BsPinMap, BsChevronDown } from 'react-icons/bs'
 import { HiOutlineDocument } from 'react-icons/hi'
@@ -20,7 +19,6 @@ const JobList = (props) => {
 
     return (
         <>
-
 
             <div className={` lg:flex lg:items-center ${styles.paddingX} py-8 my-4  bg-slate-900  lg:justify-between`}>
                 <div className="min-w-0 flex-1">
@@ -85,11 +83,10 @@ const JobList = (props) => {
 
                     {showApplyForm
                         ? <ApplyForm
-                            jobTitle={props.title}
-                            jobCompany={props.company}
-                            jobLocation={props.location}
-                            showForm={showApplyForm}
-                            toggleForm={toggleApplyForm}
+                            title={props.title}
+                            company={props.company}
+                            location={props.location}
+                           
                         /> : <></>
                     }
 
