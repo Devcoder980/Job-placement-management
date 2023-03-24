@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Sort, ContextMenu, Filter, Page, ExcelExport, PdfExport, Edit, Inject } from '@syncfusion/ej2-react-grids';
 
-import { ordersData, contextMenuItems, ordersGrid } from '../data/dummy';
+import { contextMenuItems, ordersGrid } from '../data/dummy';
 import { Header } from '../components';
 
 const Orders = () => {
+  const [dataSource, setDataSource] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/user/jobs');
+      setDataSource(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+   
+  }, []);
+
   const editing = { allowDeleting: true, allowEditing: true };
+  console.log(dataSource)
+
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="Page" title="Orders" />
+      <Header category="Page" title="Job List " />
       <GridComponent
         id="gridcomp"
-        dataSource={ordersData}
+        dataSource={dataSource}
         allowPaging
         allowSorting
         allowExcelExport
@@ -28,4 +47,5 @@ const Orders = () => {
     </div>
   );
 };
+
 export default Orders;

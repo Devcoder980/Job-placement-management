@@ -89,6 +89,12 @@ router.get('/', asyncHandler(async (req, res) => {
 }));
 
 
+// Get all Details from admin user
+// http://localhost:5000/api/user/adminuser
+router.get('/adminuser', asyncHandler(async (req, res) => {
+  const newUser = await User.find();
+  res.status(200).json(newUser);
+}))
 
 
 
