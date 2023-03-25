@@ -31,6 +31,8 @@ const Jobs = () => {
 
       {data.map(item => (
         <JobList
+        
+          key={item._id} // Add a unique key 
           title={item.title}
           company={item.title}
           location={item.location}

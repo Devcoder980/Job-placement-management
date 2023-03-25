@@ -41,7 +41,7 @@ const JobSearch = () => {
                                                     <div className=" flex items-center ">
                                                         <i className="uil uil-briefcase-alt icons"></i>
                                                         <select className={` w-full lg:mr-4  bg-white text-gray-700 border  py-3 px-4 mb-3 leading-tight focus:outline-none  focus:shadow-outline-blue block  mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`} data-trigger name="choices-location" id="choices-location" aria-label="Default select example">
-                                                            <option selected="" value="1">Full Time</option>
+                                                            <option defaultValue="1">Full Time</option>
                                                             <option value="2">Part Time</option>
                                                             <option value="3">Freelancer</option>
                                                             <option value="4">Remote Work</option>

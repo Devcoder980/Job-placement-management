@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaUserCircle } from 'react-icons/fa'
 import { SiPhotopea } from 'react-icons/si'
 import styles from '../style'
 import { BsArrowLeft } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
-import jobadda from '../images/joblogo.png'
-import JobList from './JobList'
-
+import { useLocation } from 'react-router-dom'
 import { BsCurrencyDollar, BsCheck, BsCalendar, BsBriefcaseFill, BsPinMap, BsChevronDown } from 'react-icons/bs'
 import { HiOutlineDocument } from 'react-icons/hi'
 
-const ApplyForm = (props) => {
+const ApplyForm = () => {
+  // const [jobListData, setjobListData] = useState(props);
+  // const { title, company } = props;
+ 
+  const {state} = useLocation();
+  const { title,company,description,lastDate,location,jobType,sector,minSalary,maxSalary } = state.e;
   return (
     <>
+    {console.log(state.e)}
       <div className="relative flex min-h-full justify-center md:px-12 lg:px-0">
         <div className="relative z-10 flex flex-1 flex-col bg-white py-4 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
           <div className="border-b border-gray-900/10 pb-12">
@@ -152,7 +155,38 @@ const ApplyForm = (props) => {
         </div>
 
         <div className="sm:contents lg:relative  bg-gradient-to-tr  from-teal-600 to-green-500 lg:flex-1">
-
+          <div className={` lg:flex lg:items-center ${styles.paddingX} py-8 my-4  bg-slate-900  lg:justify-between`}>
+            <div className="min-w-0 flex-1">
+              <h2 className="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">
+                {title}
+              </h2>
+              <p className="  font-bold  text-gray-400 sm:truncate  sm:tracking-tight">
+                {company}
+              </p>
+              <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
+                <div className="mt-3 flex items-center text-sm text-gray-500">
+                  <BsBriefcaseFill className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                  {jobType}
+                </div>
+                <div className="mt-3 flex items-center text-sm text-gray-500">
+                  <BsPinMap className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                  {location}
+                </div>
+                <div className="mt-3 flex items-center text-sm text-gray-500">
+                  <BsCurrencyDollar className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                  ${minSalary}k &ndash; ${maxSalary}k
+                </div>
+                <div className="mt-3 flex items-center text-sm text-gray-500">
+                  <BsCalendar className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                  {lastDate}
+                </div>
+              </div>
+              <div className="mt-3 flex items-center text-lg text-gray-500">
+                <HiOutlineDocument className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                {description}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
