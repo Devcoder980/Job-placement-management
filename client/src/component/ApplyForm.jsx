@@ -13,8 +13,8 @@ import { HiOutlineDocument } from 'react-icons/hi'
 const ApplyForm = (props) => {
   return (
     <>
-      <div class="relative flex min-h-full justify-center md:px-12 lg:px-0">
-        <div class="relative z-10 flex flex-1 flex-col bg-white py-4 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
+      <div className="relative flex min-h-full justify-center md:px-12 lg:px-0">
+        <div className="relative z-10 flex flex-1 flex-col bg-white py-4 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
           <div className="border-b border-gray-900/10 pb-12">
             <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
             <p className="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
@@ -128,7 +128,6 @@ const ApplyForm = (props) => {
                 </div>
               </div>
 
-
             </div>
           </div>
           <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
@@ -153,7 +152,7 @@ const ApplyForm = (props) => {
         </div>
 
         <div className="sm:contents lg:relative  bg-gradient-to-tr  from-teal-600 to-green-500 lg:flex-1">
-         
+
         </div>
       </div>
     </>

@@ -21,11 +21,11 @@ const Hero = () => {
                 <div className="absolute inset-[1px] z-10 -top-32 -bottom-48 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:left-[calc(50%+14rem)] lg:right-0 lg:-top-32 lg:-bottom-32 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
                     <svg aria-hidden="true" viewBox="0 0 400 1069" width="400" height="1469" fill="none" className="absolute top-1/2 left-40  z-8 -translate-y-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]">
                         <defs>
-                            <clipPath id=":R1l6:-clip-path">
+                            <clipPath id=":R1l6:-clipPath">
                                 <path fill="#fff" transform="rotate(-180 334 534.4)" d="M0 0h668v1068.8H0z"></path>
                             </clipPath>
                         </defs>
-                        <g opacity=".4" clip-path="url(#:R1l6:-clip-path)" stroke-width="4">
+                        <g opacity=".4" clipPath="url(#:R1l6:-clipPath)" strokeWidth="4">
                             <path opacity=".3" d="M584.5 770.4v-474M484.5 770.4v-474M384.5 770.4v-474M283.5 769.4v-474M183.5 768.4v-474M83.5 767.4v-474" stroke="#9eeabd">
                             </path>
                             <path d="M83.5 221.275v6.587a50.1 50.1 0 0 0 22.309 41.686l55.581 37.054a50.102 50.102 0 0 1 22.309 41.686v6.587M83.5 716.012v6.588a50.099 50.099 0 0 0 22.309 41.685l55.581 37.054a50.102 50.102 0 0 1 22.309 41.686v6.587M183.7 584.5v6.587a50.1 50.1 0 0 0 22.31 41.686l55.581 37.054a50.097 50.097 0 0 1 22.309 41.685v6.588M384.101 277.637v6.588a50.1 50.1 0 0 0 22.309 41.685l55.581 37.054a50.1 50.1 0 0 1 22.31 41.686v6.587M384.1 770.288v6.587a50.1 50.1 0 0 1-22.309 41.686l-55.581 37.054A50.099 50.099 0 0 0 283.9 897.3v6.588" stroke="#9eeabd">
@@ -39,14 +39,14 @@ const Hero = () => {
                             <circle cx="183.699" cy="375.75" r="10.438" transform="rotate(-180 183.699 375.75)" fill="#fff" stroke="#9eeabd"></circle>
                             <circle cx="183.699" cy="563.625" r="10.438" transform="rotate(-180 183.699 563.625)" fill="#fff" stroke="#9eeabd"></circle>
                             <circle cx="384.1" cy="651.3" r="10.438" transform="rotate(-180 384.1 651.3)" fill="#fff" stroke="#9eeabd"></circle>
-                            <circle cx="484.301" cy="574.062" r="10.438" transform="rotate(-180 484.301 574.062)" fill="#fff" fill-opacity=".42" stroke="#0EA5E9"></circle>
+                            <circle cx="484.301" cy="574.062" r="10.438" transform="rotate(-180 484.301 574.062)" fill="#fff" fillOpacity=".42" stroke="#0EA5E9"></circle>
                             <circle cx="384.1" cy="749.412" r="10.438" transform="rotate(-180 384.1 749.412)" fill="fff" stroke="#9eeabd"></circle>
                             <circle cx="384.1" cy="1027.05" r="10.438" transform="rotate(-180 384.1 1027.05)" stroke="#9eeabd"></circle>
                             <circle cx="283.9" cy="924.763" r="10.438" transform="rotate(-180 283.9 924.763)" stroke="#9eeabd"></circle>
                             <circle cx="183.699" cy="870.487" r="10.438" transform="rotate(-180 183.699 870.487)" stroke="#9eeabd"></circle>
                             <circle cx="283.9" cy="738.975" r="10.438" transform="rotate(-180 283.9 738.975)" fill="fff" stroke="#9eeabd"></circle>
                             <circle cx="83.5" cy="695.138" r="10.438" transform="rotate(-180 83.5 695.138)" fill="fff" stroke="#fff"></circle>
-                            <circle cx="83.5" cy="484.3" r="10.438" transform="rotate(-180 83.5 484.3)" fill="fff" fill-opacity=".42" stroke="#fff"></circle>
+                            <circle cx="83.5" cy="484.3" r="10.438" transform="rotate(-180 83.5 484.3)" fill="fff" fillOpacity=".42" stroke="#fff"></circle>
                             <circle cx="484.301" cy="432.112" r="10.438" transform="rotate(-180 484.301 432.112)" fill="#fff" stroke="#9eeabd"></circle>
                             <circle cx="584.5" cy="432.112" r="10.438" transform="rotate(-180 584.5 432.112)" fill="#fff" stroke="#9eeabd"></circle>
                             <circle cx="584.5" cy="642.95" r="10.438" transform="rotate(-180 584.5 642.95)" fill="#fff" stroke="#9eeabd"></circle>
@@ -58,7 +58,7 @@ const Hero = () => {
 
                 <JobSearch />
 
-                <div className={`blur bg-blue-300  top-16  hero-blur`}>
+                <div className={`blur bg-blue-300 hidden lg:absolute  top-16  hero-blur`}>
 
                 </div>
                 <section className={`site-section py-4 ${styles.paddingX}`}>
@@ -142,7 +142,7 @@ const Hero = () => {
                     </div>
                 </section>
 
-                <div className={`blur bg-blue-300 left-[56rem]  top-[18rem]  hero-blur`}>
+                <div className={`blur bg-blue-300 left-[56rem] hidden lg:absolute  top-[18rem]  hero-blur`}>
                     
                 </div>
 

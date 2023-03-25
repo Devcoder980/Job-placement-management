@@ -14,6 +14,10 @@ import UserDashboard from './component/UserDashboard';
 import ErrorPages from './component/ErrorPages';
 import ApplyForm from './component/ApplyForm';
 import Footer from './component/Footer';
+import PostJob from './component/PostJob';
+import EmployerRegister from './component/EmployerRegister';
+import EmployerLogin from './component/EmployeLogin';
+import EmployerDashboard from './component/EmployerDashboard'
 function App() {
   // const [themes, settheme] = useState(styles.backgroundTheme);
   return (
@@ -32,14 +36,23 @@ function App() {
             <Route path='/user' element={<UserDashboard />} />
             <Route path='/apply' element={<ApplyForm />} />
             <Route path='/dashboard' element={<UserDashboard />} />
+            <Route path='/post-job' element={<PostJob />} />
+            <Route path='/employer/dashboard' element={<EmployerDashboard />} />
+
           </Route>
+
           <Route path='/'>
             <Route path='login' element={<Login />} />
             <Route path="register" element={<Register />} />
-           
           </Route>
-         
+          <Route path='/' element={<Navbar />} >
+            <Route path='/employer/post-job' element={<PostJob />} />
+            <Route path='/employer/register' element={<EmployerRegister />} />
+            <Route path='/employer/log-in' element={<EmployerLogin />} />
+
+          </Route>
         </Routes>
+
 
       </BrowserRouter>
 

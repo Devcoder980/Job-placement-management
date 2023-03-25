@@ -8,7 +8,7 @@ const NewsBlog = () => {
 
     let currentDate = new Date();
     let time = currentDate.getFullYear() + ":" + currentDate.getMonth() + ":" + currentDate.getDate();
-    
+
     useEffect(() => {
         axios.get(`https://newsapi.org/v2/everything?q=jobs&from=${time}&sortBy=publishedAt&apiKey=80cd263af25a4a139a2e5bf30c63c2d2&pagesize=20`)
             .then(response => {
@@ -19,39 +19,23 @@ const NewsBlog = () => {
                 console.log(error);
             });
     }, []);
-    
+
     return (
         <main className={` flex  justify-between flex-wrap ${styles.paddingX}`}>
-           
+
             {
-                posts.map((e,i)=>(
-                    <div className="  w-80 py-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div className="flex w-80 justify-center">
-                        <div
-                            className="block  max-w-[20rem] rounded-lg bg-white shadow-lg dark:bg-neutral-700">
-                            <Link to="#">
-                                <img
-                                    className="rounded-t-lg w-96 h-52"
-                                    src={e.urlToImage}
-                                    alt="" />
-                            </Link>
-                            <div className="p-6">
-                                <h5
-                                    className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                                    {e.title.slice(10)}
-                                </h5>
-                                <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                                    {e.description.slice(20)}
-                                </p>
-                                <button
-                                    type="button"
-                                    className="inline-block rounded bg-success px-6 pt-2.5 pb-2 text-xs font-medium uppercase bg-blue-600 leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)]">
-                                    Success
-                                </button>
+                posts.map((e, i) => (
+                    <div className="my-3">
+                        <div className="card w-72">
+                            <img src={!e.urlToImage ? "https://images.mid-day.com/images/images/2022/aug/Cold-a_d.jpg" : e.urlToImage} className="card-img-top" style={{ width: '286px', height: '196px' }} alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title font-body text-xl  w-80">{e.title}...</h5>
+                                <p className="card-text  w-72">{e.description}...</p>
+                                <Link to={e.url} target="_blank" className="group inline-flex p-3 my-2 items-center justify-center rounded-full  font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-emerald-100 focus-visible:outline-emerald-600  text-sm">Read More</Link>
                             </div>
                         </div>
                     </div>
-                </div>
+
                 ))
             }
         </main>

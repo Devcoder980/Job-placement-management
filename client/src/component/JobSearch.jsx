@@ -35,7 +35,7 @@ const JobSearch = () => {
                                                             <option value="ER">Eritrea</option>
                                                             <option value="EE">Estonia</option>
                                                             <option value="GM">Gambia</option>
-                                                            <option selected defaultValue="IN">india</option>
+                                                            <option  defaultValue="IN">india</option>
                                                         </select>
                                                     </div>
                                                     <div className=" flex items-center ">

@@ -15,8 +15,10 @@ function UserDashboard() {
                     }
                 })
                     .then(response => response.json())
-                    .then(data =>{ setUser(data)
-                    localStorage.setItem('username',data.firstname)}
+                    .then(data => {
+                        setUser(data)
+                        localStorage.setItem('username', data.firstname)
+                    }
                     )
                     .catch(error => console.error(error));
             }
@@ -24,7 +26,7 @@ function UserDashboard() {
             console.log(error)
         }
         console.log(user)
-       
+
     }, []);
 
     if (!user) {
@@ -34,7 +36,7 @@ function UserDashboard() {
     return (
         <div>
             <>
-            {/* <Navbar userdata={user.firstname}/> */}
+                {/* <Navbar userdata={user.firstname}/> */}
 
                 <div className="max-w-md p-8 sm:flex sm:space-x-6 dark:bg-gray-900 dark:text-gray-100">
                     <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">

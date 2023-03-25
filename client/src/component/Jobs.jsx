@@ -1,4 +1,4 @@
-import React ,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Footer from './Footer'
 import JobSearch from './JobSearch'
 import JobList from './JobList'
@@ -19,35 +19,35 @@ const Jobs = () => {
     console.log(data);
     fetchData();
   }, []);
-  
+
   if (!data) {
     return <div>Loading...</div>;
-  
+
   }
   return (
     <main >
 
-      <JobSearch/>
+      <JobSearch />
 
       {data.map(item => (
-          <JobList 
-          title={item.title} 
-          company={item.title} 
-          location={item.location} 
-          sector={item.sector} 
-          minSalary={item.minSalary} 
+        <JobList
+          title={item.title}
+          company={item.title}
+          location={item.location}
+          sector={item.sector}
+          minSalary={item.minSalary}
           maxSalary={item.maxSalary}
           description={item.description}
           requirements={item.description}
           lastDate={item.lastDate}
           createdDate={item.createdDate}
           jobType={item.jobType}
-          />
+        />
       ))}
 
-    
-     
-      <Footer/>
+
+
+      <Footer />
     </main>
   )
 }
