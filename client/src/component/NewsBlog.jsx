@@ -25,7 +25,7 @@ const NewsBlog = () => {
 
             {
                 posts.map((e, i) => (
-                    <div className="my-3">
+                    <div className="my-5">
                         <div className="card w-72">
                             <img src={!e.urlToImage ? "https://images.mid-day.com/images/images/2022/aug/Cold-a_d.jpg" : e.urlToImage} className="card-img-top" style={{ width: '286px', height: '196px' }} alt="..." />
                             <div className="card-body">
