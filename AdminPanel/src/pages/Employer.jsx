@@ -10,7 +10,7 @@ const Employer = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/employer');
+            const response = await axios.get('http://localhost:5000/api/employer/adminview');
             setDataSource(response.data);
         } catch (error) {
             console.log(error);

@@ -59,7 +59,7 @@ const Hero = () => {
                 <JobSearch />
 
                 <div className={`blur bg-blue-300 hidden lg:absolute  top-16  hero-blur`}>
-
+                    lskdfjsd
                 </div>
                 <section className={`site-section py-4 ${styles.paddingX}`}>
                     <div className="container">

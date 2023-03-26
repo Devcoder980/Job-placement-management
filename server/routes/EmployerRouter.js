@@ -4,16 +4,16 @@ const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcrypt');
 const EmployerDetail = require('../Models/EmployerModel');
 const jwt = require('jsonwebtoken'); // Add this line
-// // GET /api/jobs - get all jobs
-// router.get('/', asyncHandler(async (req, res) => {
-//     try {
-//         const jobs = await EmployerDetail.find();
-//         res.json(jobs);
-//     } catch (err) {
-//         console.error(err);
-//         res.status(500).json({ message: 'Server error' });
-//     }
-// }));
+// GET /api/jobs - get all jobs
+router.get('/adminview', asyncHandler(async (req, res) => {
+    try {
+        const jobs = await EmployerDetail.find();
+        res.json(jobs);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' });
+    }
+}));
 
 // POST /api/jobs - create a new job
 router.post('/', asyncHandler(async (req, res) => {

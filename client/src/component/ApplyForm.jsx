@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { FaUserCircle } from 'react-icons/fa'
 import { SiPhotopea } from 'react-icons/si'
 import styles from '../style'
-import { BsArrowLeft } from 'react-icons/bs'
 import { useLocation } from 'react-router-dom'
 import { BsCurrencyDollar, BsCheck, BsCalendar, BsBriefcaseFill, BsPinMap, BsChevronDown } from 'react-icons/bs'
 import { HiOutlineDocument } from 'react-icons/hi'
@@ -10,12 +8,11 @@ import { HiOutlineDocument } from 'react-icons/hi'
 const ApplyForm = () => {
   // const [jobListData, setjobListData] = useState(props);
   // const { title, company } = props;
- 
-  const {state} = useLocation();
-  const { title,company,description,lastDate,location,jobType,sector,minSalary,maxSalary } = state.e;
+
+  const { state } = useLocation();
+  const { title, company, description, lastDate, location, jobType, sector, minSalary, maxSalary } = state.e;
   return (
     <>
-    {console.log(state.e)}
       <div className="relative flex min-h-full justify-center md:px-12 lg:px-0">
         <div className="relative z-10 flex flex-1 flex-col bg-white py-4 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
           <div className="border-b border-gray-900/10 pb-12">

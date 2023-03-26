@@ -8,22 +8,23 @@ import { Link } from 'react-router-dom'
 
 const JobList = (props) => {
     const navigate = useNavigate();
-    const [showApplyForm, setShowApplyForm] = useState(false);
-    const [jobdata, setJobData] = useState(props);
 
     const toggleApplyForm = (e) => {
-        setShowApplyForm(!showApplyForm);
-        setJobData(e);
-        console.log("class");
-        navigate('/apply',{ state: {e} });
+        if (localStorage.length) {
+            navigate('/apply', { state: { e } });
+        }
+        else {
+            navigate('/apply');
+        }
     }
     
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
     }
+
     return (
         <>
-            <div key={props.id} className={` lg:flex lg:items-center ${styles.paddingX} py-8 my-4  bg-slate-900  lg:justify-between`}>
+            <div key={props.id} className={` z-20 relative lg:flex lg:items-center ${styles.paddingX} py-8 my-4  bg-slate-900  lg:justify-between`}>
                 <div className="min-w-0 flex-1">
                     <h2 className="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">
                         {props.title}
@@ -58,14 +59,12 @@ const JobList = (props) => {
                     {
                         localStorage.length ?
                             <>
-
                                 <button
                                     type="button"
-                                    onClick={()=>toggleApplyForm(props)}
-                                    className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
+                                    onClick={() => toggleApplyForm(props)}
+                                    className="inline-flex cursor-pointer items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
                                     Apply
                                 </button>
-
                             </>
                             :
                             <>
@@ -73,23 +72,12 @@ const JobList = (props) => {
                                     className="sm:ml-3">
                                     <button
                                         type="button"
-                                        onClick={toggleApplyForm}
-                                        className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
+                                        onClick={() => toggleApplyForm(props)}
+                                        className="inline-flex cursor-pointer items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
                                         Apply
                                     </button>
                                 </Link>
                             </>
-                    }
-                    {showApplyForm
-                        ? <>
-                            <ApplyForm
-                                title={props.title}
-                                company={props.company}
-                                location={props.location}
-                                data={jobdata}
-                            />
-                        </>
-                        : <></>
                     }
                 </div>
             </div>

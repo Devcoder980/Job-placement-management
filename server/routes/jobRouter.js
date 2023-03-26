@@ -7,7 +7,7 @@ const JobApplication = require('../models/jobApplictionModel');
 
 router.get('/jobs', asyncHandler(async (req, res) => {
   try {
-    const { title, location, industry, salaryRange } = req.query;
+    const { title, location, jobType, page = 1, limit = 10 } = req.query;
     const filters = {};
 
     if (title) {
@@ -16,15 +16,15 @@ router.get('/jobs', asyncHandler(async (req, res) => {
     if (location) {
       filters.location = { $regex: location, $options: 'i' };
     }
-    if (industry) {
-      filters.industry = { $regex: industry, $options: 'i' };
-    }
-    if (salaryRange) {
-      const [minSalary, maxSalary] = salaryRange.split('-');
-      filters.salary = { $gte: minSalary, $lte: maxSalary };
+    if (jobType) {
+      filters.jobType = { $regex: jobType, $options: 'i' };
     }
 
-    const jobs = await Job.find(filters);
+    const jobs = await Job.find(filters)
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .exec();
+
     res.status(200).json(jobs);
   } catch (err) {
     res.status(500).json({ message: 'Failed to fetch jobs', error: err });
@@ -32,10 +32,11 @@ router.get('/jobs', asyncHandler(async (req, res) => {
 }));
 
 
+
 router.post('/jobs', asyncHandler(async (req, res) => {
-  const { title, company, location, sector, minSalary,maxSalary, description, requirements ,lastDate,jobType} = req.body;
+  const { title, company, location, sector, minSalary, maxSalary, description, requirements, lastDate, jobType } = req.body;
   // const createdBy = req.user._id; // assuming you have middleware that adds the user object to the request object
-  const job = new Job({ title, company, location,sector,minSalary,maxSalary, description,jobType,lastDate, requirements });
+  const job = new Job({ title, company, location, sector, minSalary, maxSalary, description, jobType, lastDate, requirements });
   const savedJob = await job.save();
   res.status(201).json(savedJob);
 }));
