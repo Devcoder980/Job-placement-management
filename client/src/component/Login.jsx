@@ -18,7 +18,6 @@ const Login = () => {
             history('/user');
         }
     }, []);
-
     const [fromData, setFromData] = useState({
         email: '',
         password: '',
@@ -34,7 +33,6 @@ const Login = () => {
                 console.log(res.data);
                 localStorage.setItem('authToken', res.data.token);
                 alert("login succfully")
-
                 setIsLoggedIn(true);
                 // Handle succesfully
             })
@@ -43,32 +41,27 @@ const Login = () => {
                 // handle error
             })
     }
-
     return (
         <>
             {isLoggedIn ?
                 history('/dashboard')
-
-
                 : (
                     <div className="relative h-full flex min-h-full justify-center md:px-12 lg:px-0">
                         <div className="relative z-10 h-[100vh] flex flex-1 flex-col bg-white py-10 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
                             <div className="mx-auto  w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
                                 <div className="flex flex-col">
                                     <a aria-label="Home" className='flex items-center bg-emerald-600 px-2' href="/">
-
                                         <svg aria-hidden="true" viewBox="0 0 109 40" className="h-10 w-auto">
                                             <path fillRule="evenodd" clip-rule="evenodd" d="M0 20c0 11.046 8.954 20 20 20s20-8.954 20-20S31.046 0 20 0 0 8.954 0 20Zm20 16c-7.264 0-13.321-5.163-14.704-12.02C4.97 22.358 6.343 21 8 21h24c1.657 0 3.031 1.357 2.704 2.98C33.32 30.838 27.264 36 20 36Z" fill="#fff">
                                             </path>
                                         </svg>
                                         <img src={jobadda} className="h-14 w-50 rounded-sm" alt="" />
                                     </a>
-
                                     <div className="mt-20">
                                         <h2 className="text-lg font-semibold text-gray-900">Sign in to your account</h2>
                                         <p className="mt-2 text-sm text-gray-700">Don’t have an account?
                                             <Link className="font-medium  text-emerald-600 hover:underline" to="/register">
-                                                Sign up</Link> for a free trial.</p>
+                                                <b className=' text-lg'> Sign up </b>  </Link> for a free trial.</p>
                                     </div>
                                 </div>
                                 <form onSubmit={handleSubmit} className="mt-10 grid grid-cols-1 gap-y-8">
@@ -84,23 +77,22 @@ const Login = () => {
                                         <button className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-600 text-white  hover:text-slate-100 hover:bg-emerald-500 active:bg-emerald-800 active:text-emerald-100 focus-visible:outline-emerald-600 w-full" type="submit">
                                             <span>Sign in </span>
                                         </button>
-
                                     </div>
-                                    <Link
-                                        to="/"
-                                        className="inline-block text-center bg-slate-700 text-white py-2 px-6 rounded-full hover:bg-slate-600 transition duration-300"
-                                    >
-                                        <span aria-hidden="true">  <BsArrowLeft /></span>Go Back Home
-                                    </Link>
+                                    <div >
+                                        <Link
+                                            to="/"
+                                            className=" flex  items-center justify-center  text-center bg-slate-700 text-white py-2 px-6 rounded-full hover:bg-slate-600 transition duration-300"
+                                        >
+                                            <span aria-hidden="true">  <BsArrowLeft /></span>
+                                            <span style={{ marginLeft: "5px" }}>Go Back Home</span>
+                                        </Link>
+                                    </div>
                                 </form>
                             </div>
                         </div>
                         <div className="hidden sm:contents lg:relative lg:block bg-gradient-to-tr  from-slate-600 to-emerald-500 lg:flex-1">
-
                         </div>
-
                     </div>
-
                 )
             }
             <Outlet />

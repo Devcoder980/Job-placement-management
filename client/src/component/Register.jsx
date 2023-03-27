@@ -25,7 +25,7 @@ function Register() {
     axios.post('http://localhost:5000/api/user/register', fromData)
       .then((res) => {
         console.log(res);
-        alert("jj")
+        alert("Register ")
         history('/login');
         // setIsSubmitted(true);
         // Handle succesfully
@@ -51,7 +51,7 @@ function Register() {
               <img src={jobadda} className="h-14 w-50 rounded-sm" alt="" />
             </a>
             <div className="mt-20"><h2 className="text-lg font-semibold text-gray-900">Get started for free</h2><p className="mt-2 text-sm text-gray-700">Already registered?
-              <Link className="font-medium text-emerald-600 hover:underline" to="/login">Sign in</Link> to your account.</p>
+              <Link className="font-medium text-emerald-600 hover:underline" to="/login"><b className=' text-lg'> Sign in </b></Link> to your account.</p>
             </div>
           </div>
 
@@ -86,11 +86,13 @@ function Register() {
             <div className='col-span-full'>
               <Link
                 to="/"
-                className="inline-block text-center bg-slate-700 text-white py-2 px-6 rounded-full hover:bg-slate-600 transition duration-300"
+                className="flex items-center justify-center text-center bg-slate-700 text-white py-2 px-6 rounded-full hover:bg-slate-600 transition duration-300"
               >
-                <span aria-hidden="true">  <BsArrowLeft /></span>Go Back Home
+                <span aria-hidden="true">  <BsArrowLeft /></span>
+                <span style={{ marginLeft: "5px" }}>Go Back Home</span>
               </Link>
             </div>
+
 
           </form>
         </div>

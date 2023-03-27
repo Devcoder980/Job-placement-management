@@ -16,12 +16,12 @@ const ApplyForm = () => {
       <div className="relative flex min-h-full justify-center md:px-12 lg:px-0">
         <div className="relative z-10 flex flex-1 flex-col bg-white py-4 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+            <h2 className="block  font-bold mb-2 text-gray-900 text-3xl ">Personal Information</h2>
             <p className="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
 
             <div className="mt-10 grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-6">
               <div className="sm:col-span-3">
-                <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="first-name" className="block  font-bold mb-2 text-gray-900">
                   First name
                 </label>
                 <div className="mt-2">
@@ -30,13 +30,13 @@ const ApplyForm = () => {
                     name="first-name"
                     id="first-name"
                     autoComplete="given-name"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
               </div>
 
               <div className="sm:col-span-3">
-                <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="last-name" className="block  font-bold mb-2 text-gray-900">
                   Last name
                 </label>
                 <div className="mt-2">
@@ -45,13 +45,13 @@ const ApplyForm = () => {
                     name="last-name"
                     id="last-name"
                     autoComplete="family-name"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
               </div>
 
               <div className="sm:col-span-full">
-                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="email" className="block  font-bold mb-2 text-gray-900">
                   Email address
                 </label>
                 <div className="mt-2">
@@ -60,13 +60,13 @@ const ApplyForm = () => {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
               </div>
 
               <div className="sm:col-span-full">
-                <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="country" className="block  font-bold mb-2 text-gray-900">
                   Country
                 </label>
                 <div className="mt-2">
@@ -74,7 +74,7 @@ const ApplyForm = () => {
                     id="country"
                     name="country"
                     autoComplete="country-name"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   >
                     <option>United States</option>
                     <option>Canada</option>
@@ -84,7 +84,7 @@ const ApplyForm = () => {
               </div>
 
               <div className="col-span-full">
-                <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="street-address" className="block  font-bold mb-2 text-gray-900">
                   Street address
                 </label>
                 <div className="mt-2">
@@ -93,13 +93,13 @@ const ApplyForm = () => {
                     name="street-address"
                     id="street-address"
                     autoComplete="street-address"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
               </div>
 
               <div className="sm:col-span-3 sm:col-start-1">
-                <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="city" className="block  font-bold mb-2 text-gray-900">
                   City
                 </label>
                 <div className="mt-2">
@@ -108,13 +108,13 @@ const ApplyForm = () => {
                     name="city"
                     id="city"
                     autoComplete="address-level2"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
               </div>
 
               <div className="sm:col-span-3">
-                <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="region" className="block  font-bold mb-2 text-gray-900">
                   State / Province
                 </label>
                 <div className="mt-2">
@@ -123,7 +123,7 @@ const ApplyForm = () => {
                     name="region"
                     id="region"
                     autoComplete="address-level1"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
               </div>
@@ -143,16 +143,16 @@ const ApplyForm = () => {
                 </label>
                 <p className="pl-1">or drag and drop</p>
               </div>
-              <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+              <p className="text-xs leading-5 text-gray-600">PDF,WORD up to 10MB</p>
             </div>
           </div>
-          <div className='flex justify-center  bg-green-500'>
-            <button>Submit</button>
-          </div>
+          <button type='submit' className="w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Submit
+          </button>
         </div>
 
         <div className="sm:contents lg:relative  bg-gradient-to-tr  from-teal-600 to-green-500 lg:flex-1">
-          <div className={` lg:flex lg:items-center ${styles.paddingX} py-8 my-4  bg-slate-900  lg:justify-between`}>
+          <div className={` lg:flex lg:items-center ${styles.paddingX} py-8   bg-slate-900  lg:justify-between`}>
             <div className="min-w-0 flex-1">
               <h2 className="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">
                 {title}

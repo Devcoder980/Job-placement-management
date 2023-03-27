@@ -58,8 +58,8 @@ const Hero = () => {
 
                 <JobSearch />
 
-                <div className={`blur bg-blue-300 hidden lg:absolute  top-16  hero-blur`}>
-                    lskdfjsd
+                <div className={`blur bg-blue-300  lg:absolute  top-16  hero-blur`}>
+                    
                 </div>
                 <section className={`site-section py-4 ${styles.paddingX}`}>
                     <div className="container">
@@ -142,7 +142,7 @@ const Hero = () => {
                     </div>
                 </section>
 
-                <div className={`blur bg-blue-300 left-[56rem] hidden lg:absolute  top-[18rem]  hero-blur`}>
+                <div className={`blur bg-blue-300 left-[56rem]  lg:absolute  top-[18rem]  hero-blur`}>
                     
                 </div>
 

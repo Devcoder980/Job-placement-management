@@ -23,5 +23,5 @@ body {
 .hero-blur {
   width: 14rem;
   height: 10rem;
-  z-index: 30;
+  z-index: 40;
 }

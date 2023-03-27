@@ -12,7 +12,6 @@ import AboutUs from './component/AboutUs';
 import UserDashboard from './component/UserDashboard';
 import ErrorPages from './component/ErrorPages';
 import ApplyForm from './component/ApplyForm';
-import Footer from './component/Footer';
 import PostJob from './component/PostJob';
 import EmployerRegister from './component/EmployerRegister';
 import EmployerLogin from './component/EmployeLogin';
