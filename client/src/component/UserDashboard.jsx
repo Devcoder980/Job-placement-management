@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { HiUser } from 'react-icons/hi';
 function UserDashboard() {
     const [user, setUser] = useState({});
 
@@ -38,15 +38,14 @@ function UserDashboard() {
             <>
                 {/* <Navbar userdata={user.firstname}/> */}
 
-                <div className="flex text-white flex-col h-[100vh] items-center pt-4 bg-slate-900">
-                    <svg className="rounded-full w-36 h-36 bg-gray-300 text-gray-300" role="img" aria-label="Placeholder">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="currentColor" />
-                    </svg>
-                    <h2 className="font-medium text-xl mt-4">{user.firstname} {user.lastname}</h2>
-                    <h2 className="font-medium text-xl mt-4">{user.email}</h2>
-                    <h2 className="font-medium text-xl mt-4">{user.phone}</h2>
-                    <p className="text-center my-4">Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+                <div className="flex text-slate-900  flex-col pt-20 h-[100vh] items-center  bg-white">
+                    <div className="rounded-full w-24 flex justify-center items-center h-24  bg-slate-900" >
+                        <HiUser className="w-20 h-20 text-white" />
+                    </div>
+                    <h2 className="font-medium text-3xl mt-4 capitalize">{user.firstname} {user.lastname}</h2>
+                    <h2 className="font-medium text-md ">{user.email}</h2>
+                    <h2 className="font-medium text-md mt-2 ">{user.phone}</h2>
+                    <p className="text-center  w-80">Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
 
                 </div>
             </>

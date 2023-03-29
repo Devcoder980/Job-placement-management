@@ -134,7 +134,7 @@ const Navbar = (props) => {
                                                                             onClick={clearFun}
                                                                             className={classNames(
                                                                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                                                'block w-full px-4 py-2 text-left text-sm'
+                                                                                'block w-full text-center px-4 py-2 text-left text-sm'
                                                                             )}
                                                                         >
                                                                             Sign out
@@ -174,7 +174,7 @@ const Navbar = (props) => {
                                                         </li>
                                                     </>
                                             }
-                                            <li className='mr-6'>
+                                            <li className='mr-6 '>
                                                 <Menu as="div" className="relative inline-block text-left">
                                                     <div>
                                                         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -295,9 +295,9 @@ const Navbar = (props) => {
                                 <Link to="/register" > Register </Link>
                             </button>
                         </li>
-                        <li className="mr-6">
+                        <li className="mr-6 ">
 
-                            <Menu as="div" className="relative inline-block text-left">
+                            <Menu as="div" className="relative inline-block text-left pl-2 ">
                                 <div>
                                     <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                                         Options
@@ -314,7 +314,7 @@ const Navbar = (props) => {
                                     leaveFrom="transform opacity-100 scale-100"
                                     leaveTo="transform opacity-0 scale-95"
                                 >
-                                    <Menu.Items className="absolute text-center  right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                    <Menu.Items className="absolute text-center  lg:right-0 z-10 mt-2 lg:w-56  origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                         <div className="py-1">
 
                                             <Menu.Item>
@@ -338,7 +338,7 @@ const Navbar = (props) => {
                                                         onClick={clearFun}
                                                         className={classNames(
                                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                            'block w-full px-4 py-2 text-left text-sm'
+                                                            'block w-full px-4 text-center py-2  text-sm'
                                                         )}
                                                     >
                                                         Sign out
@@ -354,7 +354,7 @@ const Navbar = (props) => {
 
                         </li>
                         <li className='mr-6'>
-                            <Menu as="div" className="relative inline-block text-left">
+                            <Menu as="div" className="relative inline-block text-left pl-2 py-2">
                                 <div>
                                     <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                                         Employer
@@ -371,7 +371,7 @@ const Navbar = (props) => {
                                     leaveFrom="transform opacity-100 scale-100"
                                     leaveTo="transform opacity-0 scale-95"
                                 >
-                                    <Menu.Items className="absolute right-0 z-10 mt-2 text-end  w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                    <Menu.Items className="absolute right-0 z-10  mt-2 text-end  w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                         <div className="py-1">
                                             {localStorage.authTokenEmployer
                                                 ?
