@@ -32,7 +32,7 @@ const Navbar = (props) => {
 
     return (
         <>
-            <nav className={`bg-${styles.backgroundTheme}-900 bg-slate-900 relative z-20 lg:px-1 uppercase`}>
+            <nav className={`bg-${styles.backgroundTheme}-900 bg-slate-900 relative z-50 lg:px-1 uppercase`}>
                 <div className="max-w-7xl mx-auto px-2 md:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between h-16">
 
@@ -134,7 +134,7 @@ const Navbar = (props) => {
                                                                             onClick={clearFun}
                                                                             className={classNames(
                                                                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                                                'block w-full text-center px-4 py-2 text-left text-sm'
+                                                                                'block w-full text-center px-4 py-2  text-sm'
                                                                             )}
                                                                         >
                                                                             Sign out
@@ -297,7 +297,7 @@ const Navbar = (props) => {
                         </li>
                         <li className="mr-6 ">
 
-                            <Menu as="div" className="relative inline-block text-left pl-2 ">
+                            <Menu as="div" className="relative inline-block text-left  py-2 pl-2 ">
                                 <div>
                                     <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                                         Options
@@ -321,6 +321,7 @@ const Navbar = (props) => {
                                                 {({ active }) => (
                                                     <Link
                                                         to="/dashboard"
+                                                        onClick={toggleNavbar}
                                                         className={classNames(
                                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                                             'block px-4 py-2 text-sm'
@@ -336,6 +337,7 @@ const Navbar = (props) => {
                                                     <button
                                                         type="submit"
                                                         onClick={clearFun}
+                                                        onClick={toggleNavbar}
                                                         className={classNames(
                                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                                             'block w-full px-4 text-center py-2  text-sm'
@@ -351,12 +353,11 @@ const Navbar = (props) => {
                                 </Transition>
                             </Menu>
 
-
                         </li>
                         <li className='mr-6'>
                             <Menu as="div" className="relative inline-block text-left pl-2 py-2">
                                 <div>
-                                    <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                                    <Menu.Button  className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                                         Employer
                                         <BsChevronCompactDown className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
                                     </Menu.Button>
@@ -380,6 +381,7 @@ const Navbar = (props) => {
                                                         {({ active }) => (
                                                             <Link
                                                                 to="/employer/post-job"
+                                                                onClick={toggleNavbar}
                                                                 className={classNames(
                                                                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                                                     'block px-4 py-2 text-sm  '
@@ -398,6 +400,7 @@ const Navbar = (props) => {
                                                 {({ active }) => (
                                                     <Link
                                                         to="/employer/log-in"
+                                                        onClick={toggleNavbar}
                                                         className={classNames(
                                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                                             'block px-4 py-2 text-sm'
@@ -411,6 +414,7 @@ const Navbar = (props) => {
                                                 {({ active }) => (
                                                     <Link
                                                         to="/employer/Register"
+                                                        onClick={toggleNavbar}
                                                         className={classNames(
                                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                                             'block px-4 py-2 text-sm'
