@@ -337,7 +337,6 @@ const Navbar = (props) => {
                                                     <button
                                                         type="submit"
                                                         onClick={clearFun}
-                                                        onClick={toggleNavbar}
                                                         className={classNames(
                                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                                             'block w-full px-4 text-center py-2  text-sm'
