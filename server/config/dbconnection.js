@@ -1,4 +1,4 @@
-const uri = 'mongodb+srv://admin:admin@devcoder980.64axway.mongodb.net/user';
+const uri = 'mongodb+srv://admin:admin@cluster0.46hnyja.mongodb.net/jobmanagement';
 const mongoose = require('mongoose');
 
 const connectDb=async()=>{
