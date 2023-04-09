@@ -36,8 +36,7 @@ const NewsLetter = () => {
                         <div className="max-w-xl lg:max-w-lg">
                             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscribe to our newsletter.</h2>
                             <p className="mt-4 text-lg leading-8 text-gray-300">
-                                Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt
-                                dolore.
+                             There's nothing worse than slaving away writing awesome stuff when the numbers who subscribe to your newsletter is massively low
                             </p>
                             {isSubmitted ? (
                                 <div className='text-center text-lg text-blue-600 '> Thank you for Subscribe</div>
