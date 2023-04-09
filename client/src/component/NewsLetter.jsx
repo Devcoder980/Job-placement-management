@@ -65,7 +65,7 @@ const NewsLetter = () => {
                                 </div>
                                 <dt className="mt-4 font-semibold text-white">Weekly articles</dt>
                                 <dd className="mt-2 leading-7 text-gray-400">
-                                    Non laboris consequat cupidatat laborum magna. Eiusmod non irure cupidatat duis commodo amet.
+                                    Find Online work from home jobs. Search Here Now. Search For Online work from home jobs With us.
                                 </dd>
                             </div>
                             <div className="flex flex-col items-start">
@@ -74,7 +74,7 @@ const NewsLetter = () => {
                                 </div>
                                 <dt className="mt-4 font-semibold text-white">No spam</dt>
                                 <dd className="mt-2 leading-7 text-gray-400">
-                                    Officia excepteur ullamco ut sint duis proident non adipisicing. Voluptate incididunt anim.
+                                   True work just join us .
                                 </dd>
                             </div>
                         </dl>
