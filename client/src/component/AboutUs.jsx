@@ -2,8 +2,8 @@ import React from 'react';
 import { FaTwitter, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import { SiLinkedin } from 'react-icons/si';
 import sq_img_6 from '../images/sq_img_6.jpg';
-import sq_img_7 from '../images/sq_img_7.jpg';
-import person_6 from '../images/person_6.jpg';
+import sq_img_7 from '../images/sq_img_7.png';
+import person_6 from '../images/person_6.jpeg';
 import person_5 from '../images/person_5.jpg';
 import styles from '../style.js';
 import NumberCounter from 'number-counter';
@@ -23,10 +23,10 @@ const AboutUs = () => {
                 <section className={` bg-hero_1 `}>
                     <div className=' bg-slate-600/60  text-white m-0 py-10 px-4 lg:px-24 lg:py-20 '>
                         <div className='text-center   text-3xl my-8'>
-                            <h1>JobBoard Site Stats</h1>
+                            <h1>JobAdda Site Stats</h1>
                         </div>
                         <div className='text-center text-xl my-8'>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita unde officiis recusandae sequi excepturi corrupti.</p>
+                            <p>A technology-based recruitment marketplace for blue and gray-collar hiring with a singular purpose: To provide meaningful livelihoods to the 250 million blue-collar workers of India, enabling 30 mn job seekers and 100k businesses to get connected every month. We have built a recruitment ecosystem that eliminates middlemen, fraudulent jobs, and vulgar jobs, ensuring genuine employees and employers.</p>
                         </div>
                         <div>
                             <div className="row flex  flex-wrap justify-center gap-10  my-9">
@@ -72,9 +72,9 @@ const AboutUs = () => {
                                 </a>
                             </div>
                             <div className="flex-1 col-span-6  lg:ml-28">
-                                <h2 className="section-title mb-3 text-3xl lg:mb-10">JobBoard For Freelancers, Web Developers</h2>
-                                <p className="lead text-[20px] text-gray-400 lg:mb-10 lg:tracking-[1px]">Eveniet voluptatibus voluptates suscipit minima, cum voluptatum ut dolor, sed facere corporis qui, ea quisquam quis odit minus nulla vitae. Sit, voluptatem.</p>
-                                <p className=" text-base text-gray-400 mt-4 lg:mb-10 lg:tracking-[1px] ">Ipsum harum assumenda in eum vel eveniet numquam, cumque vero vitae enim cupiditate deserunt eligendi officia modi consectetur. Expedita tempora quos nobis earum hic ex asperiores quisquam optio nostrum sit!</p>
+                                <h2 className="section-title mb-3 text-3xl lg:mb-10">JobAdda For Freelancers, Web Developers</h2>
+                                <p className="lead text-[20px] text-gray-400 lg:mb-10 lg:tracking-[1px]">We will help you make sure your current systems are up and running and up-to-date, with the latest security updates. We also help you migrate current systems, so you can save money.</p>
+                                <p className=" text-base text-gray-400 mt-4 lg:mb-10 lg:tracking-[1px] ">With Development we will your help team getting backlogs finished and making sure deadlines are meet. We will supply anyhing from a single Developer to a Team of Developers</p>
                             </div>
                         </div>
                     </div>
@@ -90,9 +90,9 @@ const AboutUs = () => {
                                 </a>
                             </div>
                             <div className="flex-1 col-span-6  lg:mr-28">
-                                <h2 className="section-title mb-3 text-3xl lg:mb-10">JobBoard For Workers</h2>
-                                <p className="lead text-[20px] text-gray-400 lg:mb-10 lg:tracking-[1px]">Eveniet voluptatibus voluptates suscipit minima, cum voluptatum ut dolor, sed facere corporis qui, ea quisquam quis odit minus nulla vitae. Sit, voluptatem.</p>
-                                <p className=" text-base text-gray-400 mt-4 lg:mb-10 lg:tracking-[1px] ">Eveniet voluptatibus voluptates suscipit minima, cum voluptatum ut dolor, sed facere corporis qui, ea quisquam quis odit minus nulla vitae. Sit, voluptatem.</p>
+                                <h2 className="section-title mb-3 text-3xl lg:mb-10">Technology Management</h2>
+                                <p className="lead text-[20px] text-gray-400 lg:mb-10 lg:tracking-[1px]">We will help you make sure your current systems are up and running and up-to-date, with the latest security updates. We also help you migrate current systems, so you can save money.</p>
+                                
                             </div>
                         </div>
                     </div>
@@ -114,9 +114,9 @@ const AboutUs = () => {
                                 </a>
                             </div>
                             <div class=" col-span-6 lg:ml-20">
-                                <h3 className=' text-3xl py-4'>Elisabeth Smith</h3>
+                                <h3 className=' text-3xl py-4'>Dilip kushwaha</h3>
                                 <p class="text-muted text-lg text-[#ced4da] py-4">Creative Director</p>
-                                <p className='text-lg text-gray-400 py-4'>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae voluptatibus ut? Ex vel  ad explicabo iure ipsa possimus consectetur neque rem molestiae eligendi velit?.</p>
+                                <p className='text-lg text-gray-400 py-4'>Dilip has more than 15 years of experience in Online Education, Recruitments, & eCommerce space. He has been associated with Freshersworld since its early days. He defines & drives technology initiatives for Freshersworld.</p>
                                 <div class="social mt-4 flex text-slate-600 gap-3">
                                     <Link to="#"><FaFacebook className="h-10 w-10" /></Link>
                                     <Link to="#"><FaInstagram className="h-10 w-10 " /></Link>
@@ -140,7 +140,7 @@ const AboutUs = () => {
                             <div className="flex-1 col-span-6 lg:mx-3">
                                 <h3 className=' text-3xl'>Chintan Patel</h3>
                                 <p class="text-muted text-lg text-[#ced4da]">Creative Director</p>
-                                <p className='text-lg text-gray-400'>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae voluptatibus ut? Ex vel  ad explicabo iure ipsa possimus consectetur neque rem molestiae eligendi velit?.</p>
+                                <p className='text-lg text-gray-400'>We work with some of the biggest organizations in the world, who use the HackerOne platform for their vulnerability coordination, bug bounty programs, and penetration testing, and the list keeps growing.</p>
                                 <div class="social mt-4 flex text-slate-600 gap-3">
                                     <Link to="#"><FaFacebook className="h-10 w-10" /></Link>
                                     <Link to="#"><FaInstagram className="h-10 w-10 " /></Link>
@@ -159,13 +159,17 @@ const AboutUs = () => {
                                 <div>
                                     <dt className="text-lg leading-6 font-medium text-gray-900 text-center p-3">Our Mission</dt>
                                     <dd className="mt-2 text-base text-gray-500 text-center">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt magna et sagittis fermentum.
+                                       Giving companies
+around the global,
+the performance and
+quality of Scandinavia
+work culture
                                     </dd>
                                 </div>
                                 <div>
                                     <dt className="text-lg leading-6 font-medium text-gray-900 text-center p-3">Our Vision</dt>
                                     <dd className="mt-2 text-base text-gray-500 text-center">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt magna et sagittis fermentum.
+                                       Our vision is for to help our client grow better and more dynamic, making sure a timezone, limited office space and language differences is not an issue, but a opportunity for growth.
                                     </dd>
                                 </div>
                             </dl>

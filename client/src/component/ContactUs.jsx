@@ -6,6 +6,7 @@ import NewsLetter from './NewsLetter'
 import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import axios from 'axios'
+
 import ThankYouMessage from './ThankYouMessage'
 const ContactUs = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -91,110 +92,13 @@ const ContactUs = () => {
                   </div>
                 </div>
                 <div className="column-container mb-4 p-4  pt-8 border-1 pb-8  rounded-lg drop-shadow-2xl bg-white shadow-gray-400 flex-wrap col-span-6 flex justify-center items-center">
-                  <div className="">
-                    <div className=" flex items-center justify-center text-center flex-col">
-                      <BsTools className={`w-20 h-20  text-${styles.backgroundTheme}-500  my-10 bg-white`} />
-                      <h2 className={`card-title uppercase text-lg pb-4 text-${styles.backgroundTheme}-400`}>Technical Support</h2>
-                      <p className='font-serif text-base my-2 text-gray-400 font-bold'>If you ever need help, you can chat directly with our support team!</p>
-                      <button className={`inline-block text-lg py-5  my-4 align-middle w-[100%]  rounded-full px-[12px]   bg-${styles.backgroundTheme}-400 text-white  shadow-cyan-500/50  bg-primary   font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>Chat with support</button>
-                      <h4 className={`text-center  text-${styles.backgroundTheme}-400 font-semibold text-lg`} >You must be an active Elegant Themes customer to receive support.</h4>
-                    </div>
-                    <Link to={'#'} className={`text-${styles.backgroundTheme}-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex `} >Ask The Community</Link>
-                    <Link to={'#'} className={`text-${styles.backgroundTheme}-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex`} >Browse Documentation</Link>
-                    <Link to={'#'} className={`text-${styles.backgroundTheme}-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold  flex`} target="_blank">Join the Divi Facebook Group</Link>
-                    <Link to={'#'} className={`text-${styles.backgroundTheme}-400 w-full rounded-full bg-gray-100 text-center justify-center py-5 my-4 font-bold flex `} >Explore the Blog</Link>
-                  </div>
-                </div>
+                  
+                </div> 
               </div>
             </div>
           </section>
 
-          <section>
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-7">
-              <div className="max-w-3xl mx-auto mt-12">
-                <h2 className="text-3xl leading-9  text-center font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
-                  Frequently Asked Questions
-                </h2>
-                <div className="mt-6 border-t border-gray-200 pt-6">
-                  <dl>
-                    <div>
-                      <dt className="text-lg leading-7">
-                        <button className="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none focus:text-gray-900">
-                          <span className="font-medium text-gray-900">How do I negotiate a salary?</span>
-                          <span className="ml-6 h-7 flex items-center">
-                            <svg className="rotate-0 h-6 w-6 transform transition-transform duration-200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M9.75 16.5L14.25 12L9.75 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                          </span>
-                        </button>
-                      </dt>
-                      <dd className="mt-2 pr-12">
-                        <p className="text-base leading-6 text-gray-500">
-                          To negotiate a salary, research the typical salary range for the position and your level of experience, and prepare to explain why you are worth a higher salary. You can also ask the employer about the salary range for the position or if there is any flexibility in the offered salary.
-                        </p>
-                      </dd>
-                    </div>
-                    <div className="mt-8 border-t border-gray-200 pt-6">
-                      <dt className="text-lg leading-7">
-                        <button className="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none focus:text-gray-900">
-                          <span className="font-medium text-gray-900">What is the best way to prepare for a job interview?</span>
-                          <span className="ml-6 h-7 flex items-center">
-                            <svg className="rotate-0 h-6 w-6 transform transition-transform duration-200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M9.75 16.5L14.25 12L9.75 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                          </span>
-                        </button>
-                      </dt>
-                      <dd className="mt-2 pr-12">
-                        <p className="text-base leading-6 text-gray-500">
-                          To prepare for a job interview, research the company and the position, review common interview questions, and practice your answers. It can also be helpful to dress professionally, arrive early, and bring a copy of your resume and any relevant documents.
-                        </p>
-
-                      </dd>
-                    </div>
-                    <div className="mt-8 border-t border-gray-200 pt-6">
-                      <dt className="text-lg leading-7">
-                        <button className="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none focus:text-gray-900">
-                          <span className="font-medium text-gray-900">How do I write a resume?</span>
-                          <span className="ml-6 h-7 flex items-center">
-                            <svg className="rotate-0 h-6 w-6 transform transition-transform duration-200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M9.75 16.5L14.25 12L9.75 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                          </span>
-                        </button>
-                      </dt>
-                      <dd className="mt-2 pr-12">
-                        <p className="text-base leading-6 text-gray-500">
-                          To write a resume, start with a header that includes your name and contact information. Then, include a summary or objective statement, followed by sections on your work experience, education, and skills. Be sure to tailor your resume to the specific job you are applying for and use action verbs and quantifiable achievements to describe your experience.
-                        </p>
-
-                      </dd>
-                    </div>
-
-                    <div className="mt-8 border-t border-gray-200 pt-6">
-                      <dt className="text-lg leading-7">
-                        <button className="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none focus:text-gray-900">
-                          <span className="font-medium text-gray-900">What is the best way to prepare for a job interview?</span>
-                          <span className="ml-6 h-7 flex items-center">
-                            <svg className="rotate-0 h-6 w-6 transform transition-transform duration-200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M9.75 16.5L14.25 12L9.75 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                          </span>
-                        </button>
-                      </dt>
-                      <dd className="mt-2 pr-12">
-                        <p className="text-base leading-6 text-gray-500">
-                          To prepare for a job interview, research the company and the position, review common interview questions, and practice your answers. It can also be helpful to dress professionally, arrive early, and bring a copy of your resume and any relevant documents.
-                        </p>
-
-                      </dd>
-                    </div>
-                  </dl>
-                </div>
-              </div>
-            </div>
-
-          </section>
+          
 
           <NewsLetter />
           <Footer />

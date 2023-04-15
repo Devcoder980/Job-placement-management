@@ -83,18 +83,18 @@ const JobSearch = () => {
 
                                                         <datalist id="locations">
                                                             <option value=""></option>
-                                                            <option value="Afghanistan"></option>
-                                                            <option value="Azerbaijan"></option>
-                                                            <option value="Bahamas"></option>
+                                                            <option value="Daman"></option>
+                                                            <option value="Surat"></option>
+                                                            <option value="valsad"></option>
                                                             <option value="vapi"></option>
-                                                            <option value="Canada"></option>
-                                                            <option value="Cape Verde"></option>
-                                                            <option value="Denmark"></option>
-                                                            <option value="Djibouti"></option>
-                                                            <option value="Eritrea"></option>
-                                                            <option value="Estonia"></option>
-                                                            <option value="Gambia"></option>
-                                                            <option value="India"></option>
+                                                            <option value="Silvasa"></option>
+                                                            <option value="Delhi"></option>
+                                                            <option value="maharastra"></option>
+                                                            <option value="ahmdabad"></option>
+                                                            <option value="utter pradesh"></option>
+                                                            <option value="diu"></option>
+                                                            <option value="banglore"></option>
+                                                            <option value="prayagraj"></option>
                                                         </datalist>
 
                                                     </div>
@@ -112,9 +112,9 @@ const JobSearch = () => {
                                                         <datalist id="jobTypeOptions">
                                                             <option value="Full Time" />
                                                             <option value="Part Time" />
-                                                            <option value="Freelancer" />
-                                                            <option value="Remote Work" />
-                                                            <option value="Office Work" />
+                                                            <option value="intership" />
+                                                            <option value="permanent" />
+                                                      
                                                         </datalist>
 
                                                     </div>

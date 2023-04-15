@@ -68,7 +68,7 @@ const Hero = () => {
                             <div className="row justify-center">
                                 <div className="col-md-7">
                                     <h2 className="section-title mb-2 text-4xl text-white ">Company We've Helped</h2>
-                                    <p className="lead text-2xl text-gray-500">Porro error reiciendis commodi beatae omnis similique voluptate rerum ipsam fugit mollitia ipsum facilis expedita tempora suscipit iste</p>
+                                    <p className="lead text-2xl text-gray-500">Top Feature Companies</p>
                                 </div>
                             </div>
 

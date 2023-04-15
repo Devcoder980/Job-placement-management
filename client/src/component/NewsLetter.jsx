@@ -36,8 +36,7 @@ const NewsLetter = () => {
                         <div className="max-w-xl lg:max-w-lg">
                             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscribe to our newsletter.</h2>
                             <p className="mt-4 text-lg leading-8 text-gray-300">
-                                Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt
-                                dolore.
+                             There's nothing worse than slaving away writing awesome stuff when the numbers who subscribe to your newsletter is massively low
                             </p>
                             {isSubmitted ? (
                                 <div className='text-center text-lg text-blue-600 '> Thank you for Subscribe</div>
@@ -66,7 +65,7 @@ const NewsLetter = () => {
                                 </div>
                                 <dt className="mt-4 font-semibold text-white">Weekly articles</dt>
                                 <dd className="mt-2 leading-7 text-gray-400">
-                                    Non laboris consequat cupidatat laborum magna. Eiusmod non irure cupidatat duis commodo amet.
+                                    Find Online work from home jobs. Search Here Now. Search For Online work from home jobs With us.
                                 </dd>
                             </div>
                             <div className="flex flex-col items-start">
@@ -75,7 +74,7 @@ const NewsLetter = () => {
                                 </div>
                                 <dt className="mt-4 font-semibold text-white">No spam</dt>
                                 <dd className="mt-2 leading-7 text-gray-400">
-                                    Officia excepteur ullamco ut sint duis proident non adipisicing. Voluptate incididunt anim.
+                                   True work just join us .
                                 </dd>
                             </div>
                         </dl>
