@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { SiPhotopea } from 'react-icons/si'
+import { useNavigate } from 'react-router-dom';
 import { SiFiles } from 'react-icons/si';
 import styles from '../style'
 import { useLocation } from 'react-router-dom'
-import { BsCurrencyDollar, BsCheck, BsCalendar, BsBriefcaseFill, BsPinMap, BsChevronDown } from 'react-icons/bs'
+import { BsCurrencyDollar, BsCalendar, BsBriefcaseFill, BsPinMap } from 'react-icons/bs'
 import { HiOutlineDocument } from 'react-icons/hi'
 
 function ApplyForm() {
@@ -17,6 +17,7 @@ function ApplyForm() {
   const [statee, setStatee] = useState('');
   const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const errors = {};
@@ -32,6 +33,10 @@ function ApplyForm() {
     return Object.keys(errors).length === 0;
   };
 
+    const { state } = useLocation();
+    const { title, company, description, lastDate, location, jobType, sector, minSalary, maxSalary } = state.e;
+  
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!validateForm()) return;
@@ -44,11 +49,13 @@ function ApplyForm() {
     formData.append('city', city);
     formData.append('state', statee);
     formData.append('file', file);
+    formData.append('company',company);
 
     try {
       const response = await axios.post('http://localhost:5000/api/user/apply', formData);
       console.log(response.data);
       alert('Your application has been submitted successfully');
+      navigate('/applythankyou');
     } catch (error) {
       console.error(error);
       alert('Something went wrong. Please try again later');
@@ -56,8 +63,6 @@ function ApplyForm() {
   };
 
 
-  const { state } = useLocation();
-  const { title, company, description, lastDate, location, jobType, sector, minSalary, maxSalary } = state.e;
   return (
     <>
       <div className='lg:flex justify-around '>
@@ -330,7 +335,7 @@ function ApplyForm() {
                 </div>
               </div>
               <div>
-                <button type='submit' className="w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button type='submit' className="w-full my-4 cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                   Submit
                 </button>
               </div>

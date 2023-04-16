@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import styles from '../style'
 import { FaUserCircle } from 'react-icons/fa'
-import { BsTools } from 'react-icons/bs'
 import NewsLetter from './NewsLetter'
-import { Link } from 'react-router-dom'
+import { useRef, useEffect } from 'react';
 import Footer from './Footer'
 import axios from 'axios'
 
@@ -36,6 +35,7 @@ const ContactUs = () => {
         // handle error
       })
   }
+
 
   return (
     <>
@@ -92,7 +92,7 @@ const ContactUs = () => {
                   </div>
                 </div>
                 <div className="column-container mb-4 p-4  pt-8 border-1 pb-8  rounded-lg drop-shadow-2xl bg-white shadow-gray-400 flex-wrap col-span-6 flex justify-center items-center">
-                  
+                
                 </div> 
               </div>
             </div>

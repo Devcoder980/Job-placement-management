@@ -32,6 +32,9 @@ const userSchema = new mongoose.Schema({
   },
   file: {
     type: String,
+  },
+  company:{
+    type:String,
   }
 });
 

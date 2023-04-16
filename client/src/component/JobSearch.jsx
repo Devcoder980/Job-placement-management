@@ -41,21 +41,21 @@ const JobSearch = () => {
     return (
         <>
             {console.log(data)}
-            <section className={`relative flex ${styles.backgroundTheme} bg-slate-900 justify-center items-center md:py-20  py-24 w-full ${styles.paddingX}`}>
+            <section className={`relative  flex ${styles.backgroundTheme} bg-slate-900 justify-center items-center md:py-20  py-24 w-full ${styles.paddingX}`}>
                 <div className={`absolute inset-0 bg-${styles.backgroundTheme}-600/5 dark:bg-${styles.backgroundTheme}-600/10`}></div>
                 <div className="container z-1">
-                    <div className="grid z-40 grid-cols-1 text-center mt-10 relative">
+                    <div className="grid z-50 z-40 grid-cols-1 text-center mt-10 relative">
                         <h4 className="lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 font-bold text-white">Join us & <span className={`text-${styles.backgroundTheme}-600 font-bold`}>Explore</span>  <span className={`text-${styles.backgroundTheme}-600 font-bold`}>Thousands</span> of Jobs</h4>
                         <p className="text-slate-400 text-lg max-w-xl mx-auto">Find Jobs, Employment & Career Opportunities. Some of the companies we've helped recruit excellent applicants over the years.</p>
-                        <div className="d-flex" id="reserve-form">
-                            <div className="md:w-5/6 mx-auto">
+                        <div className="  d-flex" id="reserve-form">
+                            <div className="md:w-5/6 mx-auto ">
                                 <div className="lg:col-span-10 mt-8">
-                                    <div className="bg-white dark:bg-slate-900 border-0 shadow rounded-md p-3">
+                                    <div className="bg-white  dark:bg-slate-900 border-0 shadow rounded-md p-3">
                                         <form onSubmit={(e) => {
                                             e.preventDefault();
                                             searchDatabase(searchParams);
                                         }}>
-                                            <div className="registration-form text-dark text-start">
+                                            <div className="registration-form text-dark text-start z-50">
                                                 <div className="grid lg:grid-cols-4  md:grid-cols-2 grid-cols-1 lg:gap-0 gap-6">
                                                     <div className=" flex items-center filter-search-form relative filter-border">
                                                         <i className="uil uil-briefcase-alt icons"></i>
@@ -107,18 +107,15 @@ const JobSearch = () => {
                                                             name="jobType"
                                                             id="jobType"
                                                             aria-label="Default input example"
-                                                        />
-
+                                                        /> 
                                                         <datalist id="jobTypeOptions">
                                                             <option value="Full Time" />
                                                             <option value="Part Time" />
                                                             <option value="intership" />
                                                             <option value="permanent" />
-                                                      
                                                         </datalist>
-
                                                     </div>
-                                                    <input type="submit" id="search" name="search" className="btn bg-blue-600 h-12 hover:bg-blue-700 rounded-md border-blue-600 hover:border-blue-700 text-white searchbtn submit-btn w-100" value="Search" />
+                                                    <input type="submit" id="search" name="search" className="btn cursor-pointer z-50 bg-blue-600 h-12 hover:bg-blue-700 rounded-md border-blue-600 hover:border-blue-700 text-white searchbtn submit-btn w-100" value="Search" />
                                                 </div>
                                             </div>
                                         </form>
@@ -137,7 +134,7 @@ const JobSearch = () => {
                         <JobList
                             key={item._id} // Add a unique key 
                             title={item.title}
-                            company={item.title}
+                            company={item.company}
                             location={item.location}
                             sector={item.sector}
                             minSalary={item.minSalary}
@@ -150,25 +147,7 @@ const JobSearch = () => {
                         />
                     )) :
                     <>
-                        <h1>Data not present</h1>
                     </>}
-            {/* {data.map(item => (
-                <JobList
-
-                    key={item._id} // Add a unique key 
-                    title={item.title}
-                    company={item.title}
-                    location={item.location}
-                    sector={item.sector}
-                    minSalary={item.minSalary}
-                    maxSalary={item.maxSalary}
-                    description={item.description}
-                    requirements={item.description}
-                    lastDate={item.lastDate}
-                    createdDate={item.createdDate}
-                    jobType={item.jobType}
-                />
-            ))} */}
         </>
     )
 }

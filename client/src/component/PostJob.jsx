@@ -5,7 +5,7 @@ const PostJob = () => {
     const jobTypes = ['part time', 'full time', 'internship', 'freelancer', 'permanent'];
     const [formData, setFormData] = useState({
         title: '',
-        company: '',
+        company: localStorage.getItem("companyName"),
         location: '',
         sector: '',
         minSalary: '',
@@ -51,21 +51,6 @@ const PostJob = () => {
                             type="text"
                             placeholder="Enter job title"
                             value={formData.title}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 font-bold mb-2" htmlFor="company">
-                            Company
-                        </label>
-                        <input
-                            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="company"
-                            name="company"
-                            type="text"
-                            placeholder="Enter company name"
-                            value={formData.company}
                             onChange={handleChange}
                             required
                         />

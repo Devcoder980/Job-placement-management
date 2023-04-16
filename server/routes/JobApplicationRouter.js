@@ -30,10 +30,21 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:company', async (req, res) => {
+    const { company } = req.params;
+
+    try {
+        const users = await ApplyJobData.find({ company: company });
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 
 // POST a new user
 router.post('/', upload.single('file'), async (req, res) => {
-    const { firstName, lastName, email, country, streetAddress, city, state } = req.body;
+    const { firstName, lastName, email, country,company,streetAddress, city, state } = req.body;
 
     try {
         // Connect to the database
@@ -60,6 +71,7 @@ router.post('/', upload.single('file'), async (req, res) => {
             country,
             streetAddress,
             city,
+            company,
             state,
             file: stream.id // Set the file ID as a field in the user document
         });

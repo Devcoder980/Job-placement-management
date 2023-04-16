@@ -8,16 +8,15 @@ import { Link } from 'react-router-dom'
 
 const JobList = (props) => {
     const navigate = useNavigate();
-
-    const toggleApplyForm = (e) => {
-        if (localStorage.length) {
-            navigate('/apply', { state: { e } });
+    console.log(props)
+        const toggleApplyForm = (e) => {
+            if (localStorage.length) {
+                navigate('/apply', { state: { e } });
+            }
+            else {
+                navigate('/apply');
+            }
         }
-        else {
-            navigate('/apply');
-        }
-    }
-    
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
     }
