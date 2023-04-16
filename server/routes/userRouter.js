@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken'); // Add this line
 
 const User = require('../Models/userModels.js'); // Use the same variable name
 
-//@desc post create user
 //@route post /api/user/register
 //@acces public
 router.post('/register', asyncHandler(async (req, res) => {
