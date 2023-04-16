@@ -66,16 +66,18 @@ function EmployerDashboard() {
                     </svg>
                     <h2 className="font-medium text-xl mt-2">{user.companyName}</h2>
                     <h2 className="font-medium text-xl mt-2">{user.email}</h2>
-                    <h2 className="font-medium text-xl mt-2">{user.phone}</h2>
+                    {/* <h2 className="font-medium text-xl mt-2">{user.phone}</h2> */}
                     <h2 className="font-medium text-xl mt-2">{user.isHiringManager ? 'HiringManager' : 'No'}</h2>
                     <p className="text-center my-4   w-80 ">Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
 
                 </div>
 
-                <div className='my-3 '>
-                    <h1 className='text-center text-3xl py-3'>Job Applyed Candidate</h1>
-                </div>
-                <div>
+                <div className="bg-gray-100 p-6">
+                    <div className="flex flex-row items-center">
+                        <div className="bg-white shadow overflow-hidden sm:rounded-lg p-6">
+                            <h1 className="text-center text-3xl py-3">Job Applied Candidate</h1>
+                            {/* Add your table component here */}
+                            <div>
                     <div class="flex flex-col bg-slate-900 text-white">
                         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -84,7 +86,7 @@ function EmployerDashboard() {
                                         <thead class="border-b font-medium dark:border-neutral-500">
                                             <tr>
                                                 <th scope="col" class="px-6 py-4">#</th>
-                                                <th scope="col" class="px-6 py-4">title</th>
+                                                <th scope="col" class="px-6 py-4">Job title</th>
                                                 <th scope="col" class="px-6 py-4">First</th>
                                                 <th scope="col" class="px-6 py-4">Last</th>
                                                 <th scope="col" class="px-6 py-4">Email</th>
@@ -120,6 +122,11 @@ function EmployerDashboard() {
                         </div>
                     </div>
                 </div>
+                        </div>
+                        <div className="bg-yellow-400 h-full w-6"></div>
+                    </div>
+                </div>
+               
             </>
 
         </div>

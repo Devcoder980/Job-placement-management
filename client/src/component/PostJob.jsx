@@ -170,14 +170,13 @@ const PostJob = () => {
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="company">
                             JobType
                         </label>
-                        <select onChange={formData.jobType} name="jobType" id="" className=' border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'>
+                        <select value={formData.jobType} onChange={handleChange}  name="jobType" id="" className=' border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'>
                             <option value="Part-time">Part time</option>
                             <option value="Full-time">Full time</option>
                             <option value="Intership">Intership</option>
                             <option value="Permanent">Permanent</option>
                         </select>
                     </div>
-
                 </div>
                 <div>
                     <button type='submit' className="w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

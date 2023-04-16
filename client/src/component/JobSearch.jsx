@@ -20,6 +20,7 @@ const JobSearch = () => {
                 params: searchParams
             });
             setFilteredJobs(response.data);
+            console.log(response.data);
         } catch (error) {
             console.error(error);
             throw new Error("Failed to fetch data from API.");
@@ -130,7 +131,7 @@ const JobSearch = () => {
             {
                 displayedJobs.length
                     ?
-                    displayedJobs.map(item => (
+                    displayedJobs.sort((a,b)=>(a.createdDate<b.createdDate)?1:-1).map(item => (
                         <JobList
                             key={item._id} // Add a unique key 
                             title={item.title}

@@ -46,7 +46,7 @@ const JobList = (props) => {
                         </div>
                         <div className="mt-3 flex items-center text-sm text-gray-500">
                             <BsCalendar className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                            {props.lastDate}
+                            Job Post Date {props.createdDate.substring(0,10)}
                         </div>
                     </div>
                     <div className="mt-3 flex items-center text-lg text-gray-500">
