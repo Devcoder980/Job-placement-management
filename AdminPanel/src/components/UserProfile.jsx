@@ -7,6 +7,12 @@ import { useStateContext } from '../contexts/ContextProvider';
 import avatar from '../data/avatar.jpg';
 
 const UserProfile = () => {
+
+  function clrloc() {
+    localStorage.clear();
+    console.log("clear")
+    window.location.reload();
+  }
   const { currentColor } = useStateContext();
 
   return (
@@ -33,32 +39,14 @@ const UserProfile = () => {
           <p className="text-gray-500 text-sm font-semibold dark:text-gray-400"> info@shop.com </p>
         </div>
       </div>
-      <div>
-        {userProfileData.map((item, index) => (
-          <div key={index} className="flex gap-5 border-b-1 border-color p-4 hover:bg-light-gray cursor-pointer  dark:hover:bg-[#42464D]">
-            <button
-              type="button"
-              style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-              className=" text-xl rounded-lg p-3 hover:bg-light-gray"
-            >
-              {item.icon}
-            </button>
-
-            <div>
-              <p className="font-semibold dark:text-gray-200 ">{item.title}</p>
-              <p className="text-gray-500 text-sm dark:text-gray-400"> {item.desc} </p>
-            </div>
-          </div>
-        ))}
-      </div>
       <div className="mt-5">
-        <Button
-          color="white"
-          bgColor={currentColor}
-          text="Logout"
-          borderRadius="10px"
-          width="full"
-        />
+        <button
+          type="button"
+          onClick={clrloc}
+          className={` p-3 text-center bg-blue-900 text-white rounded-sm w-full  cursor-pointer hover:drop-shadow-xl`}
+        >
+        Log Out
+        </button>
       </div>
     </div>
 

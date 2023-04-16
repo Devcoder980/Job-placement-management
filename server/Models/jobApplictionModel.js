@@ -35,7 +35,10 @@ const userSchema = new mongoose.Schema({
   },
   company:{
     type:String,
-  }
+  },
+  title:{
+    type:String,
+  },
 });
 
 module.exports = mongoose.model('ApplyJobData', userSchema);

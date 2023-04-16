@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const ApplyJobData = require('../models/jobApplictionModel');
+
 const { MongoClient, GridFSBucket } = require('mongodb');
 const path = require('path');
 
@@ -44,7 +45,7 @@ router.get('/:company', async (req, res) => {
 
 // POST a new user
 router.post('/', upload.single('file'), async (req, res) => {
-    const { firstName, lastName, email, country,company,streetAddress, city, state } = req.body;
+    const { firstName, lastName, email,title, country,company,streetAddress, city, state } = req.body;
 
     try {
         // Connect to the database
@@ -73,6 +74,7 @@ router.post('/', upload.single('file'), async (req, res) => {
             city,
             company,
             state,
+            title,
             file: stream.id // Set the file ID as a field in the user document
         });
 

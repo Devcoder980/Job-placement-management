@@ -64,11 +64,11 @@ function EmployerDashboard() {
                         <title>Placeholder</title>
                         <rect width="100%" height="100%" fill="currentColor" />
                     </svg>
-                    <h2 className="font-medium text-xl mt-4">{user.companyName}</h2>
-                    <h2 className="font-medium text-xl mt-4">{user.email}</h2>
-                    <h2 className="font-medium text-xl mt-4">{user.phone}</h2>
-                    <h2 className="font-medium text-xl mt-4">{user.isHiringManager ? 'HiringManager' : 'No'}</h2>
-                    <p className="text-center my-4">Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+                    <h2 className="font-medium text-xl mt-2">{user.companyName}</h2>
+                    <h2 className="font-medium text-xl mt-2">{user.email}</h2>
+                    <h2 className="font-medium text-xl mt-2">{user.phone}</h2>
+                    <h2 className="font-medium text-xl mt-2">{user.isHiringManager ? 'HiringManager' : 'No'}</h2>
+                    <p className="text-center my-4   w-80 ">Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
 
                 </div>
 
@@ -84,6 +84,7 @@ function EmployerDashboard() {
                                         <thead class="border-b font-medium dark:border-neutral-500">
                                             <tr>
                                                 <th scope="col" class="px-6 py-4">#</th>
+                                                <th scope="col" class="px-6 py-4">title</th>
                                                 <th scope="col" class="px-6 py-4">First</th>
                                                 <th scope="col" class="px-6 py-4">Last</th>
                                                 <th scope="col" class="px-6 py-4">Email</th>
@@ -95,11 +96,11 @@ function EmployerDashboard() {
                                             </tr>
                                         </thead>
                                         <tbody>
-
                                             {
                                                 employe.map((e, i) => (
                                                     <tr class="border-b transition duration-300 ease-in-out  dark:border-neutral-500 dark:hover:bg-neutral-600">
                                                         <td class="whitespace-nowrap px-6 py-4 font-medium">{i + 1}</td>
+                                                        <td class="whitespace-nowrap px-6 py-4">{e.title}</td>
                                                         <td class="whitespace-nowrap px-6 py-4">{e.firstName}</td>
                                                         <td class="whitespace-nowrap px-6 py-4">{e.lastName}</td>
                                                         <td class="whitespace-nowrap px-6 py-4">{e.email}</td>

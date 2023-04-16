@@ -50,6 +50,8 @@ function ApplyForm() {
     formData.append('state', statee);
     formData.append('file', file);
     formData.append('company',company);
+    formData.append('title',title);
+    
 
     try {
       const response = await axios.post('http://localhost:5000/api/user/apply', formData);

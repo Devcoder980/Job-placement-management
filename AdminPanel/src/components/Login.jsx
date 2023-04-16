@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import jobadda from '../images/joblogo.png'
+import jobadda from '../'
 import axios from 'axios'
 import { BsArrowLeft } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
@@ -44,7 +44,7 @@ const Login = () => {
     return (
         <>
             {isLoggedIn ?
-                navigate('/dashboard')
+                navigate('/')
                 : (
                     <div className="relative h-full flex min-h-full justify-center md:px-12 lg:px-0">
                         <div className="relative z-10 h-[100vh] flex flex-1 flex-col bg-white py-10 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
@@ -66,11 +66,11 @@ const Login = () => {
                                 </div>
                                 <form onSubmit={handleSubmit} className="mt-10 grid grid-cols-1 gap-y-8">
                                     <div className="">
-                                        <label htmlFor="email" className="mb-3 block text-sm font-medium text-gray-700">Email address</label>
+                                        <label for="email" className="mb-3 block text-sm font-medium text-gray-700">Email address</label>
                                         <input id="email" onChange={handleInputChange} type="email" name="email" autoComplete="email" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
                                     </div>
                                     <div className="">
-                                        <label htmlFor="password" className="mb-3 block text-sm font-medium text-gray-700">Password</label>
+                                        <label for="password" className="mb-3 block text-sm font-medium text-gray-700">Password</label>
                                         <input id="password" onChange={handleInputChange} type="password" name="password" autoComplete="current-password" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
                                     </div>
                                     <div>

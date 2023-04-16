@@ -5,8 +5,11 @@ import NewsLetter from './NewsLetter'
 import { useRef, useEffect } from 'react';
 import Footer from './Footer'
 import axios from 'axios'
-
 import ThankYouMessage from './ThankYouMessage'
+import map from '../images/google.png'
+
+
+
 const ContactUs = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -92,7 +95,7 @@ const ContactUs = () => {
                   </div>
                 </div>
                 <div className="column-container mb-4 p-4  pt-8 border-1 pb-8  rounded-lg drop-shadow-2xl bg-white shadow-gray-400 flex-wrap col-span-6 flex justify-center items-center">
-                
+                  <img src={map} className=' w-[45rem] h-[45rem]' alt="" />
                 </div> 
               </div>
             </div>
