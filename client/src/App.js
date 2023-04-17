@@ -18,6 +18,7 @@ import EmployerLogin from './component/EmployeLogin';
 import EmployerDashboard from './component/EmployerDashboard'
 import JobSearch from './component/JobSearch';
 import ApplyJobThanks from './component/ApplyJobThanks'
+import JobPosts from './component/JobPosts';
 function App() {
   // const [themes, settheme] = useState(styles.backgroundTheme);
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path='/dashboard' element={<UserDashboard />} />
             <Route path='/post-job' element={<PostJob />} />
             <Route path='/employer/dashboard' element={<EmployerDashboard />} />
+            <Route path='/employer/jobposts' element={<JobPosts/>} />
             <Route path='/ApplyThankyou' element={<ApplyJobThanks/>} />
 
           </Route>

@@ -29,7 +29,9 @@ const NewsBlog = () => {
                         <div className="card w-72">
                             <img src={!e.urlToImage ? "https://images.mid-day.com/images/images/2022/aug/Cold-a_d.jpg" : e.urlToImage} className="card-img-top" style={{ width: '286px', height: '196px' }} alt="..." />
                             <div className="card-body">
-                                <h5 className="card-title font-body text-xl  w-80">{e.title}...</h5>
+                                <h5 className=" first-line:uppercase first-line:tracking-widest
+  first-letter:text-7xl first-letter:font-bold first-letter:text-black
+  first-letter:mr-3 first-letter:float-left card-title font-body text-xl  w-80">{e.title}...</h5>
                                 <p className="card-text  w-72">{e.description}...</p>
                                 <Link to={e.url} target="_blank" className="group inline-flex p-3 my-2 items-center justify-center rounded-full  font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-emerald-100 focus-visible:outline-emerald-600  text-sm">Read More</Link>
                             </div>

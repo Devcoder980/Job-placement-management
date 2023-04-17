@@ -14,6 +14,7 @@ import PostJobForm from './Forms/PostJobForm';
 import AddUserForm from './Forms/AddUserForm';
 import EmployerForm from './Forms/EmployerForm';
 import Employer from './pages/Employer';
+import DeleteJobs from './Forms/DeleteJobs';
 
 const App = () => {
 
@@ -121,6 +122,7 @@ const App = () => {
 
                   {/* forms  */}
                   <Route path="/Postjobform" element={<PostJobForm />} />
+                  <Route path="/DeleteJobs" element={<DeleteJobs/>} />
                   <Route path="/AddUserForm" element={<AddUserForm />} />
                   <Route path="/EmployerForm" element={<EmployerForm />} />
 

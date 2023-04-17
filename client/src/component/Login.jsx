@@ -67,11 +67,17 @@ const Login = () => {
                                 <form onSubmit={handleSubmit} className="mt-10 grid grid-cols-1 gap-y-8">
                                     <div className="">
                                         <label htmlFor="email" className="mb-3 block text-sm font-medium text-gray-700">Email address</label>
-                                        <input id="email" onChange={handleInputChange} type="email" name="email" autoComplete="email" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
+                                        <input id="email" onChange={handleInputChange} type="email" name="email" autoComplete="email" required=""
+                                            className="block disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                                        invalid:border-red-500 invalid:text-red-600
+                                        focus:invalid:border-red-500 focus:invalid:ring-red-500 w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
                                     </div>
                                     <div className="">
                                         <label htmlFor="password" className="mb-3 block text-sm font-medium text-gray-700">Password</label>
-                                        <input id="password" onChange={handleInputChange} type="password" name="password" autoComplete="current-password" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
+                                        <input id="password" onChange={handleInputChange} type="password" name="password" autoComplete="current-password" required=""
+                                            className="block disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                                         invalid:border-red-500 invalid:text-red-600
+                                         focus:invalid:border-red-500 focus:invalid:ring-red-500 w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
                                     </div>
                                     <div>
                                         <button className="group cursor-pointer inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-600 text-white  hover:text-slate-100 hover:bg-emerald-500 active:bg-emerald-800 active:text-emerald-100 focus-visible:outline-emerald-600 w-full" type="submit">

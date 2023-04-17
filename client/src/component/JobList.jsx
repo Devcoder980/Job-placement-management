@@ -23,7 +23,7 @@ const JobList = (props) => {
 
     return (
         <>
-            <div key={props.id} className={` z-20 relative lg:flex lg:items-center ${styles.paddingX} py-8 my-4  bg-slate-900  lg:justify-between`}>
+            <div key={props.id} className={`  z-20 relative lg:flex lg:items-center ${styles.paddingX} py-8 my-4  bg-slate-900  lg:justify-between`}>
                 <div className="min-w-0 flex-1">
                     <h2 className="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">
                         {props.title}
@@ -49,9 +49,9 @@ const JobList = (props) => {
                             Job Post Date {props.createdDate.substring(0,10)}
                         </div>
                     </div>
-                    <div className="mt-3 flex items-center text-lg text-gray-500">
+                    <div className="mt-3  flex items-center text-lg text-gray-500">
                         <HiOutlineDocument className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                        {props.description}
+                        {props.requirements}
                     </div>
                 </div>
                 <div className="mt-5 flex lg:mt-0 lg:ml-4">

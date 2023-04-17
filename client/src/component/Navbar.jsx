@@ -22,7 +22,7 @@ const Navbar = (props) => {
         console.log("call");
         history('/');
         localStorage.clear();
-        window.location.reload();
+        // window.location.reload();
     }
 
     const toggleNavbar = () => {

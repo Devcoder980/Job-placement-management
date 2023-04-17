@@ -492,6 +492,11 @@ export const links = [
         icon: <AiOutlineCalendar />,
       },
       {
+        name: 'DeleteJobs',
+        icon: <AiOutlineCalendar />,
+      },
+      
+      {
         name: 'AddUserForm',
         icon: <BsKanban />,
       },
@@ -499,6 +504,7 @@ export const links = [
         name: 'EmployerForm',
         icon: <FiEdit />,
       },
+
 
     ],
   },

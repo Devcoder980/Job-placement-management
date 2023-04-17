@@ -141,7 +141,7 @@ const JobSearch = () => {
                             minSalary={item.minSalary}
                             maxSalary={item.maxSalary}
                             description={item.description}
-                            requirements={item.description}
+                            requirements={item.requirements}
                             lastDate={item.lastDate}
                             createdDate={item.createdDate}
                             jobType={item.jobType}

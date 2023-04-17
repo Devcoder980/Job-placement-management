@@ -33,10 +33,10 @@ function ApplyForm() {
     return Object.keys(errors).length === 0;
   };
 
-    const { state } = useLocation();
-    const { title, company, description, lastDate, location, jobType, sector, minSalary, maxSalary } = state.e;
-  
-  
+  const { state } = useLocation();
+  const { title, company, description, lastDate, location, jobType, sector, minSalary, maxSalary, requirements } = state.e;
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!validateForm()) return;
@@ -49,9 +49,9 @@ function ApplyForm() {
     formData.append('city', city);
     formData.append('state', statee);
     formData.append('file', file);
-    formData.append('company',company);
-    formData.append('title',title);
-    
+    formData.append('company', company);
+    formData.append('title', title);
+
 
     try {
       const response = await axios.post('http://localhost:5000/api/user/apply', formData);
@@ -314,26 +314,23 @@ function ApplyForm() {
                       value={statee}
                       name="statee"
                       onChange={(e) => setStatee(e.target.value)}
-                      className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      className="appearance-none border-2 rounded w-full py-2 mt-2l px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                     {errors.statee && <span className="error">{errors.statee}</span>}
                   </div>
                 </div>
+                <div>
+                  <lable className="block pt-2  font-bold mt-2 text-gray-900">Upload Resume</lable>
+                </div>
                 <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
-                    <SiFiles className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                      <label
-                        htmlFor="file"
-                        className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                      >
-                        <span>Upload a file</span>
-                        <input id='file' type="file" className="sr-only" name='file' onChange={(e) => setFile(e.target.files[0])} />
-                      </label>
-                      <p className="pl-1">or drag and drop</p>
-                    </div>
-                    <p className="text-xs leading-5 text-gray-600">PDF,WORD up to 10MB</p>
-                  </div>
+                  
+                  <label class="block">
+                    <span class="sr-only">Choose profile photo</span>
+                    <input type="file" 
+                    onChange={(e) => setFile(e.target.files[0])}
+                    class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100
+    "/>
+                  </label>
                 </div>
               </div>
               <div>
@@ -342,11 +339,8 @@ function ApplyForm() {
                 </button>
               </div>
             </div>
-
-
           </form>
         </div>
-
         <div className="sm:contents lg:relative  bg-gradient-to-tr  from-teal-600 to-green-500 lg:flex-1">
           <div className=' bg-slate-900 flex  items-start py-20 justify-center lg:w-1/2'>
 
@@ -373,12 +367,18 @@ function ApplyForm() {
                   </div>
                   <div className="mt-3 mr-4  flex items-center text-sm text-gray-500">
                     <BsCalendar className=" h-5 mr-2 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                    {lastDate}
+                    {lastDate.substring(0,10)}
                   </div>
                 </div>
-                <div className="mt-3 mr-4   flex items-center text-lg text-gray-500">
+                <div className='mt-5 font-bold text-xl'>Description*</div>
+                <div className=" mr-4   flex items-center text-lg text-gray-500">
                   <HiOutlineDocument className=" h-5 mr-2 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
                   {description}
+                </div>
+                <div className='mt-5 font-bold text-xl'>equirements*</div>
+                <div className="mt-3 mr-4   flex items-center text-lg text-gray-500">
+                  <HiOutlineDocument className=" h-5 mr-2 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                  {requirements}
                 </div>
               </div>
             </div>

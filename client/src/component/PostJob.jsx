@@ -12,7 +12,7 @@ const PostJob = () => {
         maxSalary: '',
         description: '',
         requirements: '',
-        lastDate: '',
+        lastDate: Date,
         jobType: '',
     });
 
@@ -36,10 +36,10 @@ const PostJob = () => {
     };
 
     return (
-        <div className="flex mt-28 justify-center items-center h-screen">
+        <div className="flex mt-28 justify-center items-center">
             <form className="w-full max-w-lg bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
                 <h2 className="text-xl font-bold mb-4 text-center">Post a Job</h2>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                     <div className="mb-4">
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="title">
                             Title
@@ -157,10 +157,10 @@ const PostJob = () => {
                         <input
                             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="lastdate"
-                            name="lastdate"
+                            name="lastDate"
                             type="text"
-                            placeholder="Enter company name"
-                            value={formData.lastdate}
+                            placeholder="Enter lastdate "
+                            value={formData.lastDate}
                             onChange={handleChange}
                             required
                         />
@@ -172,7 +172,7 @@ const PostJob = () => {
                         </label>
                         <select value={formData.jobType} onChange={handleChange}  name="jobType" id="" className=' border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'>
                             <option value="Part-time">Part time</option>
-                            <option value="Full-time">Full time</option>
+                            <option defaultValue="Full-time">Full time</option>
                             <option value="Intership">Intership</option>
                             <option value="Permanent">Permanent</option>
                         </select>

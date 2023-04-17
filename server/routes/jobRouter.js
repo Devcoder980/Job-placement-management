@@ -7,7 +7,7 @@ const JobApplication = require('../models/jobApplictionModel');
 
 router.get('/jobs', asyncHandler(async (req, res) => {
   try {
-    const { title, location, jobType, page = 1, limit = 10 } = req.query;
+    const { title, location, jobType, page = 1, limit = 30 } = req.query;
     const filters = {};
 
     if (title) {
@@ -31,6 +31,20 @@ router.get('/jobs', asyncHandler(async (req, res) => {
   }
 }));
 
+router.get('/jobs/:company', asyncHandler(async (req, res) => {
+
+  const { company } = req.params;
+
+  try {
+    const Jobs = await Job.find({ company: company });
+    res.json(Jobs);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch jobs', error: err });
+
+
+  }
+
+}));
 
 
 router.post('/jobs', asyncHandler(async (req, res) => {
@@ -41,27 +55,18 @@ router.post('/jobs', asyncHandler(async (req, res) => {
   res.status(201).json(savedJob);
 }));
 
-
-
-// router.post('/jobs/:id/apply', auth, asyncHandler(async (req, res) => {
-//   const { resume, coverLetter } = req.body;
-//   const job = await Job.findById(req.params.id);
-//   if (!job) {
-//     res.status(404).json({ message: 'Job not found' });
-//   }
-//   const application = await JobApplication.findOne({ job: job._id, user: req.user._id });
-//   if (application) {
-//     res.status(400).json({ message: 'You have already applied for this job' });
-//   }
-//   const newApplication = new JobApplication({
-//     job: job._id,
-//     user: req.user._id,
-//     resume,
-//     coverLetter
-//   });
-//   await newApplication.save();
-//   res.status(201).json({ message: 'Job application submitted successfully' });
-// }));
+router.delete('/jobs/:id', asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deletedJob = await Job.findByIdAndDelete(id);
+    if (!deletedJob) {
+      return res.status(404).json({ message: 'Job not found' });
+    }
+    res.status(200).json({ message: 'Job deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to delete job', error: err });
+  }
+}));
 
 
 
