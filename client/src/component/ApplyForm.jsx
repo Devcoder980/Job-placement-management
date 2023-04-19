@@ -14,7 +14,7 @@ function ApplyForm() {
   const [country, setCountry] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
   const [city, setCity] = useState('');
-  const [statee, setStatee] = useState('');
+  const [statee, setStatee] = useState();
   const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ function ApplyForm() {
     if (!country.trim()) errors.country = 'Country is required';
     if (!streetAddress.trim()) errors.streetAddress = 'Street Address is required';
     if (!city.trim()) errors.city = 'City is required';
-    if (!statee.trim()) errors.statee = 'Statee is required';
+    if (isNaN(statee)) errors.statee = 'Pincode is required';
     if (!file) errors.file = 'Resume is required';
     setErrors(errors);
     return Object.keys(errors).length === 0;
@@ -60,7 +60,7 @@ function ApplyForm() {
       navigate('/applythankyou');
     } catch (error) {
       console.error(error);
-      alert('Something went wrong. Please try again later');
+      alert(error.response.data.message);
     }
   };
 
@@ -70,146 +70,7 @@ function ApplyForm() {
       <div className='lg:flex justify-around '>
         <div className="relative flex min-h-full justify-center md:px-12 lg:px-0">
           <form onSubmit={handleSubmit}>
-            {/* <div className="relative z-10 flex flex-1 flex-col bg-white py-4 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
-            <div className="border-b border-gray-900/10 pb-12">
-              <h2 className="block  font-bold mb-2 text-gray-900 text-3xl ">Personal Information</h2>
-              <p className="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
-              <div className="mt-10 grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-6">
-                <form onSubmit={handleSubmit}>
-                  <div className="sm:col-span-3">
-                    <label htmlFor="first-name" className="block  font-bold mb-2 text-gray-900">
-                      First name
-                    </label>
-                    <div className="mt-2">
-                      <input type="text"
-                        value={firstName}
-                        name="firstName"
-                        onChange={(e) => setFirstName(e.target.value)}
-                        className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      />
-                      {errors.firstName && <span className="error">{errors.firstName}</span>}
-                    </div>
-                  </div>
-                  <div className="sm:col-span-3">
-                    <label htmlFor="first-name" className="block  font-bold mb-2 text-gray-900">
-                      Last name
-                    </label>
-                    <div className="mt-2">
-
-                      <input type="text"
-                        value={lastName}
-                        name="lastName"
-                        onChange={(e) => setLastName(e.target.value)}
-                        className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      />
-                      {errors.lastName && <span className="error">{errors.lastName}</span>}
-                    </div>
-
-
-                  </div>
-
-                  <div className="sm:col-span-3">
-
-                    <label htmlFor="first-name" className="block  font-bold mb-2 text-gray-900">
-                      Email:
-                    </label>
-                    <div className="mt-2">
-
-                      <input type="email"
-                        value={email}
-                        name="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      /> {errors.email && <span className="error">{errors.email}</span>}
-                    </div>
-                   
-                  </div>
-
-                  <div className="sm:col-span-3">
-
-                    <label htmlFor="first-name" className="block  font-bold mb-2 text-gray-900">
-                      Country:
-                    </label>
-                    <div className="mt-2">
-
-                      <input type="text"
-                        value={country}
-                        name="country"
-                        onChange={(e) => setCountry(e.target.value)}
-                        className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      />
-                    {errors.country && <span className="error">{errors.country}</span>}
-                    </div>
-
-                  </div>
-
-                  <div className="sm:col-span-3">
-
-                    <label htmlFor="first-name" className="block  font-bold mb-2 text-gray-900">
-                      Street Address
-                    </label>
-                    <div className="mt-2">
-
-                      <input type="text"
-                        value={streetAddress}
-                        name="streetAddress"
-                        onChange={(e) => setStreetAddress(e.target.value)}
-                        className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      />
-                    {errors.streetAddress && <span className="error">{errors.streetAddress}</span>}
-                    </div>
-
-                  </div>
-                  <div className="sm:col-span-3">
-
-                    <label htmlFor="first-name" className="block  font-bold mb-2 text-gray-900">
-                      City:
-                    </label>
-                    <div className="mt-2">
-
-                      <input type="text"
-                        value={city}
-                        name="city"
-                        onChange={(e) => setCity(e.target.value)}
-                        className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      />
-                    {errors.city && <span className="error">{errors.city}</span>}
-                    </div>
-
-                  </div>
-                  <div className="sm:col-span-3">
-
-                    <label htmlFor="first-name" className="block  font-bold mb-2 text-gray-900">
-                      State
-                    </label>
-                    <div className="mt-2">
-
-                      <input type="text"
-                        value={statee}
-                        name="statee"
-                        onChange={(e) => setStatee(e.target.value)}
-                        className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      />
-                    {errors.statee && <span className="error">{errors.statee}</span>}
-                    </div>
-
-                  </div>
-
-                  <div className="sm:col-span-3">
-
-                    <label>
-                      Resume:
-                      <input type="file" name='file' onChange={(e) => setFile(e.target.files[0])} />
-                      {errors.file && <span className="error">{errors.file}</span>}
-                    </label>
-                  </div>
-
-                  <button type="submit">Submit</button>
-                </form>
-              </div>
-            </div>
-          </div> */}
-
+          
             <div className="relative z-10 flex flex-1 flex-col bg-white py-4 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
               <div className="border-b border-gray-900/10 pb-12">
                 <h2 className="block  font-bold mb-2 text-gray-900 text-3xl ">Personal Information</h2>
@@ -228,7 +89,7 @@ function ApplyForm() {
                         onChange={(e) => setFirstName(e.target.value)}
                         className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       />
-                      {errors.firstName && <span className="error">{errors.firstName}</span>}
+                      {errors.firstName && <span className="error text-red-500">{errors.firstName}</span>}
                     </div>
                   </div>
 
@@ -243,7 +104,7 @@ function ApplyForm() {
                         onChange={(e) => setLastName(e.target.value)}
                         className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       />
-                      {errors.lastName && <span className="error">{errors.lastName}</span>}
+                      {errors.lastName && <span className="error text-red-500">{errors.lastName}</span>}
                     </div>
                   </div>
 
@@ -257,7 +118,7 @@ function ApplyForm() {
                         name="email"
                         onChange={(e) => setEmail(e.target.value)}
                         className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      /> {errors.email && <span className="error">{errors.email}</span>}
+                      /> {errors.email && <span className="error text-red-500">{errors.email}</span>}
                     </div>
                   </div>
 
@@ -272,7 +133,7 @@ function ApplyForm() {
                         onChange={(e) => setCountry(e.target.value)}
                         className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       />
-                      {errors.country && <span className="error">{errors.country}</span>}
+                      {errors.country && <span className="error text-red-500">{errors.country}</span>}
                     </div>
                   </div>
 
@@ -287,7 +148,7 @@ function ApplyForm() {
                         onChange={(e) => setStreetAddress(e.target.value)}
                         className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       />
-                      {errors.streetAddress && <span className="error">{errors.streetAddress}</span>}
+                      {errors.streetAddress && <span className="error text-red-500">{errors.streetAddress}</span>}
                     </div>
                   </div>
 
@@ -302,13 +163,13 @@ function ApplyForm() {
                         onChange={(e) => setCity(e.target.value)}
                         className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       />
-                      {errors.city && <span className="error">{errors.city}</span>}
+                      {errors.city && <span className="error text-red-500">{errors.city}</span>}
                     </div>
                   </div>
 
                   <div className="sm:col-span-3">
                     <label htmlFor="region" className="block  font-bold mb-2 text-gray-900">
-                      State / Province
+                      Pincode
                     </label>
                     <input type="text"
                       value={statee}
@@ -316,7 +177,7 @@ function ApplyForm() {
                       onChange={(e) => setStatee(e.target.value)}
                       className="appearance-none border-2 rounded w-full py-2 mt-2l px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
-                    {errors.statee && <span className="error">{errors.statee}</span>}
+                    {errors.statee && <span className="error text-red-500">{errors.statee}</span>}
                   </div>
                 </div>
                 <div>
@@ -332,6 +193,7 @@ function ApplyForm() {
     "/>
                   </label>
                 </div>
+                {errors.file && <span className="error text-red-500">{errors.file}</span>}
               </div>
               <div>
                 <button type='submit' className="w-full my-4 cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

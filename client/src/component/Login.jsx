@@ -8,7 +8,7 @@ import UserDashboard from './UserDashboard'
 import Navbar from './Navbar'
 const Login = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+    const [errors, setErrors] = useState({});
     const navigate = useNavigate();
     useEffect(() => {
         const token = localStorage.getItem('authToken'); // get the token from local storage
@@ -26,8 +26,27 @@ const Login = () => {
         const { name, value } = e.target;
         setFromData({ ...fromData, [name]: value });
     }
+
+    const validateForm = (data) => {
+        const errors = {};
+        if (!data.email) {
+            errors.email = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+            errors.email = 'Email is invalid';
+        }
+        if (!data.password) {
+            errors.password = 'Password is required';
+        }
+        return errors;
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        const errors = validateForm(fromData);
+        if (Object.keys(errors).length > 0) {
+            setErrors(errors);
+            return;
+        }
         axios.post('http://localhost:5000/api/user/login', fromData)
             .then((res) => {
                 console.log(res.data);
@@ -38,6 +57,7 @@ const Login = () => {
             })
             .catch((e) => {
                 console.log(e);
+                alert("Please Enter Valid Email id or Password");
                 // handle error
             })
     }
@@ -71,6 +91,7 @@ const Login = () => {
                                             className="block disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                                         invalid:border-red-500 invalid:text-red-600
                                         focus:invalid:border-red-500 focus:invalid:ring-red-500 w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
+                                        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                                     </div>
                                     <div className="">
                                         <label htmlFor="password" className="mb-3 block text-sm font-medium text-gray-700">Password</label>
@@ -78,6 +99,7 @@ const Login = () => {
                                             className="block disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                                          invalid:border-red-500 invalid:text-red-600
                                          focus:invalid:border-red-500 focus:invalid:ring-red-500 w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
+                                        {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
                                     </div>
                                     <div>
                                         <button className="group cursor-pointer inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-600 text-white  hover:text-slate-100 hover:bg-emerald-500 active:bg-emerald-800 active:text-emerald-100 focus-visible:outline-emerald-600 w-full" type="submit">

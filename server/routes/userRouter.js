@@ -77,9 +77,9 @@ router.get('/', asyncHandler(async (req, res) => {
         // The token is valid
         const userId = decoded.userId;
         const userdata = await getUserById(userId); // You will need to implement this function to get the user by ID
-        console.log(userdata);
+        // console.log(userdata);
         res.json(userdata);
-        console.log(decoded);
+        // console.log(decoded);
       }
     });
   } catch (err) {

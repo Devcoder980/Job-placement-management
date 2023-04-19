@@ -19,7 +19,6 @@ router.get('/jobs', asyncHandler(async (req, res) => {
     if (jobType) {
       filters.jobType = { $regex: jobType, $options: 'i' };
     }
-
     const jobs = await Job.find(filters)
       .skip((page - 1) * limit)
       .limit(limit)
@@ -40,7 +39,6 @@ router.get('/jobs/:company', asyncHandler(async (req, res) => {
     res.json(Jobs);
   } catch (err) {
     res.status(500).json({ message: 'Failed to fetch jobs', error: err });
-
 
   }
 

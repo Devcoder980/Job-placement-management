@@ -2,7 +2,6 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const PostJob = () => {
-    const jobTypes = ['part time', 'full time', 'internship', 'freelancer', 'permanent'];
     const [formData, setFormData] = useState({
         title: '',
         company: localStorage.getItem("companyName"),
@@ -23,16 +22,25 @@ const PostJob = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(formData);
-        // Send form data to server or perform other actions
-        axios.post('http://localhost:5000/api/user/jobs', formData)
-            .then(response => {
-                alert("posted succesfully");
-                console.log('Job posted successfully', response.data);
-            })
-            .catch(error => {
-                console.error('Error posting job', error);
-            });
+        const minSalary = parseInt(formData.minSalary);
+        const maxSalary = parseInt(formData.maxSalary);
+        if (isNaN(minSalary) || isNaN(maxSalary)) {
+            alert("Please enter numeric values for salary");
+        } else if (minSalary > maxSalary) {
+            alert("Minimum salary cannot be greater than maximum salary");
+        } else {
+            console.log(formData);
+            // Send form data to server or perform other actions
+            axios.post('http://localhost:5000/api/user/jobs', formData)
+                .then(response => {
+                    alert("posted succesfully");
+                    console.log('Job posted successfully', response.data);
+                })
+                .catch(error => {
+                    alert('Error posting job', error.response.data.message);
+                });
+        }
+
     };
 
     return (
@@ -159,7 +167,7 @@ const PostJob = () => {
                             id="lastdate"
                             name="lastDate"
                             type="text"
-                            placeholder="Enter lastdate "
+                            placeholder="00/00/0000 OR 00-00-0000 "
                             value={formData.lastDate}
                             onChange={handleChange}
                             required
@@ -170,7 +178,7 @@ const PostJob = () => {
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="company">
                             JobType
                         </label>
-                        <select value={formData.jobType} onChange={handleChange}  name="jobType" id="" className=' border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'>
+                        <select value={formData.jobType} onChange={handleChange} name="jobType" id="" className=' border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'>
                             <option value="Part-time">Part time</option>
                             <option defaultValue="Full-time">Full time</option>
                             <option value="Intership">Intership</option>

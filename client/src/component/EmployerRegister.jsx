@@ -4,13 +4,15 @@ import { useNavigate } from 'react-router-dom';
 const EmployerRegister = () => {
     const [formData, setFormData] = useState({
         companyName: '',
-        numEmployees: '',
+        numEmployees: '0',
         isHiringManager: false,
         phone: '',
         email: '',
         password: '',
     });
-    const navigator=useNavigate();
+    const [errors, setErrors] = useState({});
+    const navigator = useNavigate();
+
     const handleChange = (event) => {
         const { name, value, type, checked } = event.target;
         setFormData((prevFormData) => ({
@@ -19,14 +21,33 @@ const EmployerRegister = () => {
         }));
     };
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        // Validation rules
+        const errors = {};
+        if (!formData.companyName) {
+            errors.companyName = 'Company name is required';
+        }
+        if (!formData.email) {
+            errors.email = 'Email is required';
+        }
+        if (!formData.password) {
+            errors.password = 'Password is required';
+        }
+        if (formData.phone.length!=10) {
+            errors.phone = 'Phone is required';
+        }
+
+        if (Object.keys(errors).length > 0) {
+            setErrors(errors);
+            return;
+        }
         try {
             const response = await axios.post("http://localhost:5000/api/employer", formData);
             alert("Employer Created Sucessfully");
             navigator('/employer/log-in')
         } catch (error) {
-            console.log(error);
+            alert(error.response.data.message);
         }
     };
 
@@ -48,6 +69,8 @@ const EmployerRegister = () => {
                         required
                         className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
+
+                    {errors.companyName && <div className="text-red-500">{errors.companyName}</div>}
                 </div>
                 <div className="mb-4">
                     <label htmlFor="numEmployees" className="block text-gray-700 font-bold mb-2">
@@ -62,6 +85,7 @@ const EmployerRegister = () => {
                         onChange={handleChange}
                         className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
+                    {errors.numEmployees && <div className="text-red-500">{errors.numEmployees}</div>}
                 </div>
                 <div className="mb-4">
                     <label htmlFor="isHiringManager" className="inline-flex items-center">
@@ -89,6 +113,7 @@ const EmployerRegister = () => {
                         onChange={handleChange}
                         className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
+                    {errors.phone && <div className="text-red-500">{errors.phone}</div>}
                 </div>
                 <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
@@ -103,6 +128,7 @@ const EmployerRegister = () => {
                         onChange={handleChange}
                         className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
+                    {errors.email && <div className="text-red-500">{errors.email}</div>}
                 </div>
                 <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
@@ -117,6 +143,7 @@ const EmployerRegister = () => {
                         onChange={handleChange}
                         className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
+                    {errors.password && <div className="text-red-500">{errors.password}</div>}
                 </div>
                 <div className="flex items-center justify-center">
                     <button

@@ -8,7 +8,14 @@ import UserDashboard from './UserDashboard'
 import Navbar from './Navbar'
 const EmployerLogin = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+    const [formErrors, setFormErrors] = useState({
+        email: '',
+        password: '',
+    });
+    const [fromData, setFromData] = useState({
+        email: '',
+        password: '',
+    });
     const history = useNavigate();
     useEffect(() => {
         const token = localStorage.getItem('authToken'); // get the token from local storage
@@ -19,16 +26,25 @@ const EmployerLogin = () => {
         }
     }, []);
 
-    const [fromData, setFromData] = useState({
-        email: '',
-        password: '',
-    });
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFromData({ ...fromData, [name]: value });
     }
     const handleSubmit = (e) => {
         e.preventDefault();
+        setFormErrors({ email: '', password: '' }); // reset form errors
+        const { email, password } = fromData;
+
+        // Perform validation
+        if (!email) {
+            setFormErrors({ ...formErrors, email: 'Please enter an email address.' });
+            return;
+        }
+        if (!password) {
+            setFormErrors({ ...formErrors, password: 'Please enter a password.' });
+            return;
+        }
         axios.post('http://localhost:5000/api/employer/login', fromData)
             .then((res) => {
                 console.log(res.data);
@@ -65,23 +81,26 @@ const EmployerLogin = () => {
                                     <div className="">
                                         <label for="email" className="mb-3 block text-sm font-medium text-gray-700">Email address</label>
                                         <input id="email" onChange={handleInputChange} type="email" name="email" autoComplete="email" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
+                                        {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
                                     </div>
                                     <div className="">
                                         <label for="password" className="mb-3 block text-sm font-medium text-gray-700">Password</label>
                                         <input id="password" onChange={handleInputChange} type="password" name="password" autoComplete="current-password" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
+                                        {formErrors.password && <p className="text-red-500 text-sm mt-1">{formErrors.password}</p>}
                                     </div>
+                                    
                                     <div>
                                         <button className="group inline-flex cursor-pointer items-center justify-center rounded-full py-3 px-4 text-md font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-600 text-white  hover:text-slate-100 hover:bg-emerald-500 active:bg-emerald-800 active:text-emerald-100 focus-visible:outline-emerald-600 w-full" type="submit">
                                             <span>Sign in </span>
                                         </button>
                                     </div>
-                                        <Link
-                                            to="/"
-                                            className=" flex  items-center justify-center  text-center bg-slate-700 text-white py-3 px-6 rounded-full hover:bg-slate-600 transition duration-300"
-                                        >
-                                            <span aria-hidden="true">  <BsArrowLeft /></span>
-                                            <span style={{ marginLeft: "5px" }}>Go Back Home</span>
-                                        </Link>
+                                    <Link
+                                        to="/"
+                                        className=" flex  items-center justify-center  text-center bg-slate-700 text-white py-3 px-6 rounded-full hover:bg-slate-600 transition duration-300"
+                                    >
+                                        <span aria-hidden="true">  <BsArrowLeft /></span>
+                                        <span style={{ marginLeft: "5px" }}>Go Back Home</span>
+                                    </Link>
                                 </form>
                             </div>
                         </div>
