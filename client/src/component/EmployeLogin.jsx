@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import jobadda from '../images/joblogo.png'
 import axios from 'axios'
 import { BsArrowLeft } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
-import UserDashboard from './UserDashboard'
-import Navbar from './Navbar'
 const EmployerLogin = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [formErrors, setFormErrors] = useState({
@@ -17,6 +14,7 @@ const EmployerLogin = () => {
         password: '',
     });
     const history = useNavigate();
+    
     useEffect(() => {
         const token = localStorage.getItem('authToken'); // get the token from local storage
         if (token) {
@@ -24,7 +22,7 @@ const EmployerLogin = () => {
             console.log("user Already log in")
             history('/user');
         }
-    }, []);
+    }, [history]);
 
 
     const handleInputChange = (e) => {
@@ -88,7 +86,7 @@ const EmployerLogin = () => {
                                         <input id="password" onChange={handleInputChange} type="password" name="password" autoComplete="current-password" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm" />
                                         {formErrors.password && <p className="text-red-500 text-sm mt-1">{formErrors.password}</p>}
                                     </div>
-                                    
+
                                     <div>
                                         <button className="group inline-flex cursor-pointer items-center justify-center rounded-full py-3 px-4 text-md font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-600 text-white  hover:text-slate-100 hover:bg-emerald-500 active:bg-emerald-800 active:text-emerald-100 focus-visible:outline-emerald-600 w-full" type="submit">
                                             <span>Sign in </span>

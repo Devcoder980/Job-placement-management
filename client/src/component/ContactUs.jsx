@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styles from '../style'
 import { FaUserCircle } from 'react-icons/fa'
 import NewsLetter from './NewsLetter'
-import { useRef, useEffect } from 'react';
 import Footer from './Footer'
 import axios from 'axios'
 import ThankYouMessage from './ThankYouMessage'
@@ -78,15 +77,15 @@ const ContactUs = () => {
                       </div>
                       <div>
                         <label className=' text-gray-500'>What can we help you with?</label>
-                        <select tabindex="30" name="question" onChange={handleInputChange} className={`w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-${styles.backgroundTheme}-500 focus:shadow-outline-${styles.backgroundTheme}`} id="contact-department" required="">
+                        <select tabIndex="30" name="question" onChange={handleInputChange} className={`w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-${styles.backgroundTheme}-500 focus:shadow-outline-${styles.backgroundTheme}`} id="contact-department" required="">
                           <option value="sales">Sales and General Information</option><option value="accounts">Accounts and Billing</option><option value="other">Other</option> </select>
 
                       </div>
                       <div className=" my-4 ">
-                        <textarea name="message" onChange={handleInputChange} className={`w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-${styles.backgroundTheme}-500 focus:shadow-outline-${styles.backgroundTheme}`} type="text" rows="4" id="contact-message" placeholder="Your Message" autocomplete="off" tabindex="40" required=""></textarea>
+                        <textarea name="message" onChange={handleInputChange} className={`w-full bg-[#6d7c901a] text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-${styles.backgroundTheme}-500 focus:shadow-outline-${styles.backgroundTheme}`} type="text" rows="4" id="contact-message" placeholder="Your Message" autoComplete="off" tabIndex="40" required=""></textarea>
                       </div>
 
-                      <input type="submit" className=" cursor-pointer inline-block py-5 align-middle w-[100%]  rounded-full px-[12px]   text-2xl bg-violet-600 text-white  shadow-cyan-500/50  bg-primary   font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]" name="submit" id="contact-submit" value="Submit Message" tabindex="100" />
+                      <input type="submit" className=" cursor-pointer inline-block py-5 align-middle w-[100%]  rounded-full px-[12px]   text-2xl bg-violet-600 text-white  shadow-cyan-500/50  bg-primary   font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]" name="submit" id="contact-submit" value="Submit Message" tabIndex="100" />
                     </form>
 
 

@@ -16,6 +16,7 @@ myconnnect();
 app.use(cors());
 
 app.use('/api/user/',require('./routes/userRouter.js'))
+app.use('/api/admin/',require('./routes/adminRouter.js'))
 app.use('/api/user/',require('./routes/jobRouter'))
 app.use('/api/user/',require('./routes/sqliteRouter'))
 app.use('/api/user/',require('./routes/contactUs'))

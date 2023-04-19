@@ -38,7 +38,7 @@ const App = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/user/login', fromData)
+    axios.post('http://localhost:5000/api/admin/login', fromData)
       .then((res) => {
         console.log(res.data);
         localStorage.setItem('authToken', res.data.token);

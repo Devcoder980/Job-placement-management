@@ -20,7 +20,6 @@ const JobSearch = () => {
                 params: searchParams
             });
             setFilteredJobs(response.data);
-            console.log(response.data);
         } catch (error) {
             console.error(error);
             throw new Error("Failed to fetch data from API.");

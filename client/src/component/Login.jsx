@@ -4,8 +4,7 @@ import jobadda from '../images/joblogo.png'
 import axios from 'axios'
 import { BsArrowLeft } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
-import UserDashboard from './UserDashboard'
-import Navbar from './Navbar'
+
 const Login = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [errors, setErrors] = useState({});
@@ -17,7 +16,7 @@ const Login = () => {
             console.log("user Already log in")
             navigate('/user');
         }
-    }, []);
+    }, [navigate]);
     const [fromData, setFromData] = useState({
         email: '',
         password: '',

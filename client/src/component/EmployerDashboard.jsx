@@ -6,11 +6,7 @@ import { HiArrowRight } from 'react-icons/hi';
 function EmployerDashboard() {
     const [user, setUser] = useState({});
     const [employe, setEmploye] = useState([]);
-    // companyName: '',
-    // numEmployees: '',
-    // isHiringManager: false,
-    // phone: '',
-    // email: '',
+   
     useEffect(() => {
         const token = localStorage.getItem('authTokenEmployer'); // get the token from local storage
         try {
@@ -49,8 +45,6 @@ function EmployerDashboard() {
             console.log(error)
         }
 
-
-        console.log(user)
 
     }, []);
 

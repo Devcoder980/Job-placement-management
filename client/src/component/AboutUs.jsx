@@ -113,11 +113,11 @@ const AboutUs = () => {
                                     <img src={person_6} alt="persong" className="img-fluid img-shadow rounded-md" />
                                 </a>
                             </div>
-                            <div class=" col-span-6 lg:ml-20">
+                            <div className=" col-span-6 lg:ml-20">
                                 <h3 className=' text-3xl py-4'>Dilip kushwaha</h3>
-                                <p class="text-muted text-lg text-[#ced4da] py-4">Creative Director</p>
+                                <p className="text-muted text-lg text-[#ced4da] py-4">Creative Director</p>
                                 <p className='text-lg text-gray-400 py-4'>Dilip has more than 15 years of experience in Online Education, Recruitments, & eCommerce space. He has been associated with Freshersworld since its early days. He defines & drives technology initiatives for Freshersworld.</p>
-                                <div class="social mt-4 flex text-slate-600 gap-3">
+                                <div className="social mt-4 flex text-slate-600 gap-3">
                                     <Link to="#"><FaFacebook className="h-10 w-10" /></Link>
                                     <Link to="#"><FaInstagram className="h-10 w-10 " /></Link>
                                     <Link to="#"><FaLinkedin className="h-10 w-10 " /></Link>
@@ -139,9 +139,9 @@ const AboutUs = () => {
                             </div>
                             <div className="flex-1 col-span-6 lg:mx-3">
                                 <h3 className=' text-3xl'>Chintan Patel</h3>
-                                <p class="text-muted text-lg text-[#ced4da]">Creative Director</p>
+                                <p className="text-muted text-lg text-[#ced4da]">Creative Director</p>
                                 <p className='text-lg text-gray-400'>We work with some of the biggest organizations in the world, who use the HackerOne platform for their vulnerability coordination, bug bounty programs, and penetration testing, and the list keeps growing.</p>
-                                <div class="social mt-4 flex text-slate-600 gap-3">
+                                <div className="social mt-4 flex text-slate-600 gap-3">
                                     <Link to="#"><FaFacebook className="h-10 w-10" /></Link>
                                     <Link to="#"><FaInstagram className="h-10 w-10 " /></Link>
                                     <Link to="#"><FaLinkedin className="h-10 w-10 " /></Link>
