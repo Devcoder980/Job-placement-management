@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { SiFiles } from 'react-icons/si';
 import styles from '../style'
 import { useLocation } from 'react-router-dom'
 import { BsCurrencyDollar, BsCalendar, BsBriefcaseFill, BsPinMap } from 'react-icons/bs'
@@ -34,7 +33,7 @@ function ApplyForm() {
   };
 
   const { state } = useLocation();
-  const { title, company, description, lastDate, location, jobType, sector, minSalary, maxSalary, requirements } = state.e;
+  const { title, company, description, lastDate, location, jobType, minSalary, maxSalary, requirements } = state.e;
 
 
   const handleSubmit = async (event) => {
@@ -185,11 +184,11 @@ function ApplyForm() {
                 </div>
                 <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                   
-                  <label class="block">
-                    <span class="sr-only">Choose profile photo</span>
+                  <label className="block">
+                    <span className="sr-only">Choose profile photo</span>
                     <input type="file" 
                     onChange={(e) => setFile(e.target.files[0])}
-                    class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100
+                    className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100
     "/>
                   </label>
                 </div>
