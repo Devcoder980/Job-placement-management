@@ -40,7 +40,6 @@ const PostJob = () => {
                     alert('Error posting job', error.response.data.message);
                 });
         }
-
     };
 
     return (
