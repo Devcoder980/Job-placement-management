@@ -74,7 +74,7 @@
 
 </li><li>redux-thunk: a middleware for handling asynchronous actions in Redux
 
-</li><li>bootstrap: a popular CSS framework for building responsive web applications
+</li><li>Tailwind: a popular CSS framework for building responsive web applications
 
 </li><li>react-bootstrap: a library that provides Bootstrap components as React components
 
