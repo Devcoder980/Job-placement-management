@@ -10,7 +10,7 @@ const JobSearch = () => {
     const location = useLocation();
 
     const [searchParams, setSearchParams] = useState({ title: '', location: '', jobType: '' });
-    const [data, setData] = useState([]);
+    const [data, ] = useState([]);
     const [filteredJobs, setFilteredJobs] = useState([]);
 
     async function searchDatabase(searchParams) {
@@ -41,8 +41,8 @@ const JobSearch = () => {
     return (
         <>
             {console.log(data)}
-            <section className={`relative  flex ${styles.backgroundTheme} bg-slate-900 justify-center items-center md:py-20  py-24 w-full ${styles.paddingX}`}>
-                <div className={`absolute inset-0 bg-${styles.backgroundTheme}-600/5 dark:bg-${styles.backgroundTheme}-600/10`}></div>
+            <section className={`   ${styles.backgroundTheme} bg-slate-900 justify-center items-center md:py-20  py-24 w-full ${styles.paddingX}`}>
+                <div className={` inset-0 bg-${styles.backgroundTheme}-600/5 dark:bg-${styles.backgroundTheme}-600/10`}></div>
                 <div className="container z-1">
                     <div className="grid z-50 z-40 grid-cols-1 text-center mt-10 relative">
                         <h4 className="lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 font-bold text-white">Join us & <span className={`text-${styles.backgroundTheme}-600 font-bold`}>Explore</span>  <span className={`text-${styles.backgroundTheme}-600 font-bold`}>Thousands</span> of Jobs</h4>
@@ -107,7 +107,7 @@ const JobSearch = () => {
                                                             name="jobType"
                                                             id="jobType"
                                                             aria-label="Default input example"
-                                                        /> 
+                                                        />
                                                         <datalist id="jobTypeOptions">
                                                             <option value="Full Time" />
                                                             <option value="Part Time" />
@@ -125,29 +125,34 @@ const JobSearch = () => {
                         </div>
                     </div>
                 </div>
+                <div className='flex flex-wrap justify-center'>
+
+                    {
+                        displayedJobs.length
+                            ?
+                            displayedJobs.sort((a, b) => (a.createdDate < b.createdDate) ? 1 : -1).map(item => (
+                                <JobList
+                                    key={item._id} // Add a unique key 
+                                    title={item.title}
+                                    company={item.company}
+                                    location={item.location}
+                                    sector={item.sector}
+                                    minSalary={item.minSalary}
+                                    maxSalary={item.maxSalary}
+                                    description={item.description}
+                                    requirements={item.requirements}
+                                    lastDate={item.lastDate}
+                                    createdDate={item.createdDate}
+                                    jobType={item.jobType}
+                                />
+                            )) :
+                            <>
+                            </>}
+
+                </div>
             </section>
 
-            {
-                displayedJobs.length
-                    ?
-                    displayedJobs.sort((a,b)=>(a.createdDate<b.createdDate)?1:-1).map(item => (
-                        <JobList
-                            key={item._id} // Add a unique key 
-                            title={item.title}
-                            company={item.company}
-                            location={item.location}
-                            sector={item.sector}
-                            minSalary={item.minSalary}
-                            maxSalary={item.maxSalary}
-                            description={item.description}
-                            requirements={item.requirements}
-                            lastDate={item.lastDate}
-                            createdDate={item.createdDate}
-                            jobType={item.jobType}
-                        />
-                    )) :
-                    <>
-                    </>}
+
         </>
     )
 }

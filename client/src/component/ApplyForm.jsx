@@ -69,7 +69,7 @@ function ApplyForm() {
       <div className='lg:flex justify-around '>
         <div className="relative flex min-h-full justify-center md:px-12 lg:px-0">
           <form onSubmit={handleSubmit}>
-          
+
             <div className="relative z-10 flex flex-1 flex-col bg-white py-4 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
               <div className="border-b border-gray-900/10 pb-12">
                 <h2 className="block  font-bold mb-2 text-gray-900 text-3xl ">Personal Information</h2>
@@ -183,12 +183,12 @@ function ApplyForm() {
                   <lable className="block pt-2  font-bold mt-2 text-gray-900">Upload Resume</lable>
                 </div>
                 <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  
+
                   <label className="block">
                     <span className="sr-only">Choose profile photo</span>
-                    <input type="file" 
-                    onChange={(e) => setFile(e.target.files[0])}
-                    className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100
+                    <input type="file"
+                      onChange={(e) => setFile(e.target.files[0])}
+                      className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100
     "/>
                   </label>
                 </div>
@@ -204,7 +204,6 @@ function ApplyForm() {
         </div>
         <div className="sm:contents lg:relative  bg-gradient-to-tr  from-teal-600 to-green-500 lg:flex-1">
           <div className=' bg-slate-900 flex  items-start py-20 justify-center lg:w-1/2'>
-
             <div className={` w-4/5 lg:items-center ${styles.paddingX} py-8   bg-white text-slate-900  lg:justify-between`}>
               <div >
                 <h2 className="text-2xl font-bold leading-7 text-slate-900 sm:truncate sm:text-3xl sm:tracking-tight">
@@ -228,18 +227,50 @@ function ApplyForm() {
                   </div>
                   <div className="mt-3 mr-4  flex items-center text-sm text-gray-500">
                     <BsCalendar className=" h-5 mr-2 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                    {lastDate.substring(0,10)}
+                    {lastDate.substring(0, 10)}
                   </div>
                 </div>
                 <div className='mt-5 font-bold text-xl'>Description*</div>
-                <div className=" mr-4   flex items-center text-lg text-gray-500">
-                  <HiOutlineDocument className=" h-5 mr-2 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                  {description}
-                </div>
-                <div className='mt-5 font-bold text-xl'>equirements*</div>
-                <div className="mt-3 mr-4   flex items-center text-lg text-gray-500">
-                  <HiOutlineDocument className=" h-5 mr-2 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                  {requirements}
+                <div>
+                  <div className='mt-2 '>
+                    <div className=' italic text-gray-400 '>Requiremnt</div>
+                    <div className='font-normal flex flex-wrap text-base leading-5 gap-2'>
+                      {requirements.split(',').map((item, index) => {
+                        if (item) {
+                          return (
+                            <span
+                              key={index}
+                              className=' text-gray-900 px-3 bg-blend-color-burn rounded-sm '
+                              style={{ wordWrap: 'break-word' }} // add this line
+                            >
+                              {item}
+                            </span>
+                          );
+                        } else {
+                          return null;
+                        }
+                      })}
+                    </div>
+
+                  </div>
+                  <div>
+                    <div className='mt-2 '>
+                      <div className='italic text-gray-400'>Description</div>
+                      <div className='font-normal text-base leading-5 flex gap-2'>
+                        <ol className=' pl-8' style={{ listStyle: "circle" }}>
+                          {description.split('.').map((item, index) => {
+                            if (item) {
+                              return <li key={index}>{item}</li>;
+                            } else {
+                              return null;
+                            }
+                          })}
+                        </ol>
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>

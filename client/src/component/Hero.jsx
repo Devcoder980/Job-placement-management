@@ -8,7 +8,7 @@ import logo_tinder from '../images/logo_tinder.svg'
 import logo_sony from '../images/logo_sony.svg'
 import logo_airbnb from '../images/logo_airbnb.svg'
 import styles from '../style.js'
-
+import '../App.css'
 import NewsLetter from './NewsLetter'
 import JobSearch from './JobSearch'
 import Footer from './Footer'
@@ -17,9 +17,9 @@ const Hero = () => {
     return (
         <>
             <main className={`bg-${styles.backgroundTheme}-900`}>
-                
-                <div className="absolute inset-[1px] z-10 -top-32 -bottom-48 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:left-[calc(50%+14rem)] lg:right-0 lg:-top-32 lg:-bottom-32 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
-                    <svg aria-hidden="true" viewBox="0 0 420 1069" width="400" height="1469" fill="none" className="absolute top-1/2 left-40  z-8 -translate-y-1/2 -translate-x-1/2 lg:left-[-20px] lg:translate-x-0 lg:translate-y-[-60%]">
+
+                <div className=" absolute inset-[1px] z-10 -top-32 -bottom-48 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:left-[calc(50%+14rem)] lg:right-0 lg:-top-32 lg:-bottom-32 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
+                    <svg aria-hidden="true" viewBox="0 0 389 1069" width="400" height="1469" fill="none" className="absolute top-1/2 left-40  z-8 -translate-y-1/2 -translate-x-1/2 lg:left-[-20px] lg:translate-x-0 lg:translate-y-[-60%]">
                         <defs>
                             <clipPath id=":R1l6:-clipPath">
                                 <path fill="#fff" transform="rotate(-180 334 534.4)" d="M0 0h668v1068.8H0z"></path>
@@ -59,7 +59,7 @@ const Hero = () => {
                 <JobSearch />
 
                 <div className={`blur bg-blue-300  lg:absolute  top-16  hero-blur`}>
-                    
+
                 </div>
                 <section className={`site-section py-4 ${styles.paddingX}`}>
                     <div className="container">
@@ -74,61 +74,60 @@ const Hero = () => {
 
                         </div>
 
-                        <div className="bg-slate-900 py-8  sm:py-32">
+                        <div className="bg-slate-900 py-8 sm:py-32">
                             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
                                 <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
                                     <img
-                                        className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                        className="icon-img col-span-2 w-full object-fit-contain lg:col-span-1"
                                         src={logo_mailchimp}
                                         alt="Transistor"
                                         width={300}
                                         height={1000}
                                     />
                                     <img
-                                        className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                        className="icon-img col-span-2 w-full object-fit-contain lg:col-span-1"
                                         src={logo_paypal}
                                         alt="Reform"
                                         width={300}
                                         height={1000}
                                     />
                                     <img
-                                        className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                                        className="icon-img col-span-2 w-full object-fit-contain lg:col-span-1"
                                         src={logo_stripe}
                                         alt="Tuple"
                                         width={300}
                                         height={100}
                                     />
                                     <img
-                                        className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+                                        className="icon-img col-span-2 w-full object-fit-contain sm:col-start-2 lg:col-span-1"
                                         src={logo_visa}
                                         alt="SavvyCal"
                                         width={300}
                                         height={100}
                                     />
                                     <img
-                                        className="col-span-2  max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                        className="icon-img col-span-2 w-full object-fit-contain sm:col-start-auto lg:col-span-1"
                                         src={logo_apple}
                                         alt="Statamic"
                                         width={300}
                                         height={100}
                                     />
                                     <img
-                                        className="col-span-2  max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                        className="icon-img col-span-2 w-full object-fit-contain sm:col-start-auto lg:col-span-1"
                                         src={logo_tinder}
                                         alt="Statamic"
                                         width={300}
                                         height={100}
                                     />
                                     <img
-                                        className="col-span-2  max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                        className="icon-img col-span-2 w-full object-fit-contain sm:col-start-auto lg:col-span-1"
                                         src={logo_sony}
                                         alt="Statamic"
                                         width={300}
                                         height={100}
                                     />
                                     <img
-                                        className="col-span-2  max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                        className="icon-img col-span-2 w-full object-fit-contain sm:col-start-auto lg:col-span-1"
                                         src={logo_airbnb}
                                         alt="Statamic"
                                         width={300}
@@ -138,12 +137,11 @@ const Hero = () => {
                             </div>
                         </div>
 
-
                     </div>
                 </section>
 
                 <div className={`blur bg-blue-300 lg:left-[56rem]  lg:absolute  top-[18rem]  hero-blur`}>
-                    
+
                 </div>
 
                 <NewsLetter />

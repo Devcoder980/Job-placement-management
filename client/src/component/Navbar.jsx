@@ -54,25 +54,26 @@ const Navbar = (props) => {
                         <div className="flex-1 flex items-center  justify-center md:items-stretch md:justify-between">
                             <div className="flex items-center text-3xl">
                                 <a href="/" className="text-white font-bold">
-                                    <img src={joblogo} className="w-30 h-10" alt="" />
+                                    <img src={joblogo} className="w-40 h-10" alt="" />
                                 </a>
+                                
                             </div>
                             <div className="hidden md:block md:ml-6">
                                 <ul className="flex items-center">
-                                    <li className={` mr-6`} >
-                                        <Link className="text-gray-300 hover:text-white block  px-3 py-2 rounded-md font-medium" to="/">Home</Link>
+                                    <li className={` mr-4`} >
+                                        <Link className="text-gray-300 cursor-pointer hover:text-white block  px-3 py-2 rounded-md font-medium" to="/">Home</Link>
                                     </li>
-                                    <li className="mr-6">
-                                        <Link className="text-gray-300 hover:text-white block px-3 py-2 rounded-md font-medium" to="/jobs">Jobs</Link>
+                                    <li className="mr-4">
+                                        <Link className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" to="/jobs">Jobs</Link>
                                     </li>
-                                    <li className="mr-6">
-                                        <Link to="/carrers" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md font-medium" >CARRER TIPS</Link>
+                                    <li className="mr-4">
+                                        <Link to="/carrers" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" >CARRER TIPS</Link>
                                     </li>
-                                    <li className="mr-6">
-                                        <Link to="/contactus" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md font-medium" > Contact</Link>
+                                    <li className="mr-4">
+                                        <Link to="/contactus" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" > Contact</Link>
                                     </li>
-                                    <li className="mr-6">
-                                        <Link to="/aboutus" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md font-medium" > About Us</Link>
+                                    <li className="mr-4">
+                                        <Link to="/aboutus" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" > About Us</Link>
                                     </li>
                                     {localStorage.authToken ?
                                         <>
@@ -88,7 +89,7 @@ const Navbar = (props) => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <li className="mr-6">
+                                            <li className="mr-4">
                                                 <Menu as="div" className="relative inline-block text-left">
                                                     <div>
                                                         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -149,19 +150,19 @@ const Navbar = (props) => {
                                                     </>
                                                     :
                                                     <>
-                                                        <li className="mr-6">
+                                                        <li className="mr-4">
                                                             <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
                                                                 <Link to="/login" > Login </Link>
                                                             </button>
                                                         </li>
-                                                        <li className="mr-6">
+                                                        <li className="mr-4">
                                                             <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
                                                                 <Link to="/register" > Register </Link>
                                                             </button>
                                                         </li>
                                                     </>
                                             }
-                                            <li className='mr-6   '>
+                                            <li className='mr-4   '>
                                                 <Menu as="div" className="relative  inline-block text-left">
                                                     <div>
                                                         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -192,7 +193,7 @@ const Navbar = (props) => {
                                                                                     Post a Job
                                                                                 </Link>
                                                                             </Menu.Item>
-                                                                         
+
                                                                         </>
                                                                         :
                                                                         <>
@@ -261,32 +262,32 @@ const Navbar = (props) => {
                 </div>
                 <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
                     <ul className="px-2 pt-2 pb-3">
-                        <li className="mr-6">
-                            <Link onClick={toggleNavbar} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md font-medium" to="/">Home</Link>
+                        <li className="mr-4">
+                            <Link onClick={toggleNavbar} className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" to="/">Home</Link>
                         </li>
-                        <li className="mr-6">
-                            <Link onClick={toggleNavbar} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md font-medium" to="/jobs">Jobs</Link>
+                        <li className="mr-4">
+                            <Link onClick={toggleNavbar} className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" to="/jobs">Jobs</Link>
                         </li>
-                        <li className="mr-6">
-                            <Link onClick={toggleNavbar} to="/carrers" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md font-medium" >CARRER TIPS</Link>
+                        <li className="mr-4">
+                            <Link onClick={toggleNavbar} to="/carrers" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" >CARRER TIPS</Link>
                         </li>
-                        <li className="mr-6">
-                            <Link onClick={toggleNavbar} to="/contactus" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md font-medium" > Contact</Link>
+                        <li className="mr-4">
+                            <Link onClick={toggleNavbar} to="/contactus" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" > Contact</Link>
                         </li>
-                        <li className="mr-6">
-                            <Link onClick={toggleNavbar} to="/aboutus" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md font-medium" > About Us</Link>
+                        <li className="mr-4">
+                            <Link onClick={toggleNavbar} to="/aboutus" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" > About Us</Link>
                         </li>
-                        <li className="mr-6 py-2 mx-2">
+                        <li className="mr-4 py-2 mx-2">
                             <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block py-2 bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
                                 <Link to="/login" > Login </Link>
                             </button>
                         </li>
-                        <li className="mr-6 py-2 mx-2">
+                        <li className="mr-4 py-2 mx-2">
                             <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block  bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
                                 <Link to="/register" > Register </Link>
                             </button>
                         </li>
-                        <li className="mr-6 ">
+                        <li className="mr-4 ">
                             <Menu as="div" className="relative inline-block text-left  py-2 pl-2 ">
                                 <div>
                                     <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -338,7 +339,7 @@ const Navbar = (props) => {
                                 </Transition>
                             </Menu>
                         </li>
-                        <li className='mr-6'>
+                        <li className='mr-4'>
                             <Menu as="div" className="relative inline-block text-left pl-2 py-2">
                                 <div>
                                     <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">

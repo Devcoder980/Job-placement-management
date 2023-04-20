@@ -1,83 +1,129 @@
-import React, { useState } from 'react'
-import ApplyForm from './ApplyForm'
-import { BsCurrencyDollar, BsCheck, BsCalendar, BsBriefcaseFill, BsPinMap, BsChevronDown } from 'react-icons/bs'
-import { HiOutlineDocument } from 'react-icons/hi'
+import React from 'react'
+import { BsCurrencyDollar, BsCalendar, BsBriefcaseFill, BsPinMap } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
-import styles from '../style'
 import { Link } from 'react-router-dom'
 
 const JobList = (props) => {
     const navigate = useNavigate();
     console.log(props)
-        const toggleApplyForm = (e) => {
-            if (localStorage.length) {
-                navigate('/apply', { state: { e } });
-            }
-            else {
-                navigate('/apply');
-            }
+    const toggleApplyForm = (e) => {
+        if (localStorage.length) {
+            navigate('/apply', { state: { e } });
         }
-    function classNames(...classes) {
-        return classes.filter(Boolean).join(' ')
+        else {
+            navigate('/apply');
+        }
     }
 
     return (
         <>
-            <div key={props.id} className={`  z-20 relative lg:flex lg:items-center ${styles.paddingX} py-8 my-4  bg-slate-900  lg:justify-between`}>
-                <div className="min-w-0 flex-1">
-                    <h2 className="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">
-                        {props.title}
-                    </h2>
-                    <p className="font-bold text-gray-400 sm:truncate sm:tracking-tight">
-                        {props.company}
-                    </p>
-                    <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
-                        <div className="mt-3 flex items-center text-sm text-gray-500">
-                            <BsBriefcaseFill className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                            {props.jobType}
-                        </div>
-                        <div className="mt-3 flex items-center text-sm text-gray-500">
-                            <BsPinMap className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                            {props.location}
-                        </div>
-                        <div className="mt-3 flex items-center text-sm text-gray-500">
-                            <BsCurrencyDollar className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                            ${props.minSalary}k &ndash; ${props.maxSalary}k
-                        </div>
-                        <div className="mt-3 flex items-center text-sm text-gray-500">
-                            <BsCalendar className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                            Job Post Date {props.createdDate.substring(0,10)}
-                        </div>
+            <div className=' pt-10 lg:w-2/5 sm:mx-5 rounded-sm '>
+                <div key={props._id} className=" hover:shadow-blue-500 cursor-pointer hover:shadow-lg  bg-slate-800  rounded-md  text-white  p-4 px-10  font-['Inter'] flex flex-col justify-start">
+                    <div >
+                        <h1 className="  font-body  mix-blend-screen text-3xl " >{props.title}</h1>
                     </div>
-                    <div className="mt-3  flex items-center text-lg text-gray-500">
-                        <HiOutlineDocument className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                        {props.requirements}
+                    <div>
+                        <span className="font-normal    text-base  leading-5"> {props.company}</span>
                     </div>
-                </div>
-                <div className="mt-5 flex lg:mt-0 lg:ml-4">
-                    {
-                        localStorage.length ?
-                            <>
+                    <div className='flex mt-2 '>
+                        <span>
+                            <BsBriefcaseFill className='mr-3' width={20} height={20} />
+                        </span>
+                        <span className='font-normal text-base leading-5' > {props.jobType}</span>
+                    </div>
+                    <div className='flex mt-2 '>
+                        <span>
+                            <BsCalendar className='mr-3' width={20} height={20} />
+                        </span>
+                        <span className='font-normal text-base leading-5' >{props.lastDate.substring(0, 10)}</span>
+                    </div>
+                    <div className='flex mt-2 '>
+                        <span>
+                            <BsPinMap className='mr-3' width={20} height={20} />
+                        </span>
+                        <span className='font-normal text-base leading-5' >  {props.location}</span>
+                    </div>
+                    <div className='flex mt-2 '>
+                        <span>
+                            <BsCurrencyDollar className='mr-3' width={20} height={20} />
+                        </span>
+                        <span className='font-normal text-base leading-5' > ${props.minSalary}k &ndash; ${props.maxSalary}k</span>
+                    </div>
+                    <div>
+                        <div className='mt-2 '>
+                            <div className=' italic text-gray-400 '>Requiremnt</div>
+                            <div className='font-normal flex flex-wrap text-base leading-5 gap-2'>
+                                {props.requirements.split(',').map((item, index) => {
+                                    if (item) {
+                                        return (
+                                            <span
+                                                key={index}
+                                                className=' text-gray-900 px-3 bg-blend-color-burn rounded-sm bg-gray-400'
+                                                style={{ wordWrap: 'break-word' }} // add this line
+                                            >
+                                                {item}
+                                            </span>
+                                        );
+                                    } else {
+                                        return null;
+                                    }
+                                })}
+                            </div>
+
+                        </div>
+                        <div>
+                            <div className='mt-2 '>
+                                <div className='italic text-gray-400'>Description</div>
+                                <div className='font-normal text-base leading-5 flex gap-2'>
+                                    <ol className=' pl-8' style={{ listStyle: "circle" }}>
+                                        {props.description.split('.').map((item, index) => {
+                                            if (item) {
+                                                return <li key={index}>{item}</li>;
+                                            } else {
+                                                return null;
+                                            }
+                                        })}
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div className='text-center my-5'>
+                        {
+                            localStorage.length ?
                                 <button
-                                    type="button"
                                     onClick={() => toggleApplyForm(props)}
-                                    className="inline-flex cursor-pointer items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
-                                    Apply
-                                </button>
-                            </>
-                            :
-                            <>
-                                <Link to="/login"
-                                    className="sm:ml-3">
-                                    <button
-                                        type="button"
-                                        onClick={() => toggleApplyForm(props)}
-                                        className="inline-flex cursor-pointer items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
+                                    className="relative inline-flex items-center  justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                                    <span className="relative px-5 w-32 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 font-bold ">
                                         Apply
+                                    </span>
+                                </button>
+                                :
+
+                                <Link to="/login">
+                                    <button
+                                        onClick={() => toggleApplyForm(props)}
+                                        className="relative inline-flex items-center  justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                                        <span className="relative px-5 w-32 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 font-bold ">
+                                            Apply
+                                        </span>
                                     </button>
                                 </Link>
-                            </>
-                    }
+
+
+                        }
+
+                    </div>
+                    <div>
+                        <span className='text-sm pt-5'>
+                            Created {Math.floor((new Date(props.lastDate).getTime() - new Date(props.createdDate).getTime()) / (1000 * 60 * 60 * 24))} Days Ago
+                        </span>
+                    </div>
+
+
                 </div>
             </div>
         </>
