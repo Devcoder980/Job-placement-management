@@ -18,7 +18,7 @@ const JobList = (props) => {
     return (
         <>
             <div className=' pt-10 lg:w-2/5 sm:mx-5 rounded-sm '>
-                <div key={props._id} className=" hover:shadow-blue-500 cursor-pointer hover:shadow-lg  bg-slate-800  rounded-md  text-white  p-4 px-10  font-['Inter'] flex flex-col justify-start">
+                <div key={props._id} className="  bg-slate-800 md:w-[430px] md:h-[530px]  rounded-md  text-white  p-4 px-10  font-['Inter'] flex flex-col justify-start">
                     <div >
                         <h1 className="  font-body  mix-blend-screen text-3xl " >{props.title}</h1>
                     </div>
@@ -91,12 +91,17 @@ const JobList = (props) => {
 
                     </div>
 
-                    <div className='text-center my-5'>
+                    <div className='flex  justify-between items-center my-5'>
+                        <div className='self-end'>
+                            <span className='text-sm pt-5   '>
+                                Created {Math.floor((new Date(props.lastDate).getTime() - new Date(props.createdDate).getTime()) / (1000 * 60 * 60 * 24))} Days Ago
+                            </span>
+                        </div>
                         {
                             localStorage.length ?
                                 <button
                                     onClick={() => toggleApplyForm(props)}
-                                    className="relative inline-flex items-center  justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                                    className="relative inline-flex items-center  justify-center   mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
                                     <span className="relative px-5 w-32 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 font-bold ">
                                         Apply
                                     </span>
@@ -106,7 +111,7 @@ const JobList = (props) => {
                                 <Link to="/login">
                                     <button
                                         onClick={() => toggleApplyForm(props)}
-                                        className="relative inline-flex items-center  justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                                        className="relative inline-flex items-center  justify-center  mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
                                         <span className="relative px-5 w-32 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 font-bold ">
                                             Apply
                                         </span>
@@ -117,11 +122,7 @@ const JobList = (props) => {
                         }
 
                     </div>
-                    <div>
-                        <span className='text-sm pt-5'>
-                            Created {Math.floor((new Date(props.lastDate).getTime() - new Date(props.createdDate).getTime()) / (1000 * 60 * 60 * 24))} Days Ago
-                        </span>
-                    </div>
+
 
 
                 </div>
