@@ -18,7 +18,7 @@ const JobList = (props) => {
     return (
         <>
             <div className=' pt-10 lg:w-2/5 sm:mx-5 rounded-sm '>
-                <div key={props._id} className="  bg-slate-800 md:w-[430px] md:h-[530px]  rounded-md  text-white  p-4 px-10  font-['Inter'] flex flex-col justify-start">
+                <div key={props._id} className="  bg-slate-800 md:w-[430px]   rounded-md  text-white  p-4 px-10  font-['Inter'] flex flex-col justify-start">
                     <div >
                         <h1 className="  font-body  mix-blend-screen text-3xl " >{props.title}</h1>
                     </div>
