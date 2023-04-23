@@ -4,7 +4,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken'); // Add this line
 
-const User = require('../Models/userModels.js'); // Use the same variable name
+const User = require('../models/userModels.js'); // Use the same variable name
 
 //@route post /api/user/register
 //@acces public

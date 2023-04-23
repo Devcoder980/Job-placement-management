@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcrypt');
-const EmployerDetail = require('../Models/EmployerModel.js');
+const EmployerDetail = require('../models/EmployerModel.js');
 const jwt = require('jsonwebtoken'); // Add this line
 // GET /api/jobs - get all jobs
 router.get('/adminview', asyncHandler(async (req, res) => {

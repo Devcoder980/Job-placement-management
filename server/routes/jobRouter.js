@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Job = require('../Models/jobModel.js');
+const Job = require('../models/jobModel.js');
 const asyncHandler = require('express-async-handler');
 const JobApplication = require('../models/jobApplictionModel.js');
 // const auth = require('../middleware/authuser.js');

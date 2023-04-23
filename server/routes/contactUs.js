@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const router = express.Router();
 
 
-const contactUs = require('../Models/ContactusModel.js'); // Use the same variable name
+const contactUs = require('../models/ContactusModel.js'); // Use the same variable name
 
 //@desc post create user
 //@route post /api/user/register
