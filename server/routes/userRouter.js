@@ -7,7 +7,8 @@ const jwt = require('jsonwebtoken'); // Add this line
 const User = require('../models/userModels.js'); // Use the same variable name
 
 //@route post /api/user/register
-//@acces public
+// @acces public
+// 
 router.post('/register', asyncHandler(async (req, res) => {
   try {
     const { firstname,lastname, email, password } = req.body;
