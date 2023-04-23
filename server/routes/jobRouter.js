@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Job = require('../models/jobModel.js');
+const Job = require('../Models/jobModel.js');
 const asyncHandler = require('express-async-handler');
-const JobApplication = require('../models/jobApplictionModel.js');
+const JobApplication = require('../Models/jobApplictionModel.js');
 // const auth = require('../middleware/authuser.js');
 
 router.get('/jobs', asyncHandler(async (req, res) => {

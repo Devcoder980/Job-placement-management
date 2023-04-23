@@ -2,7 +2,7 @@ const express = require('express');
 const route = express.Router();
 
 const asyncHandler = require('express-async-handler');
-const newsLetter = require('../models/newsLetter.js');
+const newsLetter = require('../Models/newsLetter.js');
 
 route.post('/newsletter', asyncHandler(async (req, res) => {
     const { email } = req.body;
