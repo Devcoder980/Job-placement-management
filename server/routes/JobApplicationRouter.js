@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const ApplyJobData = require('../models/jobApplictionModel');
+const ApplyJobData = require('../models/jobApplictionModel.js');
 
 const { MongoClient, GridFSBucket } = require('mongodb');
 const path = require('path');
