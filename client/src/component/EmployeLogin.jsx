@@ -43,7 +43,7 @@ const EmployerLogin = () => {
             setFormErrors({ ...formErrors, password: 'Please enter a password.' });
             return;
         }
-        axios.post('http://localhost:5000/api/employer/login', fromData)
+        axios.post('https://jobmanagementw.onrender.com/api/employer/login', fromData)
             .then((res) => {
                 console.log(res.data);
                 localStorage.setItem('authTokenEmployer', res.data.token);

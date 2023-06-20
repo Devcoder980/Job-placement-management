@@ -31,7 +31,7 @@ function App() {
             <Route index element={<Hero />} />
             <Route path="jobs" element={<JobSearch/>} />
             <Route path="contactus" element={<ContactUs />} />
-            <Route path='carrers' element={<Carrer />} />
+            {/* <Route path='carrers' element={<Carrer />} /> */}
             <Route path="aboutus" element={<AboutUs />} />
             <Route path="/*" element={<ErrorPages />} />
             <Route path='/user' element={<UserDashboard />} />

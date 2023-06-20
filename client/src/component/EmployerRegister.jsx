@@ -34,7 +34,7 @@ const EmployerRegister = () => {
         if (!formData.password) {
             errors.password = 'Password is required';
         }
-        if (formData.phone.length!=10) {
+        if (formData.phone.length!==10) {
             errors.phone = 'Phone is required';
         }
 
@@ -43,7 +43,7 @@ const EmployerRegister = () => {
             return;
         }
         try {
-            const response = await axios.post("http://localhost:5000/api/employer", formData);
+            const response = await axios.post("https://jobmanagementw.onrender.com/api/employer", formData);
             alert("Employer Created Sucessfully");
             navigator('/employer/log-in')
         } catch (error) {

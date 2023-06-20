@@ -68,7 +68,7 @@ const AboutUs = () => {
                             <div className="flex-1  col-span-6 mb-5 mb-lg-0 lg:mx-2">
                                 <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" className="block__96788">
                                     <span className="play-icon"><span className="icon-play"></span></span>
-                                    <img src={sq_img_6} alt="person" className="img-fluid img-shadow rounded-md" />
+                                    <img src={sq_img_6} alt="person" className="img-fluid lg:w-800 lg:h-[100vh] md:w-400 md:h-auto img-shadow rounded-md" />
                                 </a>
                             </div>
                             <div className="flex-1 col-span-6  lg:ml-28">
@@ -86,13 +86,13 @@ const AboutUs = () => {
                             <div className="flex-1  col-span-6 mb-5 mb-lg-0 lg:mx-2">
                                 <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" className="block__96788">
                                     <span className="play-icon"><span className="icon-play"></span></span>
-                                    <img src={sq_img_7} alt="sqimt" className="img-fluid img-shadow rounded-md" />
+                                    <img src={sq_img_7} alt="sqimt" className=" lg:w-800 lg:h-[100vh] md:w-400 md:h-auto img-shadow rounded-md" />
                                 </a>
                             </div>
                             <div className="flex-1 col-span-6  lg:mr-28">
                                 <h2 className="section-title mb-3 text-3xl lg:mb-10">Technology Management</h2>
                                 <p className="lead text-[20px] text-gray-400 lg:mb-10 lg:tracking-[1px]">We will help you make sure your current systems are up and running and up-to-date, with the latest security updates. We also help you migrate current systems, so you can save money.</p>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@ const AboutUs = () => {
                             <div className="flex-1 mb-5 col-span-6 mb-lg-0 ">
                                 <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" className="block__96788">
                                     <span className="play-icon"><span className="icon-play"></span></span>
-                                    <img src={person_6} alt="persong" className="img-fluid img-shadow rounded-md" />
+                                    <img src={person_6} alt="persong" className="lg:w-800 lg:h-[100vh] md:w-400 md:h-auto img-shadow rounded-md" />
                                 </a>
                             </div>
                             <div className=" col-span-6 lg:ml-20">
@@ -159,17 +159,17 @@ const AboutUs = () => {
                                 <div>
                                     <dt className="text-lg leading-6 font-medium text-gray-900 text-center p-3">Our Mission</dt>
                                     <dd className="mt-2 text-base text-gray-500 text-center">
-                                       Giving companies
-around the global,
-the performance and
-quality of Scandinavia
-work culture
+                                        Giving companies
+                                        around the global,
+                                        the performance and
+                                        quality of Scandinavia
+                                        work culture
                                     </dd>
                                 </div>
                                 <div>
                                     <dt className="text-lg leading-6 font-medium text-gray-900 text-center p-3">Our Vision</dt>
                                     <dd className="mt-2 text-base text-gray-500 text-center">
-                                       Our vision is for to help our client grow better and more dynamic, making sure a timezone, limited office space and language differences is not an issue, but a opportunity for growth.
+                                        Our vision is for to help our client grow better and more dynamic, making sure a timezone, limited office space and language differences is not an issue, but a opportunity for growth.
                                     </dd>
                                 </div>
                             </dl>
@@ -197,7 +197,7 @@ work culture
 
             </div>
             <Footer />
-            
+
         </>
     );
 };

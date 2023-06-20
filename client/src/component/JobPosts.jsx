@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom';
+
 const JobPosts = () => {
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState({});
@@ -10,7 +10,7 @@ const JobPosts = () => {
         try {
             if (token) {
                 // Make API call to get the user's information
-                fetch('http://localhost:5000/api/employer', {
+                fetch('https://jobmanagementw.onrender.com/api/employer', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }
@@ -22,7 +22,7 @@ const JobPosts = () => {
                         try {
                             // Make API call to get the user's information
                             console.log(data.companyName)
-                            fetch(`http://localhost:5000/api/user/jobs/${data.companyName}`)
+                            fetch(`https://jobmanagementw.onrender.com/api/user/jobs/${data.companyName}`)
                                 .then(response => response.json())
                                 .then(data => {
                                     setEmploye(data)

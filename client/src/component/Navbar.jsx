@@ -66,9 +66,9 @@ const Navbar = (props) => {
                                     <li className="mr-4">
                                         <Link className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" to="/jobs">Jobs</Link>
                                     </li>
-                                    <li className="mr-4">
+                                    {/* <li className="mr-4">
                                         <Link to="/carrers" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" >CARRER TIPS</Link>
-                                    </li>
+                                    </li> */}
                                     <li className="mr-4">
                                         <Link to="/contactus" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" > Contact</Link>
                                     </li>
@@ -268,9 +268,9 @@ const Navbar = (props) => {
                         <li className="mr-4">
                             <Link onClick={toggleNavbar} className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" to="/jobs">Jobs</Link>
                         </li>
-                        <li className="mr-4">
+                        {/* <li className="mr-4">
                             <Link onClick={toggleNavbar} to="/carrers" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" >CARRER TIPS</Link>
-                        </li>
+                        </li> */}
                         <li className="mr-4">
                             <Link onClick={toggleNavbar} to="/contactus" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" > Contact</Link>
                         </li>

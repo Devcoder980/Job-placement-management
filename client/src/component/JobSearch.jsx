@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import JobList from './JobList';
 import { useLocation } from 'react-router-dom';
-
+import { LineWave } from 'react-loader-spinner';
 const JobSearch = () => {
 
     const location = useLocation();
@@ -14,7 +14,7 @@ const JobSearch = () => {
     const [filteredJobs, setFilteredJobs] = useState([]);
 
     async function searchDatabase(searchParams) {
-        const apiUrl = "http://localhost:5000/api/user/jobs"; // Replace with your API URL
+        const apiUrl = "https://jobmanagementw.onrender.com/api/user/jobs"; // Replace with your API URL
         try {
             const response = await axios.get(apiUrl, {
                 params: searchParams
@@ -45,8 +45,8 @@ const JobSearch = () => {
                 <div className={` inset-0 bg-${styles.backgroundTheme}-600/5 dark:bg-${styles.backgroundTheme}-600/10`}></div>
                 <div className="container z-1">
                     <div className="grid z-50 z-40 grid-cols-1 text-center mt-10 relative">
-                        <h4 className="lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 font-bold text-white">Join us & <span className={`text-${styles.backgroundTheme}-600 font-bold`}>Explore</span>  <span className={`text-${styles.backgroundTheme}-600 font-bold`}>Thousands</span> of Jobs</h4>
-                        <p className="text-slate-400 text-lg max-w-xl mx-auto">Find Jobs, Employment & Career Opportunities. Some of the companies we've helped recruit excellent applicants over the years.</p>
+                        <h4 className="lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 font-bold text-white">Join us & <span className={`text-white font-bold`}>Explore</span>  <span className={`text-white font-bold`}>Thousands</span> of Jobs</h4>
+                        <p className="text-slate-200 text-lg max-w-xl mx-auto">Find Jobs, Employment & Career Opportunities. Some of the companies we've helped recruit excellent applicants over the years.</p>
                         <div className="  d-flex" id="reserve-form">
                             <div className="  md:w-11/12 mx-auto ">
                                 <div className="lg:col-span-10 mt-8">
@@ -132,28 +132,36 @@ const JobSearch = () => {
                     </div>
                 </div>
                 <div className='flex flex-wrap justify-center'>
-                    {
+                    {filteredJobs.length === 0 ? (
+                        <div className="flex justify-center  h-screen">
+                            <LineWave type="TailSpin" color="#fff" height={170} width={170} />
+                        </div>
+                    ) : (
                         displayedJobs.length
-                            ?
-                            displayedJobs.sort((a, b) => (a.createdDate < b.createdDate) ? 1 : -1).map(item => (
-                                <JobList
-                                    key={item._id} // Add a unique key 
-                                    title={item.title}
-                                    company={item.company}
-                                    location={item.location}
-                                    sector={item.sector}
-                                    minSalary={item.minSalary}
-                                    maxSalary={item.maxSalary}
-                                    description={item.description}
-                                    requirements={item.requirements}
-                                    lastDate={item.lastDate}
-                                    createdDate={item.createdDate}
-                                    jobType={item.jobType}
-                                />
-                            )) :
-                            <>
-                            </>}
+                        ?
+                        displayedJobs.sort((a, b) => (a.createdDate < b.createdDate) ? 1 : -1).map(item => (
+                            <JobList
+                                key={item._id} // Add a unique key 
+                                title={item.title}
+                                company={item.company}
+                                location={item.location}
+                                sector={item.sector}
+                                minSalary={item.minSalary}
+                                maxSalary={item.maxSalary}
+                                description={item.description}
+                                requirements={item.requirements}
+                                lastDate={item.lastDate}
+                                createdDate={item.createdDate}
+                                jobType={item.jobType}
+                            />
+                        )) :
+                        <>
+                        </>
+                    )}
+
+
                 </div>
+
             </section>
         </>
     )

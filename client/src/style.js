@@ -1,3 +1,23 @@
+import logo_mailchimp from './images/logo_mailchimp.svg';
+import logo_paypal from './images/logo_paypal.svg';
+import logo_stripe from './images/logo_stripe.svg';
+import logo_visa from './images/logo_visa.svg';
+import logo_apple from './images/logo_apple.svg';
+import logo_tinder from './images/logo_tinder.svg';
+import logo_sony from './images/logo_sony.svg';
+import logo_airbnb from './images/logo_airbnb.svg';
+
+export const logos = [
+  { name: 'logo_mailchimp', image: logo_mailchimp },
+  { name: 'logo_paypal', image: logo_paypal },
+  { name: 'logo_stripe', image: logo_stripe },
+  { name: 'logo_visa', image: logo_visa },
+  { name: 'logo_apple', image: logo_apple },
+  { name: 'logo_tinder', image: logo_tinder },
+  { name: 'logo_sony', image: logo_sony },
+  { name: 'logo_airbnb', image: logo_airbnb }
+];
+
 const styles = {
     boxWidth: "xl:max-w-[1280px] w-full",
   
@@ -25,6 +45,8 @@ const styles = {
   
     sectionInfo: `flex-1 ${styles.flexStart} flex-col`,
   };
+
+
   
 export default styles;
 

@@ -1,18 +1,11 @@
 import React from 'react'
-import logo_mailchimp from '../images/logo_mailchimp.svg'
-import logo_paypal from '../images/logo_paypal.svg'
-import logo_stripe from '../images/logo_stripe.svg'
-import logo_visa from '../images/logo_visa.svg'
-import logo_apple from '../images/logo_apple.svg'
-import logo_tinder from '../images/logo_tinder.svg'
-import logo_sony from '../images/logo_sony.svg'
-import logo_airbnb from '../images/logo_airbnb.svg'
 import styles from '../style.js'
 import '../App.css'
 import NewsLetter from './NewsLetter'
 import JobSearch from './JobSearch'
 import Footer from './Footer'
 
+import { logos } from '../style.js'
 const Hero = () => {
     return (
         <>
@@ -62,81 +55,21 @@ const Hero = () => {
 
                 </div>
                 <section className={`site-section py-4 ${styles.paddingX}`}>
-                    <div className="container">
-
-                        <div className="col-12 text-center mt-4 mb-5">
-                            <div className="row justify-center">
-                                <div className="col-md-7">
-                                    <h2 className="section-title mb-2 text-4xl text-white ">Company We've Helped</h2>
-                                    <p className="lead text-2xl text-gray-500">Top Feature Companies</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div className="bg-slate-900 py-8 sm:py-32">
-                            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                                <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+                    <div className="bg-slate-900 py-8 sm:py-32">
+                        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                            <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+                                {logos.map((logo, index) => (
                                     <img
+                                        key={index}
                                         className="icon-img col-span-2 w-full object-fit-contain lg:col-span-1"
-                                        src={logo_mailchimp}
-                                        alt="Transistor"
+                                        src={logo.image}
+                                        alt={logo.name}
                                         width={300}
-                                        height={1000}
+                                        height={300}
                                     />
-                                    <img
-                                        className="icon-img col-span-2 w-full object-fit-contain lg:col-span-1"
-                                        src={logo_paypal}
-                                        alt="Reform"
-                                        width={300}
-                                        height={1000}
-                                    />
-                                    <img
-                                        className="icon-img col-span-2 w-full object-fit-contain lg:col-span-1"
-                                        src={logo_stripe}
-                                        alt="Tuple"
-                                        width={300}
-                                        height={100}
-                                    />
-                                    <img
-                                        className="icon-img col-span-2 w-full object-fit-contain sm:col-start-2 lg:col-span-1"
-                                        src={logo_visa}
-                                        alt="SavvyCal"
-                                        width={300}
-                                        height={100}
-                                    />
-                                    <img
-                                        className="icon-img col-span-2 w-full object-fit-contain sm:col-start-auto lg:col-span-1"
-                                        src={logo_apple}
-                                        alt="Statamic"
-                                        width={300}
-                                        height={100}
-                                    />
-                                    <img
-                                        className="icon-img col-span-2 w-full object-fit-contain sm:col-start-auto lg:col-span-1"
-                                        src={logo_tinder}
-                                        alt="Statamic"
-                                        width={300}
-                                        height={100}
-                                    />
-                                    <img
-                                        className="icon-img col-span-2 w-full object-fit-contain sm:col-start-auto lg:col-span-1"
-                                        src={logo_sony}
-                                        alt="Statamic"
-                                        width={300}
-                                        height={100}
-                                    />
-                                    <img
-                                        className="icon-img col-span-2 w-full object-fit-contain sm:col-start-auto lg:col-span-1"
-                                        src={logo_airbnb}
-                                        alt="Statamic"
-                                        width={300}
-                                        height={100}
-                                    />
-                                </div>
+                                ))}
                             </div>
                         </div>
-
                     </div>
                 </section>
 

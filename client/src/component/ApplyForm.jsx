@@ -35,7 +35,7 @@ function ApplyForm() {
   const { state } = useLocation();
   const { title, company, description, lastDate, location, jobType, minSalary, maxSalary, requirements } = state.e;
 
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!validateForm()) return;
@@ -53,7 +53,7 @@ function ApplyForm() {
 
 
     try {
-      const response = await axios.post('http://localhost:5000/api/user/apply', formData);
+      const response = await axios.post('https://jobmanagementw.onrender.com/api/user/apply', formData);
       console.log(response.data);
       alert('Your application has been submitted successfully');
       navigate('/applythankyou');

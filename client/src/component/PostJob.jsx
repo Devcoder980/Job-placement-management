@@ -31,7 +31,7 @@ const PostJob = () => {
         } else {
             console.log(formData);
             // Send form data to server or perform other actions
-            axios.post('http://localhost:5000/api/user/jobs', formData)
+            axios.post('https://jobmanagementw.onrender.com/api/user/jobs', formData)
                 .then(response => {
                     alert("posted succesfully");
                     console.log('Job posted successfully', response.data);

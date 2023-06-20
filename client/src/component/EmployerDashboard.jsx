@@ -12,7 +12,7 @@ function EmployerDashboard() {
         try {
             if (token) {
                 // Make API call to get the user's information
-                fetch('http://localhost:5000/api/employer', {
+                fetch('https://jobmanagementw.onrender.com/api/employer', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }
@@ -25,7 +25,7 @@ function EmployerDashboard() {
 
                             // Make API call to get the user's information
                             console.log(data.companyName)
-                            fetch(`http://localhost:5000/api/user/apply/${data.companyName}`)
+                            fetch(`https://jobmanagementw.onrender.com/api/user/apply/${data.companyName}`)
                                 .then(response => response.json())
                                 .then(data => {
                                     setEmploye(data)

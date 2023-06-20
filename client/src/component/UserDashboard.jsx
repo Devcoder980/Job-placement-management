@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { HiUser } from 'react-icons/hi';
 function UserDashboard() {
     const [user, setUser] = useState({});
@@ -9,7 +8,7 @@ function UserDashboard() {
         try {
             if (token) {
                 // Make API call to get the user's information
-                fetch('http://localhost:5000/api/user', {
+                fetch('https://jobmanagementw.onrender.com/api/user', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }
