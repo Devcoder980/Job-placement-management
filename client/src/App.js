@@ -22,9 +22,9 @@ import UserDashboard from './Clinet/UserDashboard';
 import ErrorPages from './component/ErrorPages';
 import ApplyForm from './Clinet/ApplyForm';
 import PostJob from './component/PostJob';
-import EmployerRegister from './component/EmployerRegister';
-import EmployerLogin from './component/EmployeLogin';
-import EmployerDashboard from './component/EmployerDashboard'
+import EmployerRegister from './Employer/EmployerRegister';
+import EmployerLogin from './Employer/EmployeLogin';
+import EmployerDashboard from './Employer/EmployerDashboard'
 import JobSearch from './component/JobSearch';
 import ApplyJobThanks from './Clinet/ApplyJobThanks'
 import JobPosts from './component/JobPosts';
