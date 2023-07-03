@@ -1,3 +1,10 @@
+/**
+ * This is a JavaScript file that defines routes for creating, updating, and deleting job listings, as
+ * well as handling user authentication.
+ * @param userId - The `userId` parameter is the unique identifier for a user in the system. It is used
+ * to retrieve a specific user from the database.
+ * @returns The router module is being returned.
+ */
 const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');

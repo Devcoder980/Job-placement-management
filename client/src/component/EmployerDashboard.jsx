@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { HiUser } from 'react-icons/hi';
 import { HiArrowRight } from 'react-icons/hi';
-
+import styles from '../style.js'
 function EmployerDashboard() {
     const [user, setUser] = useState({});
     const [employe, setEmploye] = useState([]);
-   
+
     useEffect(() => {
         const token = localStorage.getItem('authTokenEmployer'); // get the token from local storage
         try {
@@ -53,18 +53,29 @@ function EmployerDashboard() {
     }
 
     return (
-        <div>
+        <div className={`${styles.paddingX}`}>
             <>
-                <div className="flex text-white flex-col  py-16  items-center pt-4 bg-slate-900">
-                    <div className="rounded-full w-24 flex justify-center items-center h-24  bg-slate-900" >
-                        <HiUser className="w-20 h-20 text-white" />
-                    </div>
-                    <h2 className="font-medium text-xl mt-2">{user.companyName}</h2>
-                    <h2 className="font-medium text-xl mt-2">{user.email}</h2>
-                    {/* <h2 className="font-medium text-xl mt-2">{user.phone}</h2> */}
-                    <h2 className="font-medium text-xl mt-2">{user.isHiringManager ? 'HiringManager' : 'No'}</h2>
-                    <p className="text-center my-4 whitespace-break-spaces  w-80 ">Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+                <div className="flex items-center justify-center w-full py-8">
+                    {/* Card code block start */}
+                    <div className="bg-white dark:bg-gray-800 shadow rounded">
+                        <div className="relative">
+                            <img className="h-56 shadow rounded-t w-full object-cover object-center" src="https://tuk-cdn.s3.amazonaws.com/assets/components/grid_cards/gc_29.png" alt />
+                            <div className="inset-0 m-auto w-24 h-24 absolute bottom-0 -mb-12 xl:ml-10 rounded border-2 shadow border-white">
+                                <img className="w-full h-full overflow-hidden object-cover rounded" src="https://image.freepik.com/free-photo/indoor-picture-cheerful-handsome-young-man-having-folded-hands-looking-directly-smiling-sincerely-wearing-casual-clothes_176532-10257.jpg" alt />
+                            </div>
+                        </div>
 
+                        <div className="flex text-slate-900 flex-col items-center md:items-start md:flex-start justify-center  py-16 mt-10 pl-10 pt-4 ">
+
+                            <h2 className="font-medium text-xl mt-2">{user.companyName}</h2>
+                            <h2 className="font-medium text-xl mt-2">{user.email}</h2>
+                            <h2 className="font-medium text-xl mt-2">{user.phone}</h2>
+                            <h2 className="font-medium text-xl mt-2">{user.isHiringManager ? 'HiringManager' : 'No'}</h2>
+                            <p className="text-center my-4 whitespace-break-spaces  w-80 ">Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+
+                        </div>
+                    </div>
+                    {/* Card code block end */}
                 </div>
                 <div className='bg-blue-700 text-center text-2xl font-bold text-white h-14 flex justify-center items-center'>
                     <p className=" cursor-pointer">
@@ -72,7 +83,7 @@ function EmployerDashboard() {
                     </p>
                     <HiArrowRight className=' pl-2 mt-1 cursor-pointer' />
                 </div>
-                <div className="bg-gray-100 p-6">
+                <div className="bg-gray-100 flex justify-center p-6">
                     <div className="flex flex-row items-center">
                         <div className="bg-white shadow overflow-hidden sm:rounded-lg p-6">
                             <h1 className="text-center text-3xl py-3">Job Applied Candidate</h1>
@@ -102,7 +113,7 @@ function EmployerDashboard() {
                                                         {
                                                             employe.map((e, i) => (
                                                                 <tr class="border-b transition duration-300 ease-in-out  dark:border-neutral-500 dark:hover:bg-neutral-600">
-                                                                    
+
                                                                     <td class="whitespace-nowrap px-6 py-4 font-medium">
 
                                                                     </td>
@@ -128,7 +139,7 @@ function EmployerDashboard() {
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-yellow-400 h-full w-6"></div>
+                       
                     </div>
                 </div>
 

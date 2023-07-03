@@ -1,3 +1,7 @@
+/* The above code is a React component called "Hero". It is rendering a section of a website that
+includes a job search component, a section with logos, a newsletter component, and a footer
+component. The component is using CSS styles and images imported from other files to style and
+display the content. */
 import React from 'react'
 import styles from '../style.js'
 import '../App.css'
@@ -6,6 +10,7 @@ import JobSearch from './JobSearch'
 import Footer from './Footer'
 
 import { logos } from '../style.js'
+import OurParterner from './OurParterner.jsx'
 const Hero = () => {
     return (
         <>
@@ -54,24 +59,8 @@ const Hero = () => {
                 <div className={`blur bg-blue-300  lg:absolute  top-16  hero-blur`}>
 
                 </div>
-                <section className={`site-section py-4 ${styles.paddingX}`}>
-                    <div className="bg-slate-900 py-8 sm:py-32">
-                        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                            <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-                                {logos.map((logo, index) => (
-                                    <img
-                                        key={index}
-                                        className="icon-img col-span-2 w-full object-fit-contain lg:col-span-1"
-                                        src={logo.image}
-                                        alt={logo.name}
-                                        width={300}
-                                        height={300}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </section>
+
+                <OurParterner />
 
                 <div className={`blur bg-blue-300 lg:left-[56rem]  lg:absolute  top-[18rem]  hero-blur`}>
 

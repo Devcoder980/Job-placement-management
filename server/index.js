@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const connectDb = require('./config/dbconnection.js');
 const myconnnect = require('./config/mysqlConnection.js');
+
 
 const cors = require('cors')
 const app = express();
@@ -26,6 +26,7 @@ app.use('/api/employer/', require('./routes/EmployerRouter'));
 app.use('/api/user/apply', require('./routes/JobApplicationRouter'));
 app.use('/api/email', require('./routes/EmailRouter.js'));
 app.use('/api/otp', require('./routes/OtpGenerater.js'));
+app.use('/api/fileupload', require('./routes/FileUploadRouter.js'));
 
 
 

@@ -3,11 +3,9 @@ const router = express.Router();
 const multer = require('multer');
 const ApplyJobData = require('../Models/jobApplictionModel.js');
 
-const { MongoClient, GridFSBucket } = require('mongodb');
 const path = require('path');
 
 const uri = 'mongodb+srv://admin:admin@devcoder980.64axway.mongodb.net/user';
-const client = new MongoClient(uri);
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -45,24 +43,13 @@ router.get('/:company', async (req, res) => {
 
 // POST a new user
 router.post('/', upload.single('file'), async (req, res) => {
-    const { firstName, lastName, email,title, country,company,streetAddress, city, state } = req.body;
+    const { firstName, lastName, email, title, country, company, streetAddress, city, state } = req.body;
 
     try {
-        // Connect to the database
-        await client.connect();
-        const database = client.db('mydatabase');
-        const bucket = new GridFSBucket(database);
-
-        // Create a stream for the uploaded file
-        const stream = bucket.openUploadStream(req.file.originalname);
-
-        // Pipe the file data into the stream
-        if (req.file && req.file.stream) {
-            req.file.stream.pipe(stream);
-        } else {
-            console.error('File stream is not defined');
+        if (!req.file) {
+            return res.status(400).json({ message: 'No file was uploaded.' });
         }
-
+        const uploadedFile = req.file;
 
         // Save the user data with the file ID
         const user = new ApplyJobData({
@@ -75,7 +62,7 @@ router.post('/', upload.single('file'), async (req, res) => {
             company,
             state,
             title,
-            file: stream.id // Set the file ID as a field in the user document
+            file: uploadedFile.filename, // Set the file ID as a field in the user document
         });
 
         const newUser = await user.save();
@@ -83,9 +70,22 @@ router.post('/', upload.single('file'), async (req, res) => {
         res.status(201).json(newUser);
     } catch (err) {
         res.status(400).json({ message: err.message });
-    } finally {
-        await client.close();
-    }
+    } 
+});
+
+
+// GET endpoint to download the uploaded file
+
+router.get('/download/:fileName', (req, res) => {
+    const fileName = req.params.fileName;
+    const filePath = path.join(__dirname, '../uploads', fileName);
+
+    res.download(filePath, (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(404).json({ message: 'File not found.' });
+        }
+    });
 });
 
 
