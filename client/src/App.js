@@ -9,7 +9,7 @@
  */
 
 import './App.css';
-import { BrowserRouter, Routes, Route ,useLocation} from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Hero from './component/Hero';
 import Navbar from './component/Navbar';
 import Login from './Clinet/Login';
@@ -39,7 +39,7 @@ function App() {
             <Route index element={<Hero />} />
             <Route path="jobs" element={<JobSearch />} />
             <Route path="contactus" element={<ContactUs />} />
-            {/* <Route path='carrers' element={<Carrer />} /> */}
+            <Route path='carrers' element={<Carrer />} />
             <Route path="aboutus" element={<AboutUs />} />
             <Route path="/*" element={<ErrorPages />} />
             <Route path='/user' element={<UserDashboard />} />
@@ -49,9 +49,7 @@ function App() {
             <Route path='/employer/dashboard' element={<EmployerDashboard />} />
             <Route path='/employer/jobposts' element={<JobPosts />} />
             <Route path='/ApplyThankyou' element={<ApplyJobThanks />} />
-
           </Route>
-
           <Route path='/'>
             <Route path='login' element={<Login />} />
             <Route path="register" element={<Register />} />
@@ -78,10 +76,10 @@ const NavbarWithCondition = () => {
   const isDashboardPage = location.pathname === '/dashboard';
 
   if (isLoginPage || isDashboardPage) {
-    return <UserDashboard/>; // Return null to hide the navbar on login and dashboard pages
+    return <UserDashboard />; // Return null to hide the navbar on login and dashboard pages
   }
 
-  return <Navbar  />;
+  return <Navbar />;
 };
 
 

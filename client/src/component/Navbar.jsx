@@ -59,20 +59,20 @@ const Navbar = (props) => {
                                 
                             </div>
                             <div className="hidden md:block md:ml-6">
-                                <ul className="flex items-center">
-                                    <li className={` mr-4`} >
+                                <ul className="flex items-center text-sm">
+                                    <li className={` mr-1`} >
                                         <Link className="text-gray-300 cursor-pointer hover:text-white block  px-3 py-2 rounded-md font-medium" to="/">Home</Link>
                                     </li>
-                                    <li className="mr-4">
+                                    <li className="mr-1">
                                         <Link className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" to="/jobs">Jobs</Link>
                                     </li>
-                                    {/* <li className="mr-4">
+                                    <li className="mr-1">
                                         <Link to="/carrers" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" >CARRER TIPS</Link>
-                                    </li> */}
-                                    <li className="mr-4">
+                                    </li>
+                                    <li className="mr-1">
                                         <Link to="/contactus" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" > Contact</Link>
                                     </li>
-                                    <li className="mr-4">
+                                    <li className="mr-1">
                                         <Link to="/aboutus" className="text-gray-300 cursor-pointer hover:text-white block px-3 py-2 rounded-md font-medium" > About Us</Link>
                                     </li>
                                     {localStorage.authToken ?
@@ -151,12 +151,12 @@ const Navbar = (props) => {
                                                     :
                                                     <>
                                                         <li className="mr-4">
-                                                            <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
+                                                            <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-5 py-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
                                                                 <Link to="/login" > Login </Link>
                                                             </button>
                                                         </li>
                                                         <li className="mr-4">
-                                                            <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
+                                                            <button type="button" data-te-ripple-init data-te-ripple-color="light" className={`inline-block bg-white text-${styles.backgroundTheme}-600  shadow-cyan-500/50 rounded bg-primary px-5 py-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]`}>
                                                                 <Link to="/register" > Register </Link>
                                                             </button>
                                                         </li>

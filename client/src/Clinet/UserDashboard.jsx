@@ -1,26 +1,80 @@
 import React, { useState } from "react";
 import logo from '../images/joblogo.png'
 import Profile from "./Profile";
-
+import History from "./History";
+import { Link, useNavigate } from 'react-router-dom';
+import SignOutButton from "./SignOutButton";
+import Jobs from "./Jobs";
+import EditProfile from "./EditProfile";
 export default function IndexPage() {
     const [show, setShow] = useState(false);
     const [profile, setProfile] = useState(false);
-    const [menu, setMenu] = useState(false);
+    const [menu, setMenu] = useState(true);
     const [menu1, setMenu1] = useState(false);
     const [menu2, setMenu2] = useState(false);
     const [menu3, setMenu3] = useState(false);
+    const [menu4, setMenu4] = useState(false);
+
+    // Click handler for Dashboard
+    const handleDashboardClick = () => {
+        setMenu(true);
+        setMenu1(false);
+        setMenu2(false);
+        setMenu3(false);
+    };
+
+    // Click handler for History
+    const handleHistoryClick = () => {
+        setMenu(false);
+        setMenu1(true);
+        setMenu2(false);
+        setMenu3(false);
+    };
+    const HandleEditClick = () => {
+        setMenu(false);
+        setMenu1(false);
+        setMenu2(false);
+        setMenu3(true);
+    };
+
+    const HandleJobClick = () => {
+        const navigate = useNavigate();
+        navigate('/jobs');
+    }
+
 
     return (
         <>
             <div className="w-full h-full bg-gray-100 text-white">
                 <div className="flex flex-no-wrap">
                     {/* Sidebar starts */}
-                    <div className="absolute lg:relative w-64  shadow bg-slate-900 hidden lg:block">
+                    <div className="absolute lg:relative w-64 h-[100vh] shadow bg-slate-900 hidden lg:block">
                         <div className="h-16 w-full flex items-center px-8 bg-slate-900">
-                            <img src={logo} className="text-blue-800" alt="" />
+                            <Link to="/">
+                                <img src={logo} className="text-blue-800" alt="" />
+                            </Link>
+
                         </div>
                         <ul aria-orientation="vertical" className=" py-6">
-                            <li className="pl-6 cursor-pointer  text-sm leading-3 tracking-normal pb-4 pt-5 text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                            <li className="pl-6 cursor-pointer  text-sm leading-3 tracking-normal pb-4 pt-5  hover:text-indigo-700 focus:outline-none" onClick={handleDashboardClick}>
+                                <Link to="/">
+                                    <div className="flex items-center">
+
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-grid" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" />
+                                                <rect x={4} y={4} width={6} height={6} rx={1} />
+                                                <rect x={14} y={4} width={6} height={6} rx={1} />
+                                                <rect x={4} y={14} width={6} height={6} rx={1} />
+                                                <rect x={14} y={14} width={6} height={6} rx={1} />
+                                            </svg>
+                                        </div>
+                                        <span className="ml-2"> Home</span>
+
+                                    </div>
+                                </Link>
+                            </li>
+                            <li className="pl-6 cursor-pointer  text-sm leading-3 tracking-normal pb-4 pt-5 text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={handleDashboardClick}>
                                 <div className="flex items-center">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-grid" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -34,25 +88,26 @@ export default function IndexPage() {
                                     <span className="ml-2"> Dashboard</span>
                                 </div>
                             </li>
-                            <li className="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal mt-4 mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                            <li className="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal mt-4 mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={HandleEditClick}>
                                 <div className="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-puzzle" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" />
                                         <path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1" />
                                     </svg>
-                                    <span className="ml-2">Products</span>
+                                    <span className="ml-2">Edit Profile</span>
                                 </div>
                             </li>
-                            <li className="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                            <li className="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal mt-4 mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={handleHistoryClick}>
                                 <div className="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-compass" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-puzzle" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" />
-                                        <polyline points="8 16 10 10 16 8 14 14 8 16" />
-                                        <circle cx={12} cy={12} r={9} />
+                                        <path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1" />
                                     </svg>
-                                    <span className="ml-2">Performance</span>
+                                    <span className="ml-2">History</span>
                                 </div>
                             </li>
+                            <Jobs />
+
                         </ul>
                     </div>
                     {/*Mobile responsive sidebar*/}
@@ -65,7 +120,7 @@ export default function IndexPage() {
                                         <div className="h-16 w-full bg-slate-900 flex items-center">
                                             <img src={logo} alt="" />
                                         </div>
-                                        <div id="closeSideBar" className="flex items-center justify-center h-10 w-10" onClick={() => setShow(!show)}>
+                                        <div id="closeSideBar" className="flex items-center justify-end h-10 w-10" onClick={() => setShow(!show)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
                                                 <line x1={18} y1={6} x2={6} y2={18} />
@@ -74,7 +129,25 @@ export default function IndexPage() {
                                         </div>
                                     </div>
                                     <ul aria-orientation="vertical" className=" py-6">
-                                        <li className="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                                        <li className="pl-6 cursor-pointer  text-sm leading-3 tracking-normal pb-4 pt-5  hover:text-indigo-700 focus:outline-none" onClick={handleDashboardClick}>
+                                            <Link to="/">
+                                                <div className="flex items-center">
+
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-grid" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" />
+                                                            <rect x={4} y={4} width={6} height={6} rx={1} />
+                                                            <rect x={14} y={4} width={6} height={6} rx={1} />
+                                                            <rect x={4} y={14} width={6} height={6} rx={1} />
+                                                            <rect x={14} y={14} width={6} height={6} rx={1} />
+                                                        </svg>
+                                                    </div>
+                                                    <span className="ml-2"> Home</span>
+
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li className="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={handleHistoryClick}>
                                             <div className="flex items-center">
                                                 <div className="w-6 h-6 md:w-8 md:h-8">
                                                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-compass" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -83,10 +156,10 @@ export default function IndexPage() {
                                                         <circle cx={12} cy={12} r={9} />
                                                     </svg>
                                                 </div>
-                                                <span className="ml-2 xl:text-base md:text-2xl text-base">Performance</span>
+                                                <span className="ml-2 xl:text-base md:text-2xl text-base">Dashboard</span>
                                             </div>
                                         </li>
-                                        <li className="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                                        <li className="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" >
                                             <div className="flex items-center">
                                                 <div className="w-6 h-6 md:w-8 md:h-8">
                                                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-compass" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -95,9 +168,34 @@ export default function IndexPage() {
                                                         <circle cx={12} cy={12} r={9} />
                                                     </svg>
                                                 </div>
-                                                <span className="ml-2 xl:text-base md:text-2xl text-base">Performance</span>
+                                                <span className="ml-2 xl:text-base md:text-2xl text-base">Edit Profile</span>
                                             </div>
                                         </li>
+                                        <li className="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={handleHistoryClick}>
+                                            <div className="flex items-center">
+                                                <div className="w-6 h-6 md:w-8 md:h-8">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-compass" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                                        <polyline points="8 16 10 10 16 8 14 14 8 16" />
+                                                        <circle cx={12} cy={12} r={9} />
+                                                    </svg>
+                                                </div>
+                                                <span className="ml-2 xl:text-base md:text-2xl text-base">History</span>
+                                            </div>
+                                        </li>
+                                        <li className="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal mb-4 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={HandleJobClick}>
+                                            <div className="flex items-center">
+                                                <div className="w-6 h-6 md:w-8 md:h-8">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-compass" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                                        <polyline points="8 16 10 10 16 8 14 14 8 16" />
+                                                        <circle cx={12} cy={12} r={9} />
+                                                    </svg>
+                                                </div>
+                                                <span className="ml-2 xl:text-base md:text-2xl text-base">Jobs</span>
+                                            </div>
+                                        </li>
+
                                     </ul>
                                 </div>
                                 <div className="w-full">
@@ -124,18 +222,7 @@ export default function IndexPage() {
                                         <div className="flex items-center relative cursor-pointer" onClick={() => setProfile(!profile)}>
                                             <div className="rounded-full">
                                                 {profile ? (
-                                                    <ul className="p-2 w-full border-r bg-white absolute rounded left-0 shadow mt-12 sm:mt-16 ">
-                                                        <li className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2">
-                                                            <div className="flex items-center">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler  icon-tabler-logout" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                                                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
-                                                                    <path d="M7 12h14l-3 -3m0 6l3 -3" />
-                                                                </svg>
-                                                                <span className="text-sm ml-2">Sign out</span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
+                                                    <SignOutButton />
                                                 ) : (
                                                     ""
                                                 )}
@@ -169,10 +256,10 @@ export default function IndexPage() {
                         </nav>
                         {/* Navigation ends */}
                         {/* Remove class [ h-64 ] when adding a card block */}
-                        <div className="container mx-auto py-12  md:w-4/5 w-11/12 px-6">
-                            {/* Remove class [ border-dashed border-2 border-gray-300 ] to remove dotted border */}
-                            <Profile />
-
+                        <div className="container mx-auto py-12 md:w-4/5 w-11/12 px-6">
+                            {menu && <Profile />}
+                            {menu1 ? <History /> : null}
+                            {menu3 ? <EditProfile /> :null}
                         </div>
                     </div>
                 </div>
