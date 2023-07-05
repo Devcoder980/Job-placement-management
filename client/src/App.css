@@ -8,10 +8,11 @@
   height: 8rem;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Manrope:wght@800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .blur {

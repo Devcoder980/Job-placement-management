@@ -33,7 +33,7 @@ const Navbar = (props) => {
     return (
         <>
             <nav className={`bg-${styles.backgroundTheme}-900 bg-slate-900 relative z-50 lg:px-1 uppercase`}>
-                <div className="max-w-7xl mx-auto px-2 md:px-6 lg:px-8">
+                <div className="w-[90%] mx-auto px-2 md:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between h-16">
 
                         <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
