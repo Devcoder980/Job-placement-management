@@ -5,8 +5,18 @@ import History from "./History";
 import { Link, useNavigate } from 'react-router-dom';
 import SignOutButton from "./SignOutButton";
 import Jobs from "./Jobs";
+
 import EditProfile from "./EditProfile";
 export default function IndexPage() {
+    const navigate = useNavigate();
+    function handleSignOut() {
+        // Clear local storage
+        localStorage.clear();
+
+        // Redirect to the home page
+        navigate('/');
+    }
+
     const [show, setShow] = useState(false);
     const [profile, setProfile] = useState(false);
     const [menu, setMenu] = useState(true);
@@ -41,6 +51,7 @@ export default function IndexPage() {
         const navigate = useNavigate();
         navigate('/jobs');
     }
+    
 
 
     return (
@@ -205,6 +216,12 @@ export default function IndexPage() {
                                                 <img alt="profile-pic" src="https://tuk-cdn.s3.amazonaws.com/assets/components/boxed_layout/bl_1.png" className="w-8 h-8 rounded-md" />
                                                 <p className="md:text-xl text-white text-base leading-4 ml-2">Jane Doe</p>
                                             </div>
+                                            <button
+                                                className="ml-auto bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md"
+                                                onClick={handleSignOut}
+                                            >
+                                                Sign Out
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +261,7 @@ export default function IndexPage() {
                             </div>
                             <div className="text-gray-600 mr-8 visible lg:hidden relative" onClick={() => setShow(!show)}>
                                 {show ? (
-                                    " "
+                                    ""
                                 ) : (
                                     <svg aria-label="Main Menu" aria-haspopup="true" xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-menu cursor-pointer" width={30} height={30} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" />
@@ -259,7 +276,7 @@ export default function IndexPage() {
                         <div className="container mx-auto py-12 md:w-4/5 w-11/12 px-6">
                             {menu && <Profile />}
                             {menu1 ? <History /> : null}
-                            {menu3 ? <EditProfile /> :null}
+                            {menu3 ? <EditProfile /> : null}
                         </div>
                     </div>
                 </div>

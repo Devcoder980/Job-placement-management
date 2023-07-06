@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { FaSpinner } from 'react-icons/fa';
+
 const EmployerRegister = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         companyName: '',
         numEmployees: '0',
@@ -42,9 +45,11 @@ const EmployerRegister = () => {
             setErrors(errors);
             return;
         }
+        setIsLoading(true);
         try {
             const response = await axios.post("https://jobmanagementw.onrender.com/api/employer", formData);
-            alert("Employer Created Sucessfully");
+            setIsLoading(false);
+            // alert("Employer Created Sucessfully");
             navigator('/employer/log-in')
         } catch (error) {
             alert(error.response.data.message);

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import jobadda from '../images/joblogo.png'
 import axios from 'axios'
-import { BsArrowLeft } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
+import { FaSpinner } from 'react-icons/fa';
 
 const Login = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
     useEffect(() => {
@@ -41,16 +41,24 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setIsLoading(true);
+
+        // Simulate asynchronous operation (e.g., API call)
+
         const errors = validateForm(fromData);
         if (Object.keys(errors).length > 0) {
             setErrors(errors);
             return;
         }
-        axios.post('https://jobmanagementw.onrender.com/api/user/login', fromData)
+    
+            // Set loading state back to false after a delay
+        axios.post('http://localhost:5000/api/profile/login', fromData)
             .then((res) => {
                 console.log(res.data);
                 localStorage.setItem('authToken', res.data.token);
+                // localStorage.setItem('userId', res.data._id);
                 alert("login succfully")
+                setIsLoading(false);
                 setIsLoggedIn(true);
                 // Handle succesfully
             })
@@ -67,7 +75,7 @@ const Login = () => {
                 : (
                     <div className="relative h-full flex min-h-full  justify-center md:px-12 lg:px-0">
                         <div className="relative z-10 h-[100vh] flex flex-1 flex-col bg-white justify-center  shadow-2xl sm:justify-center">
-                            <div className="mx-auto w-[21rem] md:px-0">
+                            <div className="mx-auto w-[21rem] lg:w-[24rem] md:px-0">
                                 <div className="flex flex-col">
                                     <a aria-label="Home" className=' flex justify-center items-center px-2' href="/">
                                         <svg aria-hidden="true" viewBox="0 0 40 40" className=" w-11 h-11">
@@ -101,21 +109,31 @@ const Login = () => {
                                             <input type="checkbox" id="rememberMe" className="mr-2 w-6 h-6 font-extrabold" />
                                             Remember Me
                                         </label>
-                                        <button className="group flex-1 py-5 cursor-pointer inline-flex items-center justify-center rounded-full px-1 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-blue-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600 w-full" type="submit">
-                                            <span>Sign in </span>
+                                        <button
+                                            className="group flex-1 py-5 cursor-pointer inline-flex items-center justify-center rounded-full px-1 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-blue-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600 w-full"
+                                            type="submit"
+                                            disabled={isLoading} // Disable the button while loading
+                                        >
+                                            {isLoading ? (
+                                                <>
+                                                    <FaSpinner className="animate-spin mr-2" />
+                                                    Loading...
+                                                </>
+                                            ) : (
+                                                <span>Sign in</span>
+                                            )}
                                         </button>
                                     </div>
                                     <div>
                                         <div className="mt-4 text-center">
                                             Don't have an account?
-                                            <Link to="/signup" className="text-blue-600 ml-1">Sign up</Link>
+                                            <Link to="/register" className="text-blue-600 ml-1 font-extrabold">Sign up</Link>
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
-                        <div className="hidden sm:contents lg:relative lg:block bg-gradient-to-tr  from-blue-600 to-blue-500 lg:flex-1">
+                        <div className="hidden  sm:hidden lg:block bg-gradient-to-tr  from-blue-600 to-blue-500 lg:flex-1">
                             <img src="https://images.pexels.com/photos/251225/pexels-photo-251225.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className=" w-1400  h-[100vh]" alt="" />
                         </div>
                     </div>

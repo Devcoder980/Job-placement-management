@@ -3,7 +3,10 @@ import { Link, Outlet } from 'react-router-dom'
 import axios from 'axios'
 import { BsArrowLeft } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
+import { FaSpinner } from 'react-icons/fa';
+
 const EmployerLogin = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [formErrors, setFormErrors] = useState({
         email: '',
@@ -14,7 +17,7 @@ const EmployerLogin = () => {
         password: '',
     });
     const history = useNavigate();
-    
+
     useEffect(() => {
         const token = localStorage.getItem('authToken'); // get the token from local storage
         if (token) {
@@ -43,12 +46,13 @@ const EmployerLogin = () => {
             setFormErrors({ ...formErrors, password: 'Please enter a password.' });
             return;
         }
+        setIsLoading(true);
         axios.post('https://jobmanagementw.onrender.com/api/employer/login', fromData)
             .then((res) => {
                 console.log(res.data);
                 localStorage.setItem('authTokenEmployer', res.data.token);
-                alert("EmployerLogin succfully")
-
+                setIsLoading(false);
+                // alert("EmployerLogin succfully")
                 setIsLoggedIn(true);
                 // Handle succesfully
             })
@@ -69,10 +73,7 @@ const EmployerLogin = () => {
                             <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
                                 <div className="flex flex-col">
                                     <div className="mt-2">
-                                        <h2 className="text-lg font-semibold text-gray-900">Sign in as Employer</h2>
-                                        <p className="mt-2 text-sm text-gray-700">Don’t have an account?
-                                            <Link className="font-bold text-xl px-2 text-emerald-600 hover:underline" to="/employer/register">
-                                                Sign up</Link> for a free trial.</p>
+                                        <h2 className="text-lg font-semibold text-gray-900">Sign in as <span className='text-green-600 text-xl'>Employer</span> </h2>
                                     </div>
                                 </div>
                                 <form onSubmit={handleSubmit} className="mt-10 grid grid-cols-1 gap-y-8">
@@ -88,17 +89,28 @@ const EmployerLogin = () => {
                                     </div>
 
                                     <div>
-                                        <button className="group inline-flex cursor-pointer items-center justify-center rounded-full py-3 px-4 text-md font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-600 text-white  hover:text-slate-100 hover:bg-emerald-500 active:bg-emerald-800 active:text-emerald-100 focus-visible:outline-emerald-600 w-full" type="submit">
-                                            <span>Sign in </span>
+                                        <button
+                                            className="group flex-1 py-5 cursor-pointer inline-flex items-center justify-center rounded-full px-1 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-blue-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600 w-full"
+                                            type="submit"
+                                            disabled={isLoading} // Disable the button while loading
+                                        >
+                                            {isLoading ? (
+                                                <>
+                                                    <FaSpinner className="animate-spin mr-2" />
+                                                    Loading...
+                                                </>
+                                            ) : (
+                                                <span>Sign in</span>
+                                            )}
                                         </button>
                                     </div>
-                                    <Link
-                                        to="/"
-                                        className=" flex  items-center justify-center  text-center bg-slate-700 text-white py-3 px-6 rounded-full hover:bg-slate-600 transition duration-300"
-                                    >
-                                        <span aria-hidden="true">  <BsArrowLeft /></span>
-                                        <span style={{ marginLeft: "5px" }}>Go Back Home</span>
-                                    </Link>
+                                    <div>
+                                        <div className="mt-4 text-center">
+                                            Don't have an account?
+                                            <Link className="font-bold text-xl px-2 text-emerald-600 hover:underline" to="/employer/register">Sign up</Link>
+                                        </div>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>

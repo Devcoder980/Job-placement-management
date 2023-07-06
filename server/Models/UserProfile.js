@@ -1,19 +1,11 @@
 const mongoose = require('mongoose');
 
 const profileSchema = new mongoose.Schema({
-    name: {
+    firstName: {
         type: String,
         required: true,
     },
-    location: {
-        type: String,
-        required: true,
-    },
-    experience: {
-        type: String,
-        required: true,
-    },
-    contact: {
+    lastName: {
         type: String,
         required: true,
     },
@@ -22,27 +14,52 @@ const profileSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    password: {
+        type: String,
+        required: true,
+    },
+    location: {
+        type: String,
+        required: false,
+    },
+    experience: {
+        type: String,
+        required: false,
+    },
+    contact: {
+        type: String,
+        required: false,
+    },
+    email: {
+        type: String,
+        required: false,
+        unique: true,
+    },
     skills: {
         type: [String],
-        required: true,
+        required: false,
     },
     education: {
         institute: {
             type: String,
-            required: true,
+            required: false,
         },
         duration: {
             type: String,
-            required: true,
+            required: false,
         },
         mode: {
             type: String,
-            required: true,
+            required: false,
         },
     },
     summary: {
         type: String,
-        required: true,
+        required: false,
+    },
+    resumeFileName: {
+        type: String,
+        required: false,
     },
 });
 

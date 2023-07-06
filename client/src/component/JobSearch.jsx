@@ -5,6 +5,7 @@ import axios from 'axios';
 import JobList from './JobList';
 import { useLocation } from 'react-router-dom';
 import { LineWave } from 'react-loader-spinner';
+import Footer from './Footer';
 const JobSearch = () => {
 
     const location = useLocation();
@@ -138,28 +139,28 @@ const JobSearch = () => {
                         </div>
                     ) : (
                         displayedJobs.length
-                        ?
-                        displayedJobs.sort((a, b) => (a.createdDate < b.createdDate) ? 1 : -1).map(item => (
-                            <JobList
-                                key={item._id} // Add a unique key 
-                                title={item.title}
-                                company={item.company}
-                                location={item.location}
-                                sector={item.sector}
-                                minSalary={item.minSalary}
-                                maxSalary={item.maxSalary}
-                                description={item.description}
-                                requirements={item.requirements}
-                                lastDate={item.lastDate}
-                                createdDate={item.createdDate}
-                                jobType={item.jobType}
-                            />
-                        )) :
-                        <>
-                        </>
+                            ?
+                            displayedJobs.sort((a, b) => (a.createdDate < b.createdDate) ? 1 : -1).map(item => (
+                                <JobList
+                                    key={item._id} // Add a unique key 
+                                    title={item.title}
+                                    company={item.company}
+                                    location={item.location}
+                                    sector={item.sector}
+                                    minSalary={item.minSalary}
+                                    maxSalary={item.maxSalary}
+                                    description={item.description}
+                                    requirements={item.requirements}
+                                    lastDate={item.lastDate}
+                                    createdDate={item.createdDate}
+                                    jobType={item.jobType}
+                                />
+                            )) :
+                            <>
+                            </>
                     )}
 
-
+                    {location.pathname === '/jobs' && <Footer />}
                 </div>
 
             </section>
