@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState ,useContext} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { FaSpinner } from 'react-icons/fa';
+import { ThemeContext } from '../component/JobContext';
+
 function Register() {
   const history = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -106,6 +108,7 @@ function Register() {
     }
   };
 
+  const theme=useContext(ThemeContext);
   return (
     <div className="relative flex h-[100vh] justify-center md:px-12 lg:px-0">
       <div className="relative z-10 flex flex-1 flex-col bg-white py-4 px-4 shadow-2xl sm:justify-center ">
@@ -171,7 +174,7 @@ function Register() {
           </form>
         </div>
       </div>
-      <div className="hidden sm:contents lg:relative lg:block bg-gradient-to-tr  from-blue-600 to-slate-500 lg:flex-1">
+      <div className={`hidden sm:contents lg:relative lg:block bg-gradient-to-tr  from-blue-600 to-${theme}-500 lg:flex-1`}>
         <img src="https://images.pexels.com/photos/3127883/pexels-photo-3127883.jpeg" className=" w-1400  h-[100vh]" alt="" />
 
       </div>

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { SiGooglecalendar } from 'react-icons/si';
 import { HiHand } from 'react-icons/hi';
 import styles from '../style';
 import axios from 'axios';
+import { ThemeContext } from './JobContext';
 // import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 const NewsLetter = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -39,9 +40,10 @@ const NewsLetter = () => {
             })
 
     }
+    const theme=useContext(ThemeContext);
     return (
         <>
-            <div className={` relative  isolate overflow-hidden bg-${styles.backgroundTheme}-900 py-16 sm:py-24 lg:py-32 ${styles.paddingX} `}>
+            <div className={` relative  isolate overflow-hidden bg-${theme}-900 py-16 sm:py-24 lg:py-32 ${styles.paddingX} `}>
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 lg:max-w-none lg:grid-cols-2">
                         <div className="max-w-xl lg:max-w-lg">

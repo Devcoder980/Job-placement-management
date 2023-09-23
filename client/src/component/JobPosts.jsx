@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect ,useContext} from 'react'
+import { ThemeContext } from './JobContext';
 
 const JobPosts = () => {
     const [loading, setLoading] = useState(false);
@@ -68,8 +69,8 @@ const JobPosts = () => {
             });
     };
 
-  
-    return (
+    const theme=useContext(ThemeContext);
+    return (    
         <>
 
             <div className="bg-gray-100 p-6">
@@ -78,7 +79,7 @@ const JobPosts = () => {
                         <h1 className="text-center text-3xl py-3">Job Posted</h1>
                         {/* Add your table component here */}
                         <div>
-                            <div class="flex flex-col bg-slate-900 text-white">
+                            <div class={`flex flex-col bg-${theme}-900 text-white`}>
                                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                     <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                                         <div class="overflow-hidden">

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from '../style'
 import { useLocation } from 'react-router-dom'
 import { BsCurrencyDollar, BsCalendar, BsBriefcaseFill, BsPinMap } from 'react-icons/bs'
 import { HiOutlineDocument } from 'react-icons/hi'
+import { ThemeContext } from '../component/JobContext';
 
 function ApplyForm() {
   const [firstName, setFirstName] = useState('');
@@ -63,7 +64,7 @@ function ApplyForm() {
     }
   };
 
-
+  const theme=useContext(ThemeContext);
   return (
     <>
       <div className='lg:flex justify-around '>
@@ -188,8 +189,7 @@ function ApplyForm() {
                     <span className="sr-only">Choose profile photo</span>
                     <input type="file"
                       onChange={(e) => setFile(e.target.files[0])}
-                      className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100
-    "/>
+                      className={`block w-full text-sm text-${theme}-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100`}/>
                   </label>
                 </div>
                 {errors.file && <span className="error text-red-500">{errors.file}</span>}
@@ -203,10 +203,10 @@ function ApplyForm() {
           </form>
         </div>
         <div className="sm:contents lg:relative  bg-gradient-to-tr  from-teal-600 to-green-500 lg:flex-1">
-          <div className=' bg-slate-900 flex  items-start py-20 justify-center lg:w-1/2'>
-            <div className={` w-4/5 lg:items-center ${styles.paddingX} py-8   bg-white text-slate-900  lg:justify-between`}>
+          <div className={` bg-${theme}-900 flex  items-start py-20 justify-center lg:w-1/2`}>
+            <div className={` w-4/5 lg:items-center ${styles.paddingX} py-8   bg-white text-${theme}-900  lg:justify-between`}>
               <div >
-                <h2 className="text-2xl font-bold leading-7 text-slate-900 sm:truncate sm:text-3xl sm:tracking-tight">
+                <h2 className={`text-2xl font-bold leading-7 text-${theme}-900 sm:truncate sm:text-3xl sm:tracking-tight`}>
                   {title}
                 </h2>
                 <p className="  font-bold  text-gray-400 sm:truncate  sm:tracking-tight">

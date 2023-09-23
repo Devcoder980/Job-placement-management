@@ -1,7 +1,8 @@
-import React from 'react'
+import React ,{useContext}from 'react'
 import { BsCurrencyDollar, BsCalendar, BsBriefcaseFill, BsPinMap } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { ThemeContext } from './JobContext'
 
 const JobList = (props) => {
     const navigate = useNavigate();
@@ -14,11 +15,11 @@ const JobList = (props) => {
             navigate('/apply');
         }
     }
-
+    const theme=useContext(ThemeContext);
     return (
         <>
-            <div className=' pt-10 lg:w-[30%] sm:mx-5 rounded-sm '>
-                <div key={props._id} className="  bg-slate-800  w-[100%] h-[100%]   rounded-md  text-white  p-4 px-10  font-['Inter'] flex flex-col justify-start">
+            <div className=' pt-10 lg:w-[40%] sm:mx-5 rounded-sm '>
+                <div key={props._id} className={`  bg-${theme}-900  w-[100%] h-[100%]   rounded-md  text-white  p-4 px-10  font-['Inter'] flex flex-col justify-start`}>
                     <div >
                         <h1 className="  font-body  mix-blend-screen text-3xl " >{props.title}</h1>
                     </div>

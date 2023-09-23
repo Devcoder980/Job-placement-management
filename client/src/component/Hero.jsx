@@ -2,7 +2,7 @@
 includes a job search component, a section with logos, a newsletter component, and a footer
 component. The component is using CSS styles and images imported from other files to style and
 display the content. */
-import React from 'react'
+import React,{createContext,useState,useContext} from 'react'
 import styles from '../style.js'
 import '../App.css'
 import NewsLetter from './NewsLetter'
@@ -11,10 +11,16 @@ import Footer from './Footer'
 
 import { logos } from '../style.js'
 import OurParterner from './OurParterner.jsx'
+import { ThemeContext } from './JobContext.js'
+
+
 const Hero = () => {
+
+    const theme=useContext(ThemeContext);
+
     return (
-        <>
-            <main className={`bg-${styles.backgroundTheme}-900`}>
+        <ThemeContext.Provider >
+            <main className={`bg-${theme}-900`}>
 
                 <div className=" absolute inset-[1px] z-10 -top-32 -bottom-48 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:left-[calc(50%+14rem)] lg:right-0 lg:-top-32 lg:-bottom-32 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
                     <svg aria-hidden="true" viewBox="0 0 389 1069" width="400" height="1469" fill="none" className="absolute top-1/2 left-40 w-[100%]  z-8 -translate-y-1/2 -translate-x-1/2 lg:left-[-20px] lg:translate-x-0 lg:translate-y-[-60%]">
@@ -54,7 +60,7 @@ const Hero = () => {
 
                 </div>
 
-                <JobSearch />
+                <JobSearch  />
 
                 <div className={`blur bg-blue-300  lg:absolute  top-16  hero-blur`}>
 
@@ -70,7 +76,7 @@ const Hero = () => {
 
             </main>
             <Footer />
-        </>
+        </ThemeContext.Provider>
 
     )
 }
