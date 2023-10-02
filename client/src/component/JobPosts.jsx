@@ -69,7 +69,10 @@ const JobPosts = () => {
             });
     };
 
-    const theme=useContext(ThemeContext);
+    let theme=useContext(ThemeContext);
+    if(!theme) {
+        theme='slate';
+    }
     return (    
         <>
 

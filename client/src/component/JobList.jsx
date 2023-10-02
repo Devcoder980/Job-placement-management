@@ -6,7 +6,6 @@ import { ThemeContext } from './JobContext'
 
 const JobList = (props) => {
     const navigate = useNavigate();
-    console.log(props)
     const toggleApplyForm = (e) => {
         if (localStorage.length) {
             navigate('/apply', { state: { e } });
@@ -15,11 +14,15 @@ const JobList = (props) => {
             navigate('/apply');
         }
     }
-    const theme=useContext(ThemeContext);
+    let theme=useContext(ThemeContext);
+
+    if(!theme){
+        theme="slate";
+    }
     return (
         <>
             <div className=' pt-10 lg:w-[40%] sm:mx-5 rounded-sm '>
-                <div key={props._id} className={`  bg-${theme}-900  w-[100%] h-[100%]   rounded-md  text-white  p-4 px-10  font-['Inter'] flex flex-col justify-start`}>
+                <div key={props._id} className={`  bg-slate-800 md:w-[430px]   rounded-md  text-white  p-4 px-10  font-['Inter'] flex flex-col justify-start`}>
                     <div >
                         <h1 className="  font-body  mix-blend-screen text-3xl " >{props.title}</h1>
                     </div>

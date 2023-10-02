@@ -30,7 +30,10 @@ const Navbar = (props) => {
         setIsOpen(!isOpen);
     };
 
-    const theme=useContext(ThemeContext);
+    let theme=useContext(ThemeContext);
+    if(!theme){
+        theme='slate';
+    }
 
     return (
         <>

@@ -40,7 +40,7 @@ const NewsLetter = () => {
             })
 
     }
-    const theme=useContext(ThemeContext);
+    let theme=useContext(ThemeContext);
     return (
         <>
             <div className={` relative  isolate overflow-hidden bg-${theme}-900 py-16 sm:py-24 lg:py-32 ${styles.paddingX} `}>

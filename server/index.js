@@ -15,14 +15,14 @@ app.use(bodyParser.json());
 connectDb();
 myconnnect();
 // Define your CORS options
-const corsOptions = {
-    origin: 'https://jobmanagement1.netlify.app', // Replace with the website you want to allow
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Enable cookies and authentication headers
-};
+// const corsOptions = {
+//     origin: 'http://localhost:3000/', // Replace with the website you want to allow
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true, // Enable cookies and authentication headers
+// };
 
 // Use the CORS middleware with your options
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use('/api/user/', require('./routes/userRouter.js'))
 app.use('/api/admin/', require('./routes/adminRouter.js'))

@@ -10,7 +10,10 @@ import { ThemeContext } from './JobContext';
 
 const JobSearch = () => {
 
-    const theme=useContext(ThemeContext);
+    let theme=useContext(ThemeContext);
+    if(!theme){
+        theme='slate';
+    }
     const location = useLocation();
 
     const [searchParams, setSearchParams] = useState({ title: '', location: '', jobType: '' });
@@ -18,7 +21,7 @@ const JobSearch = () => {
     const [filteredJobs, setFilteredJobs] = useState([]);
 
     async function searchDatabase(searchParams) {
-        const apiUrl = "https://jobmanagementw.onrender.com/api/user/jobs"; // Replace with your API URL
+        const apiUrl = "http://localhost:5000/api/user/jobs"; // Replace with your API URL
         try {
             const response = await axios.get(apiUrl, {
                 params: searchParams

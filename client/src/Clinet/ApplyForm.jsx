@@ -65,6 +65,7 @@ function ApplyForm() {
   };
 
   const theme=useContext(ThemeContext);
+  
   return (
     <>
       <div className='lg:flex justify-around '>
