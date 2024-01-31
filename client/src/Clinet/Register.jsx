@@ -1,23 +1,23 @@
-import React, { useState ,useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { FaSpinner } from 'react-icons/fa';
-import { ThemeContext } from '../component/JobContext';
+import JobContext from '../component/JobContext';
 
 function Register() {
   const history = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
   });
 
   const [errors, setErrors] = useState({
-    firstname: '',
-    lastname: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
   });
@@ -31,18 +31,18 @@ function Register() {
     let valid = true;
     const newErrors = { ...errors };
 
-    if (!formData.firstname) {
-      newErrors.firstname = 'First name is required';
+    if (!formData.firstName) {
+      newErrors.firstName = 'First name is required';
       valid = false;
     } else {
-      newErrors.firstname = '';
+      newErrors.firstName = '';
     }
 
-    if (!formData.lastname) {
-      newErrors.lastname = 'Last name is required';
+    if (!formData.lastName) {
+      newErrors.lastName = 'Last name is required';
       valid = false;
     } else {
-      newErrors.lastname = '';
+      newErrors.lastName = '';
     }
 
     if (!formData.email) {
@@ -71,7 +71,7 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (validateInputs()) {
       // Generate and send OTP
       setIsLoading(true);
@@ -81,35 +81,22 @@ function Register() {
         })
         .then((res) => {
           // Assuming OTP generation is successful
-          const otp = prompt('Please enter the OTP');
-          if (otp) {
-            // Verify OTP and register the user
-            axios
-              .post('http://localhost:5000/api/profile/register', {
-                ...formData,
-                otp,
-              })
-              .then((res) => {
-                console.log(res);
-                setIsLoading(false);
-                // alert('Registration successful');
-                history('/login');
-              })
-              .catch((error) => {
-                console.error(error);
-                // Handle registration error
-              });
-          }
+          history('/otp', { state: { email: formData.email, formData: formData,resOtp:res.data.otp } });
+          setIsLoading(false);
         })
         .catch((error) => {
           console.error(error);
           // Handle OTP generation error
+          alert(error.response.data.error); 
+          setIsLoading(false);
         });
     }
   };
 
-  const theme=useContext(ThemeContext);
-  return (
+
+ 
+
+  const theme = useContext(JobContext); return (
     <div className="relative flex h-[100vh] justify-center md:px-12 lg:px-0">
       <div className="relative z-10 flex flex-1 flex-col bg-white py-4 px-4 shadow-2xl sm:justify-center ">
         <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
@@ -131,13 +118,13 @@ function Register() {
           <form onSubmit={handleSubmit} className=" grid grid-cols-1 gap-y-6 gap-x-6 sm:grid-cols-2">
             <div className="">
               <label htmlFor="first_name" className="mb-3 block text-sm font-medium text-gray-700">First name</label>
-              <input id="first_name" type="text" onChange={handleInputChange} name="firstname" autoComplete="given-name" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" />
-              {errors.firstname && <span className="text-red-500 text-sm">{errors.firstname}</span>}
+              <input id="first_name" type="text" onChange={handleInputChange} name="firstName" autoComplete="given-name" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" />
+              {errors.firstName && <span className="text-red-500 text-sm">{errors.firstName}</span>}
             </div>
             <div className="">
               <label htmlFor="last_name" className="mb-3 block text-sm font-medium text-gray-700">Last name</label>
-              <input id="last_name" onChange={handleInputChange} type="text" name="lastname" autoComplete="family-name" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" />
-              {errors.lastname && <span className="text-red-500 text-sm">{errors.lastname}</span>}
+              <input id="last_name" onChange={handleInputChange} type="text" name="lastName" autoComplete="family-name" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" />
+              {errors.lastName && <span className="text-red-500 text-sm">{errors.lastName}</span>}
             </div>
             <div className="col-span-full">
               <label htmlFor="email" className="mb-3 block text-sm font-medium text-gray-700">Email address</label>
@@ -146,7 +133,7 @@ function Register() {
             </div>
             <div className="col-span-full">
               <label htmlFor="password" className="mb-3 block text-sm font-medium text-gray-700">Password</label>
-              <input id="password" onChange={handleInputChange} type="password" name="password" autoComplete="new-password" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" aria-autoComplete="list" />
+              <input id="password" onChange={handleInputChange} type="password" name="password" autoComplete="new-password" required="" className="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" autocomplete="list" />
             </div>
             {errors.password && <span className="text-red-500 text-sm">{errors.password}</span>}
             <div className="col-span-full">
@@ -174,7 +161,7 @@ function Register() {
           </form>
         </div>
       </div>
-      <div className={`hidden sm:contents lg:relative lg:block bg-gradient-to-tr  from-blue-600 to-${theme}-500 lg:flex-1`}>
+      <div className={`hidden sm:contents lg:relative lg:block bg-gradient-to-tr  from-blue-600 to-${theme.ThemeContext}-500 lg:flex-1`}>
         <img src="https://images.pexels.com/photos/3127883/pexels-photo-3127883.jpeg" className=" w-1400  h-[100vh]" alt="" />
 
       </div>

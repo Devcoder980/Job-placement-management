@@ -5,11 +5,11 @@ import styles from '../style'
 import { useLocation } from 'react-router-dom'
 import { BsCurrencyDollar, BsCalendar, BsBriefcaseFill, BsPinMap } from 'react-icons/bs'
 import { HiOutlineDocument } from 'react-icons/hi'
-import { ThemeContext } from '../component/JobContext';
+import JobContext from '../component/JobContext';
 
 function ApplyForm() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstName, setfirstName] = useState('');
+  const [lastName, setlastName] = useState('');
   const [email, setEmail] = useState('');
   const [country, setCountry] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
@@ -34,7 +34,8 @@ function ApplyForm() {
   };
 
   const { state } = useLocation();
-  const { title, company, description, lastDate, location, jobType, minSalary, maxSalary, requirements } = state.e;
+
+  const {id, title, company, description, lastDate, location, jobType, minSalary, maxSalary, requirements } = state.e;
 
   
   const handleSubmit = async (event) => {
@@ -51,10 +52,11 @@ function ApplyForm() {
     formData.append('file', file);
     formData.append('company', company);
     formData.append('title', title);
+    formData.append('jobId', id);
 
 
     try {
-      const response = await axios.post('https://jobmanagementw.onrender.com/api/user/apply', formData);
+      const response = await axios.post('http://localhost:5000/api/user/apply', formData);
       console.log(response.data);
       alert('Your application has been submitted successfully');
       navigate('/applythankyou');
@@ -64,8 +66,7 @@ function ApplyForm() {
     }
   };
 
-  const theme=useContext(ThemeContext);
-  
+const theme=useContext(JobContext);
   return (
     <>
       <div className='lg:flex justify-around '>
@@ -87,7 +88,7 @@ function ApplyForm() {
                       <input type="text"
                         value={firstName}
                         name="firstName"
-                        onChange={(e) => setFirstName(e.target.value)}
+                        onChange={(e) => setfirstName(e.target.value)}
                         className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       />
                       {errors.firstName && <span className="error text-red-500">{errors.firstName}</span>}
@@ -102,7 +103,7 @@ function ApplyForm() {
                       <input type="text"
                         value={lastName}
                         name="lastName"
-                        onChange={(e) => setLastName(e.target.value)}
+                        onChange={(e) => setlastName(e.target.value)}
                         className="appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       />
                       {errors.lastName && <span className="error text-red-500">{errors.lastName}</span>}
@@ -190,7 +191,7 @@ function ApplyForm() {
                     <span className="sr-only">Choose profile photo</span>
                     <input type="file"
                       onChange={(e) => setFile(e.target.files[0])}
-                      className={`block w-full text-sm text-${theme}-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100`}/>
+                      className={`block w-full text-sm text-${theme.ThemeContext}-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100`}/>
                   </label>
                 </div>
                 {errors.file && <span className="error text-red-500">{errors.file}</span>}
@@ -204,10 +205,10 @@ function ApplyForm() {
           </form>
         </div>
         <div className="sm:contents lg:relative  bg-gradient-to-tr  from-teal-600 to-green-500 lg:flex-1">
-          <div className={` bg-${theme}-900 flex  items-start py-20 justify-center lg:w-1/2`}>
-            <div className={` w-4/5 lg:items-center ${styles.paddingX} py-8   bg-white text-${theme}-900  lg:justify-between`}>
+          <div className={` bg-${theme.ThemeContext}-900 flex  items-start py-20 justify-center lg:w-1/2`}>
+            <div className={` w-4/5 lg:items-center ${styles.paddingX} py-8   bg-white text-${theme.ThemeContext}-900  lg:justify-between`}>
               <div >
-                <h2 className={`text-2xl font-bold leading-7 text-${theme}-900 sm:truncate sm:text-3xl sm:tracking-tight`}>
+                <h2 className={`text-2xl font-bold leading-7 text-${theme.ThemeContext}-900 sm:truncate sm:text-3xl sm:tracking-tight`}>
                   {title}
                 </h2>
                 <p className="  font-bold  text-gray-400 sm:truncate  sm:tracking-tight">

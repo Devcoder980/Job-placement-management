@@ -433,14 +433,14 @@ export const customersGrid = [
 export const employeesGrid = [
 
   {
-    field: 'firstname',
-    headerText: 'Firstname',
+    field: 'firstName',
+    headerText: 'firstName',
     width: '100',
     textAlign: 'Center',
   },
   {
-    field: 'lastname',
-    headerText: 'Lastname',
+    field: 'lastName',
+    headerText: 'lastName',
     width: '100',
     textAlign: 'Center',
   },

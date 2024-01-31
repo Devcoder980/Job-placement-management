@@ -9,11 +9,11 @@ import styles from '../style.js';
 import NumberCounter from 'number-counter';
 import Footer from '../component/Footer.jsx';
 import { Link } from 'react-router-dom';
-import { ThemeContext } from './JobContext';
+import JobContext from './JobContext';
 
 
 const AboutUs = () => {
-    const theme = useContext(ThemeContext);
+    const theme = useContext(JobContext);
     return (
         <>
             <div className={`${styles.flexCenter}    flex-col`}>
@@ -23,7 +23,7 @@ const AboutUs = () => {
                     </h2>
                 </div>
                 <section className={` bg-hero_1 `}>
-                    <div className={` bg-${theme}-600/60  text-white m-0 py-10 px-4 lg:px-24 lg:py-20 `}>
+                    <div className={` bg-${theme.ThemeContext}-600/60  text-white m-0 py-10 px-4 lg:px-24 lg:py-20 `}>
                         <div className='text-center   text-3xl my-8'>
                             <h1>JobAdda Site Stats</h1>
                         </div>
@@ -119,7 +119,7 @@ const AboutUs = () => {
                                 <h3 className=' text-3xl py-4'>Dilip kushwaha</h3>
                                 <p className="text-muted text-lg text-[#ced4da] py-4">Creative Director</p>
                                 <p className='text-lg text-gray-400 py-4'>Dilip has more than 15 years of experience in Online Education, Recruitments, & eCommerce space. He has been associated with Freshersworld since its early days. He defines & drives technology initiatives for Freshersworld.</p>
-                                <div className={`social mt-4 flex text-${theme}-600 gap-3`}>
+                                <div className={`social mt-4 flex text-${theme.ThemeContext}-600 gap-3`}>
                                     <Link to="#"><FaFacebook className="h-10 w-10" /></Link>
                                     <Link to="#"><FaInstagram className="h-10 w-10 " /></Link>
                                     <Link to="#"><FaLinkedin className="h-10 w-10 " /></Link>
@@ -143,7 +143,7 @@ const AboutUs = () => {
                                 <h3 className=' text-3xl'>Chintan Patel</h3>
                                 <p className="text-muted text-lg text-[#ced4da]">Creative Director</p>
                                 <p className='text-lg text-gray-400'>We work with some of the biggest organizations in the world, who use the HackerOne platform for their vulnerability coordination, bug bounty programs, and penetration testing, and the list keeps growing.</p>
-                                <div className={`social mt-4 flex text-${theme}-600 gap-3`}>
+                                <div className={`social mt-4 flex text-${theme.ThemeContext}-600 gap-3`}>
                                     <Link to="#"><FaFacebook className="h-10 w-10" /></Link>
                                     <Link to="#"><FaInstagram className="h-10 w-10 " /></Link>
                                     <Link to="#"><FaLinkedin className="h-10 w-10 " /></Link>

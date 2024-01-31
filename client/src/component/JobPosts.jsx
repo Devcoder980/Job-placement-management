@@ -1,67 +1,57 @@
-import React, { useState, useEffect ,useContext} from 'react'
-import { ThemeContext } from './JobContext';
+import React, { useState, useEffect, useContext } from 'react';
+import JobContext from './JobContext';
 
 const JobPosts = () => {
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState({});
     const [employe, setEmploye] = useState([]);
-   
+
     useEffect(() => {
-        const token = localStorage.getItem('authTokenEmployer'); // get the token from local storage
+        const token = localStorage.getItem('authTokenEmployer');
+
         try {
             if (token) {
-                // Make API call to get the user's information
-                fetch('https://jobmanagementw.onrender.com/api/employer', {
+                fetch('http://localhost:5000/api/employer', {
                     headers: {
                         Authorization: `Bearer ${token}`,
-                    }
+                    },
                 })
-                    .then(response => response.json())
-                    .then(data => {
-                        setUser(data)
-                        localStorage.setItem('companyName', data.companyName)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        setUser(data);
+                        localStorage.setItem('companyName', data.companyName);
                         try {
-                            // Make API call to get the user's information
-                            console.log(data.companyName)
-                            fetch(`https://jobmanagementw.onrender.com/api/user/jobs/${data.companyName}`)
-                                .then(response => response.json())
-                                .then(data => {
-                                    setEmploye(data)
-                                    console.log(data)
-                                }
-                                )
-                                .catch(error => console.error(error));
+                            fetch(`http://localhost:5000/api/user/jobs/${data.companyName}`)
+                                .then((response) => response.json())
+                                .then((data) => {
+                                    setEmploye(data);
+                                })
+                                .catch((error) => console.error(error));
                         } catch (error) {
-                            console.log(error)
+                            console.log(error);
                         }
-                    }
-                    )
-                    .catch(error => console.error(error));
+                    })
+                    .catch((error) => console.error(error));
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-        console.log(user)
     }, []);
 
     const handleDelete = (id) => {
         setLoading(true);
 
         fetch(`http://localhost:5000/api/user/jobs/${id}`, { method: 'DELETE' })
-            .then(response => {
+            .then((response) => {
                 if (!response.ok) {
                     throw new Error('Failed to delete record');
                 }
                 return response.json();
             })
-            .then(data => {
-                // Remove the deleted record from the list of employees
-                setEmploye(employe.filter(e => e._id !== id));
-                console.log("Delted");
-                console.log(employe);
-                
+            .then((data) => {
+                setEmploye(employe.filter((e) => e._id !== id));
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error(error);
             })
             .finally(() => {
@@ -69,74 +59,68 @@ const JobPosts = () => {
             });
     };
 
-    let theme=useContext(ThemeContext);
-    if(!theme) {
-        theme='slate';
+    let theme = useContext(JobContext);
+
+    if (!theme) {
+        theme = 'slate';
     }
-    return (    
+
+    return (
         <>
-
-            <div className="bg-gray-100 p-6">
-                <div className="flex flex-row items-center">
-                    <div className="bg-white shadow overflow-hidden sm:rounded-lg p-6">
-                        <h1 className="text-center text-3xl py-3">Job Posted</h1>
-                        {/* Add your table component here */}
-                        <div>
-                            <div class={`flex flex-col bg-${theme}-900 text-white`}>
-                                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                                        <div class="overflow-hidden">
-                                            <table class="min-w-full text-left text-sm font-light">
-                                                <thead class="border-b font-medium dark:border-neutral-500">
-                                                    <tr>
-                                                        <th scope="col" class="px-6 py-4">Delete</th>
-                                                        <th scope="col" class="px-6 py-4">#</th>
-                                                        <th scope="col" class="px-6 py-4">Job title</th>
-                                                        <th scope="col" class="px-6 py-4">Location</th>
-                                                        <th scope="col" class="px-6 py-4">Sector</th>
-                                                        <th scope="col" class="px-6 py-4">MinSalary</th>
-                                                        <th scope="col" class="px-6 py-4">MaxSalary</th>
-                                                        <th scope="col" class="px-6 py-4">jobType</th>
-                                                        <th scope="col" class="px-6 py-4">Requirement</th>
-                                                        <th scope="col" class="px-6 py-4">lastDate</th>
-                                                        <th scope="col" class="px-6 py-4">Created DAte</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {
-                                                        employe.map((e, i) => (
-                                                            <tr class="border-b transition duration-300 ease-in-out  dark:border-neutral-500 dark:hover:bg-neutral-600">
-                                                                <td class="whitespace-nowrap px-6 py-4 font-bold text-2xl cursor-pointer text-red-600"
-                                                                    disabled={loading}
-                                                                    onClick={() => handleDelete(e._id)}
-                                                                >X</td>
-                                                                <td class="whitespace-nowrap px-6 py-4 font-medium">{i + 1}</td>
-                                                                <td class="whitespace-nowrap px-6 py-4">{e.title}</td>
-                                                                <td class="whitespace-nowrap px-6 py-4">{e.location}</td>
-                                                                <td class="whitespace-nowrap px-6 py-4">{e.sector}</td>
-                                                                <td class="whitespace-nowrap px-6 py-4">{e.minSalary}</td>
-                                                                <td class="whitespace-nowrap px-6 py-4">{e.maxSalary}</td>
-                                                                <td class="whitespace-nowrap px-6 py-4">{e.jobType}</td>
-                                                                <td>{e.requirements}</td>
-                                                                <td class="whitespace-nowrap px-6 py-4">{e.lastDate.substring(0,10)}</td>
-                                                                <td class="whitespace-nowrap px-6 py-4">{e.createdDate.substring(0, 10)}</td>
-                                                            </tr>
-                                                        ))
-
-                                                    }
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bg-yellow-400 h-full w-6"></div>
+            <div className="container p-2 mx-auto sm:p-4   text-gray-800">
+                <h2 className="mb-4 text-2xl font-semibold leadi">Job Posted</h2>
+                <div className="overflow-x-auto">
+                    <table className={`w-full p-6 text-xs text-left whitespace-nowrap `}>
+                        <colgroup>
+                            <col className="w-1/12" />
+                            <col className="w-1/12" />
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                        </colgroup>
+                        <thead>
+                            <tr className="bg-gray-300">
+                                <th className="p-3">Delete</th>
+                                <th className="p-3">#</th>
+                                <th className="p-3">Job title</th>
+                                <th className="p-3">Location</th>
+                                <th className="p-3">Sector</th>
+                                <th className="p-3">MinSalary</th>
+                                <th className="p-3">MaxSalary</th>
+                                <th className="p-3">jobType</th>
+                                <th className="p-3">Requirement</th>
+                                <th className="p-3">lastDate</th>
+                                <th className="p-3">Created DAte</th>
+                            </tr>
+                        </thead>
+                        <tbody className="border-b bg-gray-50 border-gray-300">
+                            {employe.map((e, i) => (
+                                <tr key={e._id} className="border-b transition duration-300 ease-in-out  dark:border-neutral-500 dark:hover:bg-neutral-600">
+                                    <td className="px-3 py-2 font-bold text-2xl cursor-pointer text-red-600" disabled={loading} onClick={() => handleDelete(e._id)}>X</td>
+                                    <td className="px-3 py-2">{i + 1}</td>
+                                    <td className="px-3 py-2">{e.title}</td>
+                                    <td className="px-3 py-2">{e.location}</td>
+                                    <td className="px-3 py-2">{e.sector}</td>
+                                    <td className="px-3 py-2">{e.minSalary}</td>
+                                    <td className="px-3 py-2">{e.maxSalary}</td>
+                                    <td className="px-3 py-2">{e.jobType}</td>
+                                    <td className="px-3 py-2">{e.requirements}</td>
+                                    <td className="px-3 py-2">{e.lastDate.substring(0, 10)}</td>
+                                    <td className="px-3 py-2">{e.createdDate.substring(0, 10)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default JobPosts
+export default JobPosts;

@@ -10,13 +10,15 @@ const Login = () => {
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
     useEffect(() => {
-        const token = localStorage.getItem('authToken'); // get the token from local storage
+        const token = localStorage.getItem('authToken');
         if (token) {
-            setIsLoggedIn(true); // set the state to indicate that the user is logged in
-            console.log("user Already log in")
+            setIsLoggedIn(true);
+            console.log("User already logged in");
             navigate('/user');
         }
     }, [navigate]);
+    
+
     const [fromData, setFromData] = useState({
         email: '',
         password: '',
@@ -52,7 +54,7 @@ const Login = () => {
         }
     
             // Set loading state back to false after a delay
-        axios.post('http://localhost:5000/api/profile/login', fromData)
+        axios.post('http://localhost:5000/api/user/login', fromData)
             .then((res) => {
                 console.log(res.data);
                 localStorage.setItem('authToken', res.data.token);

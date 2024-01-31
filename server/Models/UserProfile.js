@@ -20,46 +20,41 @@ const profileSchema = new mongoose.Schema({
     },
     location: {
         type: String,
-        required: false,
+        default: '',
     },
     experience: {
         type: String,
-        required: false,
+        default: '',
     },
     contact: {
         type: String,
-        required: false,
-    },
-    email: {
-        type: String,
-        required: false,
-        unique: true,
+        default: '',
     },
     skills: {
         type: [String],
-        required: false,
+        default: [],
     },
     education: {
         institute: {
             type: String,
-            required: false,
+            default: '',
         },
         duration: {
             type: String,
-            required: false,
+            default: '',
         },
         mode: {
             type: String,
-            required: false,
+            default: '',
         },
     },
     summary: {
         type: String,
-        required: false,
+        default: '',
     },
     resumeFileName: {
         type: String,
-        required: false,
+        default: '',
     },
 });
 

@@ -10,10 +10,10 @@ const User = require('../Models/adminModels.js'); // Use the same variable name
 //@acces public
 router.post('/register', asyncHandler(async (req, res) => {
     try {
-        const { firstname, lastname, email, password } = req.body;
+        const { firstName, lastName, email, password } = req.body;
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new User({ firstname, lastname, email, password: hashedPassword });
+        const newUser = new User({ firstName, lastName, email, password: hashedPassword });
         const contact = await newUser.save();
         res.status(201).json(contact);
     } catch (err) {

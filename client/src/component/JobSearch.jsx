@@ -6,11 +6,12 @@ import JobList from './JobList';
 import { useLocation } from 'react-router-dom';
 import { LineWave } from 'react-loader-spinner';
 import Footer from './Footer';
-import { ThemeContext } from './JobContext';
+import JobContext from './JobContext';
 
 const JobSearch = () => {
 
-    let theme=useContext(ThemeContext);
+    let theme=useContext(JobContext);
+
     if(!theme){
         theme='slate';
     }
@@ -49,16 +50,16 @@ const JobSearch = () => {
     return (
         <>
             {console.log(data)}
-            <section className={`   bg-${theme}-900 justify-center items-center md:py-20  py-24 w-full ${styles.paddingX}`}>
-                <div className={` inset-0 bg-${theme}-600/5 dark:bg-${theme}-600/10`}></div>
+            <section className={`   bg-${theme.ThemeContext}-900 justify-center items-center md:py-20  py-24 w-full ${styles.paddingX}`}>
+                <div className={` inset-0 bg-${theme.ThemeContext}-600/5 dark:bg-${theme.ThemeContext}-600/10`}></div>
                 <div className="container z-1">
                     <div className="grid z-50 grid-cols-1 text-center mt-10 relative">
                         <h4 className="lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 font-bold text-white">Join us & <span className={`text-white font-bold`}>Explore</span>  <span className={`text-white font-bold`}>Thousands</span> of Jobs</h4>
-                        <p className={`text-${theme}-200 text-lg max-w-xl mx-auto`}>Find Jobs, Employment & Career Opportunities. Some of the companies we've helped recruit excellent applicants over the years.</p>
+                        <p className={`text-${theme.ThemeContext}-200 text-lg max-w-xl mx-auto`}>Find Jobs, Employment & Career Opportunities. Some of the companies we've helped recruit excellent applicants over the years.</p>
                         <div className="  d-flex" id="reserve-form">
                             <div className="  md:w-11/12 mx-auto ">
                                 <div className="lg:col-span-10 mt-8">
-                                    <div className={`  dark:bg-${theme}-900 border-0 shadow rounded-md p-3`}>
+                                    <div className={`  dark:bg-${theme.ThemeContext}-900 border-0 shadow rounded-md p-3`}>
                                         <form onSubmit={(e) => {
                                             e.preventDefault();
                                             searchDatabase(searchParams);
@@ -71,7 +72,7 @@ const JobSearch = () => {
                                                             type="text"
                                                             name="title"
                                                             onChange={(event) => setSearchParams({ ...searchParams, title: event.target.value })}
-                                                            placeholder="Job title, keywords, or company" className={`w-full bg-[#0f172a] outline-[#475569]  text-gray-700 lg:mr-4 border border-gray-300 rounded py-3 px-4  leading-tight focus:outline-none focus:border-${theme}-500 focus:shadow-outline-${theme}`} />
+                                                            placeholder="Job title, keywords, or company" className={`w-full bg-[#0f172a] outline-[#475569]  text-gray-700 lg:mr-4 border border-gray-300 rounded py-3 px-4  leading-tight focus:outline-none focus:border-${theme.ThemeContext}-500 focus:shadow-outline-${theme.ThemeContext}`} />
                                                     </div>
                                                     <div className=" flex items-center ">
                                                         <i className="uil uil-map-marker icons"></i>
@@ -79,7 +80,7 @@ const JobSearch = () => {
                                                             onChange={(event) =>
                                                                 setSearchParams({ ...searchParams, location: event.target.value })
                                                             }
-                                                            className={`w-full  text-gray-700 bg-[#0f172a] outline-[#475569] border lg:mr-4 py-3 px-4  leading-tight focus:outline-none focus:shadow-outline-${theme} block  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
+                                                            className={`w-full  text-gray-700 bg-[#0f172a] outline-[#475569] border lg:mr-4 py-3 px-4  leading-tight focus:outline-none focus:shadow-outline-${theme.ThemeContext} block  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
                                                             type="text"
                                                             list="locations"
                                                             name="location"
@@ -150,6 +151,7 @@ const JobSearch = () => {
                             displayedJobs.sort((a, b) => (a.createdDate < b.createdDate) ? 1 : -1).map(item => (
                                 <JobList
                                     key={item._id} // Add a unique key 
+                                    id={item._id}
                                     title={item.title}
                                     company={item.company}
                                     location={item.location}

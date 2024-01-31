@@ -1,4 +1,10 @@
 import { createContext } from 'react';
 
-export const JobContext = createContext();
-export const ThemeContext = createContext(" bg-slate-900 ");
+import React from 'react';
+
+// export const JobContext = createContext();
+export const ThemeContext = createContext("slate");
+
+const JobContext = React.createContext();
+
+export default JobContext;

@@ -38,6 +38,17 @@ const userSchema = new mongoose.Schema({
   title:{
     type:String,
   },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  status: {
+    type: String,
+    default: 'Pending'
+  },
+  jobId:{
+    type:String,
+  }
 });
 
 module.exports = mongoose.model('ApplyJobData', userSchema);

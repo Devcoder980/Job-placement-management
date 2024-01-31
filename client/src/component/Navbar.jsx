@@ -6,7 +6,7 @@ import { Menu, Transition } from '@headlessui/react'
 import { useNavigate } from 'react-router-dom';
 
 import { BsChevronCompactDown } from 'react-icons/bs';
-import { ThemeContext } from './JobContext';
+import JobContext from './JobContext';
 const Navbar = (props) => {
 
     const history = useNavigate();
@@ -30,14 +30,15 @@ const Navbar = (props) => {
         setIsOpen(!isOpen);
     };
 
-    let theme=useContext(ThemeContext);
+    let theme=useContext(JobContext);
+
     if(!theme){
         theme='slate';
     }
 
     return (
         <>
-            <nav className={`bg-${theme}-900 relative z-50 lg:px-1 uppercase`}>
+            <nav className={`bg-${theme.ThemeContext}-900 relative z-50 lg:px-1 uppercase`}>
                 <div className="w-[90%] mx-auto px-2 md:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between h-16">
 
@@ -239,7 +240,7 @@ const Navbar = (props) => {
                                                                         ? <>
                                                                             <Menu.Item>
                                                                                 <Link
-                                                                                    className="bg-gray-100 text-gray-900 text-gray-700
+                                                                                    className="bg-gray-100 text-gray-700
                                                                                     block px-4 py-2 text-sm"
                                                                                     to="/employer/dashboard">
                                                                                     Dashboard

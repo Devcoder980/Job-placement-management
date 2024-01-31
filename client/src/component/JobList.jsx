@@ -2,7 +2,7 @@ import React ,{useContext}from 'react'
 import { BsCurrencyDollar, BsCalendar, BsBriefcaseFill, BsPinMap } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { ThemeContext } from './JobContext'
+import JobContext from './JobContext'
 
 const JobList = (props) => {
     const navigate = useNavigate();
@@ -14,7 +14,8 @@ const JobList = (props) => {
             navigate('/apply');
         }
     }
-    let theme=useContext(ThemeContext);
+    let theme=useContext(JobContext);
+
 
     if(!theme){
         theme="slate";

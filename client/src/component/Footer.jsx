@@ -2,16 +2,16 @@ import React,{useContext} from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../style.js'
 import joblogo from '../images/joblogo.png'
-import { ThemeContext } from './JobContext.js'
+import JobContext from './JobContext.js'
 
 
 const Footer = () => {
 
-const theme=useContext(ThemeContext);
+const theme=useContext(JobContext);
 
     return (
         <>
-            <footer className={` bg-slate-900 ${theme}  ${styles.paddingX} text-center text-white dark:bg-neutral-600 dark:text-neutral-200 lg:text-left`}>
+            <footer className={` bg-slate-900 ${theme.ThemeContext}  ${styles.paddingX} text-center text-white dark:bg-neutral-600 dark:text-neutral-200 lg:text-left`}>
                 <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
                     <div className="mr-12 hidden lg:block">
                         <span>Get connected with us on social networks:</span>

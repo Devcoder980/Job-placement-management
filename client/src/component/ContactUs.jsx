@@ -26,7 +26,7 @@ const ContactUs = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://jobmanagementw.onrender.com/api/user/contactus', fromData)
+    axios.post('http://localhost:5000/api/user/contactus', fromData)
       .then((res) => {
         console.log(res);
         setIsSubmitted(true);

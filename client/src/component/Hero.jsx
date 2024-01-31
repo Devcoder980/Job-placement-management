@@ -11,16 +11,16 @@ import Footer from './Footer'
 
 import { logos } from '../style.js'
 import OurParterner from './OurParterner.jsx'
-import { ThemeContext } from './JobContext.js'
+import JobContext from './JobContext.js'
 
 
 const Hero = () => {
 
-    const theme=useContext(ThemeContext);
+    const theme=useContext(JobContext);
 
     return (
-        <ThemeContext.Provider >
-            <main className={`bg-${theme}-900`}>
+        <>
+            <main className={`bg-${theme.ThemeContext}-900`}>
 
                 <div className=" absolute inset-[1px] z-10 -top-32 -bottom-48 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:left-[calc(50%+14rem)] lg:right-0 lg:-top-32 lg:-bottom-32 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
                     <svg aria-hidden="true" viewBox="0 0 389 1069" width="400" height="1469" fill="none" className="absolute top-1/2 left-40 w-[100%]  z-8 -translate-y-1/2 -translate-x-1/2 lg:left-[-20px] lg:translate-x-0 lg:translate-y-[-60%]">
@@ -76,7 +76,7 @@ const Hero = () => {
 
             </main>
             <Footer />
-        </ThemeContext.Provider>
+    </>
 
     )
 }

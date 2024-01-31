@@ -3,8 +3,8 @@ import axios from "axios";
 
 const AddUserForm = () => {
     const [formData, setFormData] = useState({
-        firstname: "",
-        lastname: "",
+        firstName: "",
+        lastName: "",
         email: "",
         password: "",
     });
@@ -40,11 +40,11 @@ const AddUserForm = () => {
                     </label>
                     <input
                         className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="firstname"
-                        name="firstname"
+                        id="firstName"
+                        name="firstName"
                         type="text"
                         placeholder="Enter first name"
-                        value={formData.firstname}
+                        value={formData.firstName}
                         onChange={handleChange}
                         required
                     />
@@ -55,11 +55,11 @@ const AddUserForm = () => {
                     </label>
                     <input
                         className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="lastname"
-                        name="lastname"
+                        id="lastName"
+                        name="lastName"
                         type="text"
                         placeholder="Enter last name"
-                        value={formData.lastname}
+                        value={formData.lastName}
                         onChange={handleChange}
                         required
                     />

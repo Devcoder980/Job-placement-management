@@ -47,7 +47,7 @@ const EmployerLogin = () => {
             return;
         }
         setIsLoading(true);
-        axios.post('https://jobmanagementw.onrender.com/api/employer/login', fromData)
+        axios.post('http://localhost:5000/api/employer/login', fromData)
             .then((res) => {
                 console.log(res.data);
                 localStorage.setItem('authTokenEmployer', res.data.token);
@@ -58,6 +58,7 @@ const EmployerLogin = () => {
             })
             .catch((e) => {
                 console.log(e);
+                setIsLoggedIn(false);
                 alert("Please Enter A Valid Email id or Password")
                 // handle error
             })

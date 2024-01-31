@@ -28,6 +28,7 @@ import EmployerDashboard from './Employer/EmployerDashboard'
 import JobSearch from './component/JobSearch';
 import ApplyJobThanks from './Clinet/ApplyJobThanks'
 import JobPosts from './component/JobPosts';
+import Otp from './Clinet/Otp';
 function App() {
   // const [themes, settheme] = useState(styles.backgroundTheme);
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path='/' element={<NavbarWithCondition />}  >
             <Route index element={<Hero />} />
             <Route path="jobs" element={<JobSearch />} />
+            <Route path="otp" element={<Otp />} />
             <Route path="contactus" element={<ContactUs />} />
             <Route path='carrers' element={<Carrer />} />
             <Route path="aboutus" element={<AboutUs />} />

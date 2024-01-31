@@ -7,7 +7,6 @@ const EditProfile = () => {
         location: '',
         experience: '',
         contact: '',
-        email: '',
         skills: [],
         education: {
             institute: '',
@@ -19,11 +18,25 @@ const EditProfile = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            [name]: value
-        }));
+
+        // Check if the input field is within the education object
+        if (name.startsWith('education.')) {
+            const educationField = name.split('.')[1]; // Extract the field name from the input name
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                education: {
+                    ...prevFormData.education,
+                    [educationField]: value
+                }
+            }));
+        } else {
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                [name]: value
+            }));
+        }
     };
+
 
     const handleSkillsChange = (e) => {
         const { options } = e.target;
@@ -36,10 +49,18 @@ const EditProfile = () => {
         }));
     };
 
+    // Function to handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/profile', formData);
+            // Retrieve user ID from local storage
+            const userId = localStorage.getItem('userId');
+
+            // Include user ID in formData
+            const dataToSend = { userId, ...formData };
+
+            // Send request to update user
+            const response = await axios.put('http://localhost:5000/api/user/update', dataToSend);
             console.log(response.data); // Handle the response as needed
         } catch (error) {
             console.error(error);
@@ -47,65 +68,8 @@ const EditProfile = () => {
     };
 
     return (
-        // <form onSubmit={handleSubmit} className='text-black'>
-        //     <label>
-        //         Name:
-        //         <input type="text" name="name" value={formData.name} onChange={handleChange} />
-        //     </label>
-        //     <br />
-        //     <label>
-        //         Location:
-        //         <input type="text" name="location" value={formData.location} onChange={handleChange} />
-        //     </label>
-        //     <br />
-        //     <label>
-        //         Experience:
-        //         <input type="text" name="experience" value={formData.experience} onChange={handleChange} />
-        //     </label>
-        //     <br />
-        //     <label>
-        //         Contact:
-        //         <input type="text" name="contact" value={formData.contact} onChange={handleChange} />
-        //     </label>
-        //     <br />
-        //     <label>
-        //         Email:
-        //         <input type="text" name="email" value={formData.email} onChange={handleChange} />
-        //     </label>
-        //     <br />
-        //     <label>
-        //         Skills:
-        //         <select multiple name="skills" value={formData.skills} onChange={handleSkillsChange}>
-        //             <option value="HTML">HTML</option>
-        //             <option value="CSS">CSS</option>
-        //             <option value="JavaScript">JavaScript</option>
-        //             <option value="React">React</option>
-        //         </select>
-        //     </label>
-        //     <br />
-        //     <label>
-        //         Institute:
-        //         <input type="text" name="education.institute" value={formData.education.institute} onChange={handleChange} />
-        //     </label>
-        //     <br />
-        //     <label>
-        //         Duration:
-        //         <input type="text" name="education.duration" value={formData.education.duration} onChange={handleChange} />
-        //     </label>
-        //     <br />
-        //     <label>
-        //         Mode:
-        //         <input type="text" name="education.mode" value={formData.education.mode} onChange={handleChange} />
-        //     </label>
-        //     <br />
-        //     <label>
-        //         Summary:
-        //         <textarea name="summary" value={formData.summary} onChange={handleChange} />
-        //     </label>
-        //     <br />
-        //     <button type="submit">Submit</button>
-        // </form>
-        <form onSubmit={handleSubmit} className='text-black'>
+
+        <form onSubmit={handleSubmit} className='text-sm text-gray-900 bg-grey-100'>
             <div className='my-4'>
                 <label className='block'>
                     Name:
@@ -149,18 +113,6 @@ const EditProfile = () => {
                         type='text'
                         name='contact'
                         value={formData.contact}
-                        onChange={handleChange}
-                        className='border border-gray-400 p-2 rounded-md w-full'
-                    />
-                </label>
-            </div>
-            <div className='my-4'>
-                <label className='block'>
-                    Email:
-                    <input
-                        type='text'
-                        name='email'
-                        value={formData.email}
                         onChange={handleChange}
                         className='border border-gray-400 p-2 rounded-md w-full'
                     />

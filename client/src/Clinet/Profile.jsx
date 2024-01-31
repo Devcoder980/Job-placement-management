@@ -15,7 +15,7 @@ const Profile = () => {
         try {
             if (token) {
                 // Make API call to get the user's information
-                fetch('http://localhost:5000/api/profile/users', {
+                fetch('http://localhost:5000/api/user', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }
@@ -24,7 +24,10 @@ const Profile = () => {
                     .then(data => {
                         setProfile(data)
                         console.log(data);
-                        localStorage.setItem('username', data.firstName)
+                        localStorage.setItem('username', data.firstName);
+                        localStorage.setItem('useremail', data.email);
+                        localStorage.setItem('usercontact', data.lastName);
+                        localStorage.setItem('userId', data._id);
                     }
                     )
                     .catch(error => console.error(error));
@@ -62,13 +65,13 @@ const Profile = () => {
                                         <div className="mb-3">
                                             <div className="flex justify-center items-center">
                                                 <GoLocation width={5} height={5} />
-                                                <span className="txt px-2" name="Location" title={profile.location}>{profile.location}</span>
+                                                <span className="txt px-2 text-gray-400" name="Location" title={profile.location}>{profile.location ? profile.location : 'N/A' }</span>
                                             </div>
                                         </div>
                                         <div className="mb-3">
                                             <div className="flex justify-start items-center">
                                                 <MdWorkOutline width={5} height={5} />
-                                                <span className="txt px-2" name="Experience" title={profile.experience}>{profile.experience}</span>
+                                                <span className="txt px-2 text-gray-400" name="Experience" title={profile.experience ? profile.experience : 'N/A'}>{profile.experience ? profile.experience : 'N/A'}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -77,7 +80,7 @@ const Profile = () => {
                                             <div className="mb-3">
                                                 <div className="flex justify-start items-center">
                                                     <FiPhoneCall width={5} height={5} />
-                                                    <span className="px-2" name="Mobile" title={profile.contact}>{profile.contact}</span>
+                                                    <span className="px-2 text-gray-400" name="Mobile" title={profile.contact ? profile.contact : 'N/A'}>{profile.contact ? profile.contact : 'N/A'}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -85,7 +88,7 @@ const Profile = () => {
                                             <div className="mb-3">
                                                 <div className="flex justify-start items-center">
                                                     <AiOutlineMail width={5} height={5} />
-                                                    <span className="px-2" name="Email" title={profile.email}>{profile.email}</span>
+                                                    <span className="px-2 text-gray-400" name="Email" title={profile.email}>{profile.email ? profile.email : 'N/A' }</span>
                                                 </div>
                                             </div>
                                         </div>

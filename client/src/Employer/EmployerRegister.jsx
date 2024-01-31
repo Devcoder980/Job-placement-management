@@ -47,7 +47,7 @@ const EmployerRegister = () => {
         }
         setIsLoading(true);
         try {
-            const response = await axios.post("https://jobmanagementw.onrender.com/api/employer", formData);
+            const response = await axios.post("http://localhost:5000/api/employer", formData);
             setIsLoading(false);
             // alert("Employer Created Sucessfully");
             navigator('/employer/log-in')

@@ -32,7 +32,7 @@ app.use('/api/user/', require('./routes/contactUs'))
 app.use('/api/user/', require('./routes/newsLetterRouter'));
 app.use('/api/employer/', require('./routes/EmployerRouter'));
 app.use('/api/user/apply', require('./routes/JobApplicationRouter'));
-app.use('/api/email', require('./routes/EmailRouter.js'));
+app.use('/api/email/', require('./routes/EmailRouter.js'));
 app.use('/api/otp', require('./routes/OtpGenerater.js'));
 app.use('/api/fileupload', require('./routes/FileUploadRouter.js'));
 app.use('/api/profile', require('./routes/UserProfileRouter.js'));

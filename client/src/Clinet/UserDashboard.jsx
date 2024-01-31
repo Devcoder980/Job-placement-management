@@ -5,10 +5,13 @@ import History from "./History";
 import { Link, useNavigate } from 'react-router-dom';
 import SignOutButton from "./SignOutButton";
 import Jobs from "./Jobs";
-import {ThemeContext} from '../component/JobContext';
+// import {ThemeContext} from '../component/JobContext';
 import EditProfile from "./EditProfile";
+import JobContext from '../component/JobContext';
+
 export default function IndexPage() {
     const navigate = useNavigate();
+  
     function handleSignOut() {
         // Clear local storage
         localStorage.clear();
@@ -52,15 +55,15 @@ export default function IndexPage() {
         navigate('/jobs');
     }
     
-    const theme=useContext(ThemeContext.theme);
-
+    const theme=useContext(JobContext);
+    // let theme='slate';
     return (
         <>
             <div className="w-full h-full bg-gray-100 text-white">
                 <div className="flex flex-no-wrap">
                     {/* Sidebar starts */}
-                    <div className={`absolute lg:relative w-64 h-[100vh] shadow bg-${theme}-900 hidden lg:block`}>
-                        <div className={`h-16 w-full flex items-center px-8 bg-${theme}-900`}>
+                    <div className={`absolute lg:relative w-64 h-[100vh] shadow bg-${theme.ThemeContext}-900 hidden lg:block`}>
+                        <div className={`h-16 w-full flex items-center px-8 bg-${theme.ThemeContext}-900`}>
                             <Link to="/">
                                 <img src={logo} className="text-blue-800" alt="" />
                             </Link>
@@ -124,11 +127,11 @@ export default function IndexPage() {
                     {/*Mobile responsive sidebar*/}
                     <div className={show ? "w-full h-full absolute z-40  transform  translate-x-0 " : "   w-full h-full absolute z-40  transform -translate-x-full"} id="mobile-nav">
                         <div className="bg-gray-800 opacity-50 absolute h-full w-full lg:hidden" onClick={() => setShow(!show)} />
-                        <div className={`absolute z-40 sm:relative w-64 md:w-96 shadow pb-4 bg-${theme}-900 lg:hidden transition duration-150 ease-in-out h-full`}>
+                        <div className={`absolute z-40 sm:relative w-64 md:w-96 shadow pb-4 bg-${theme.ThemeContext}-900 lg:hidden transition duration-150 ease-in-out h-full`}>
                             <div className="flex flex-col justify-between h-full w-full">
                                 <div>
                                     <div className="flex items-center justify-between px-8">
-                                        <div className={`h-16 w-full bg-${theme}-900 flex items-center`}>
+                                        <div className={`h-16 w-full bg-${theme.ThemeContext}-900 flex items-center`}>
                                             <img src={logo} alt="" />
                                         </div>
                                         <div id="closeSideBar" className="flex items-center justify-end h-10 w-10" onClick={() => setShow(!show)}>
@@ -232,7 +235,7 @@ export default function IndexPage() {
                     {/* Sidebar ends */}
                     <div className="w-full">
                         {/* Navigation starts */}
-                        <nav className={`h-16 flex items-center lg:items-stretch justify-end lg:justify-between bg-${theme}-900 text-white shadow relative z-10`}>
+                        <nav className={`h-16 flex items-center lg:items-stretch justify-end lg:justify-between bg-${theme.ThemeContext}-900 text-white shadow relative z-10`}>
                             <div className="hidden lg:flex justify-end w-full pr-6">
                                 <div className="w-1/2 hidden  lg:flex">
                                     <div className="w-full flex items-center pl-8 justify-end">
@@ -248,7 +251,7 @@ export default function IndexPage() {
                                                     <div className="w-2 h-2 rounded-full bg-green-400 border border-white absolute inset-0 mb-0 mr-0 m-auto" />
                                                 </div>
                                             </div>
-                                            <p className="text-white text-sm mx-3">Jane Doe</p>
+                                            <p className="text-white text-sm mx-3">{localStorage.getItem('username')}</p>
                                             <div className="cursor-pointer text-gray-600">
                                                 <svg aria-haspopup="true" xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" />
