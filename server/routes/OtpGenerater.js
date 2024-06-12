@@ -6,12 +6,18 @@ const User = require('../Models/userModels.js'); // Use the same variable name
 
 // Configure nodemailer transporter for sending emails
 const transporter = nodemailer.createTransport({
-    service: 'outlook', // Replace with your email service (e.g., Gmail, Outlook, etc.)
+
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, // Use `true` for port 465, `false` for all other ports
     auth: {
-        user: 'archanayadav2@outlook.com', // Replace with your email address
-        pass: 'Strong@3456' // Replace with your email password
-    }
+        user: "pbind4545@gmail.com",
+        pass: "eptg xytk wsxe waet",
+        
+        
+    },
 });
+
 
 router.post('/register/otp', async (req, res) => {
     const { email } = req.body;
